@@ -1,0 +1,12 @@
+@use "../base/reset";
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+@use "./home-page/section1";
+@use "./home-page/section2";
+@use "./home-page/section3";
+@use "./home-page/section4";
+@use "./home-page/section5";
+body {
+  background-color: black;
+}
