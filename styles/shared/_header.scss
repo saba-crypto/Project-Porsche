@@ -1,0 +1,91 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 25px min(70px, 5vw);
+  .header-container {
+    @include flexbox(row, space-between, center, 0px);
+    img {
+      width: 50px;
+    }
+    .header-left {
+      @include flexbox(row, center, center, 10px);
+      padding: 5px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition-duration: 0.2s;
+      &:hover {
+        background-color: rgba(100, 100, 100, 0.7);
+      }
+    }
+    .burger-menu {
+      width: 15px;
+    }
+    .menu {
+      color: $font-clr-light;
+      font-family: $primary-font;
+    }
+    .porsche-logo {
+      display: none;
+      width: 32px;
+    }
+    .porsche-title {
+      width: clamp(150px, 20vw, 200px);
+    }
+    .header-right {
+      position: relative;
+    }
+    .globe-icon {
+      width: 18px;
+      padding: 4px;
+      border-radius: 50%;
+      transition-duration: 0.15s;
+      &:hover {
+        background-color: rgba(100, 100, 100, 0.7);
+        cursor: pointer;
+      }
+      &:hover + .globe-tooltip {
+        opacity: 1;
+      }
+    }
+    .globe-tooltip {
+      position: absolute;
+      opacity: 0;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, 50%);
+      padding: min(6px, 6vw);
+      background-color: rgba(100, 100, 100, 0.7);
+      color: $font-clr-light;
+      font-size: $font-sizeS;
+      font-family: $primary-font;
+      line-height: 130%;
+      white-space: nowrap;
+      pointer-events: none;
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  header {
+    .header-container {
+      .porsche-title {
+        display: none;
+      }
+      .porsche-logo {
+        display: block;
+      }
+      .menu {
+        display: none;
+      }
+      .globe-tooltip {
+        white-space: wrap;
+      }
+    }
+  }
+}

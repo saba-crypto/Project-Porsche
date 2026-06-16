@@ -2,11 +2,14 @@
 @use "../abstracts/mixins";
 @use "../abstracts/variables";
 
+@use "../shared/header";
+@use "../shared/footer";
+@use "../shared/sidebar";
 @use "./home-page/section1";
 @use "./home-page/section2";
 @use "./home-page/section3";
 @use "./home-page/section4";
 @use "./home-page/section5";
 body {
-  background-color: black;
+  background-color: rgb(255, 107, 107);
 }
