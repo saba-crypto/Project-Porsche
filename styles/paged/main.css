@@ -176,6 +176,8 @@ header {
   left: 0;
   right: 0;
   padding: 25px min(70px, 5vw);
+  z-index: 100;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.704), rgba(255, 255, 255, 0));
 }
 header .header-container {
   display: flex;
@@ -199,7 +201,7 @@ header .header-container .header-left {
   transition-duration: 0.2s;
 }
 header .header-container .header-left:hover {
-  background-color: rgba(100, 100, 100, 0.7);
+  background-color: rgba(100, 100, 100, 0.8);
 }
 header .header-container .burger-menu {
   width: 15px;
@@ -225,7 +227,7 @@ header .header-container .globe-icon {
   transition-duration: 0.15s;
 }
 header .header-container .globe-icon:hover {
-  background-color: rgba(100, 100, 100, 0.7);
+  background-color: rgba(100, 100, 100, 0.8);
   cursor: pointer;
 }
 header .header-container .globe-icon:hover + .globe-tooltip {
@@ -260,6 +262,68 @@ header .header-container .globe-tooltip {
   }
   header .header-container .globe-tooltip {
     white-space: wrap;
+  }
+}
+.section2-container {
+  position: relative;
+}
+.section2-container .page-video {
+  z-index: 1;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+}
+.section2-container .page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: min(150px, 10vw) min(100px, 8vw);
+  box-sizing: border-box;
+}
+.section2-container .page-content .page-title {
+  font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  font-family: Porsche Next, Arial;
+  color: #ffffff;
+  max-width: 650px;
+}
+.section2-container .page-content .read-btn {
+  backdrop-filter: blur(15px);
+  background-color: rgba(179, 179, 179, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
+  padding: min(15px, 8vw) 0;
+  width: 15%;
+  border-radius: 10px;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  color: #ffffff;
+  font-family: Porsche Next, Arial;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.section2-container .page-content .read-btn:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.section2-container .page-content .read-btn:active {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 760px) {
+  .section2-container .page-content .page-title {
+    width: 100%;
+    text-align: center;
+  }
+  .section2-container .page-content .read-btn {
+    width: 100%;
   }
 }
 body {

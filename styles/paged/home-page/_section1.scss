@@ -1,2 +1,62 @@
-@use "../../abstracts/mixins";
-@use "../../abstracts/variables";
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/variables" as *;
+
+.section2-container {
+  position: relative;
+
+  .page-video {
+    z-index: 1;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+  }
+  .page-content {
+    @include flexbox(column, center, flex-start, 40px);
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: min(150px, 10vw) min(100px, 8vw);
+    box-sizing: border-box;
+    .page-title {
+      font-size: $font-sizeXL;
+      font-family: $primary-font;
+      color: $font-clr-light;
+      max-width: 650px;
+    }
+    .read-btn {
+      @include glassmorphism();
+      border: none;
+      padding: min(15px, 8vw) 0;
+      width: 15%;
+      border-radius: 10px;
+      font-size: $font-sizeM;
+      color: $font-clr-light;
+      font-family: $primary-font;
+      transition: background 0.15s;
+      white-space: nowrap;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.0892);
+        cursor: pointer;
+      }
+      &:active {
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .section2-container {
+    .page-content {
+      .page-title {
+        width: 100%;
+        text-align: center;
+      }
+      .read-btn {
+        width: 100%;
+      }
+    }
+  }
+}
