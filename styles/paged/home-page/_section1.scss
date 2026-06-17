@@ -1,7 +1,7 @@
 @use "../../abstracts/mixins" as *;
 @use "../../abstracts/variables" as *;
 
-.section2-container {
+.section1-container {
   position: relative;
 
   .page-video {
@@ -17,7 +17,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: min(150px, 10vw) min(100px, 8vw);
+    padding: min(150px, 25vw) min(100px, 8vw);
     box-sizing: border-box;
     .page-title {
       font-size: $font-sizeXL;
@@ -45,10 +45,45 @@
       }
     }
   }
+  .video-playback-btn {
+    @include flexbox(row, center, center);
+    @include glassmorphism();
+    position: absolute;
+    bottom: min(40px, 5vw);
+    right: min(50px, 5vw);
+    padding: min(15px, 3vw);
+    border-radius: 50%;
+    border: none;
+    transition: background 0.15s;
+    cursor: pointer;
+    z-index: 2;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.0892);
+      cursor: pointer;
+    }
+    &:active {
+      transition-duration: 0s;
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+    img {
+      width: clamp(15px, 5vw, 27px);
+    }
+    .play-icon {
+      display: none;
+    }
+  }
+  .video-paused {
+    .play-icon {
+      display: block;
+    }
+    .pause-icon {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: $breakpointL) {
-  .section2-container {
+  .section1-container {
     .page-content {
       .page-title {
         width: 100%;
@@ -57,6 +92,8 @@
       .read-btn {
         width: 100%;
       }
+    }
+    .video-playback-btn {
     }
   }
 }

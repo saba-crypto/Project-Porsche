@@ -1,2 +1,12 @@
-@use "../../abstracts/mixins";
-@use "../../abstracts/variables";
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/variables" as *;
+
+.section2 {
+  @include flexbox(row, center, center);
+  .section2-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 300px;
+    width: 65%;
+  }
+}

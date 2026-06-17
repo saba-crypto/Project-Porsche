@@ -1,6 +1,6 @@
 @use "../base/reset";
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
 
 @use "../shared/header";
 @use "../shared/footer";
@@ -11,5 +11,5 @@
 @use "./home-page/section4";
 @use "./home-page/section5";
 body {
-  background-color: rgb(255, 107, 107);
+  background-color: $background-clr-light;
 }

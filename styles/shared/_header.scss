@@ -10,7 +10,7 @@ header {
   z-index: 100;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.704),
+    rgba(0, 0, 0, 0.904),
     rgba(255, 255, 255, 0)
   );
   .header-container {
@@ -19,8 +19,8 @@ header {
       width: 50px;
     }
     .header-left {
-      @include flexbox(row, center, center, 10px);
-      padding: 5px 10px;
+      @include flexbox(row, center, center, 7px);
+      padding: 2px 4px;
       border-radius: 10px;
       cursor: pointer;
       transition-duration: 0.2s;
@@ -29,7 +29,7 @@ header {
       }
     }
     .burger-menu {
-      width: 15px;
+      width: 25px;
     }
     .menu {
       color: $font-clr-light;
@@ -42,12 +42,13 @@ header {
     .porsche-title {
       width: clamp(150px, 20vw, 200px);
     }
+
     .header-right {
       position: relative;
     }
     .globe-icon {
-      width: 18px;
-      padding: 4px;
+      width: 24px;
+      padding: 2px;
       border-radius: 50%;
       transition-duration: 0.15s;
       &:hover {

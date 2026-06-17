@@ -177,7 +177,7 @@ header {
   right: 0;
   padding: 25px min(70px, 5vw);
   z-index: 100;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.704), rgba(255, 255, 255, 0));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.904), rgba(255, 255, 255, 0));
 }
 header .header-container {
   display: flex;
@@ -194,8 +194,8 @@ header .header-container .header-left {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  padding: 5px 10px;
+  gap: 7px;
+  padding: 2px 4px;
   border-radius: 10px;
   cursor: pointer;
   transition-duration: 0.2s;
@@ -204,7 +204,7 @@ header .header-container .header-left:hover {
   background-color: rgba(100, 100, 100, 0.8);
 }
 header .header-container .burger-menu {
-  width: 15px;
+  width: 25px;
 }
 header .header-container .menu {
   color: #ffffff;
@@ -221,8 +221,8 @@ header .header-container .header-right {
   position: relative;
 }
 header .header-container .globe-icon {
-  width: 18px;
-  padding: 4px;
+  width: 24px;
+  padding: 2px;
   border-radius: 50%;
   transition-duration: 0.15s;
 }
@@ -264,16 +264,16 @@ header .header-container .globe-tooltip {
     white-space: wrap;
   }
 }
-.section2-container {
+.section1-container {
   position: relative;
 }
-.section2-container .page-video {
+.section1-container .page-video {
   z-index: 1;
   object-fit: cover;
   width: 100%;
   height: 100vh;
 }
-.section2-container .page-content {
+.section1-container .page-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -284,18 +284,18 @@ header .header-container .globe-tooltip {
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: min(150px, 10vw) min(100px, 8vw);
+  padding: min(150px, 25vw) min(100px, 8vw);
   box-sizing: border-box;
 }
-.section2-container .page-content .page-title {
+.section1-container .page-content .page-title {
   font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
   font-family: Porsche Next, Arial;
   color: #ffffff;
   max-width: 650px;
 }
-.section2-container .page-content .read-btn {
+.section1-container .page-content .read-btn {
   backdrop-filter: blur(15px);
-  background-color: rgba(179, 179, 179, 0.15);
+  background-color: rgba(140, 140, 140, 0.15);
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   border-left: 1px solid rgba(181, 108, 108, 0.4);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
@@ -309,23 +309,78 @@ header .header-container .globe-tooltip {
   transition: background 0.15s;
   white-space: nowrap;
 }
-.section2-container .page-content .read-btn:hover {
+.section1-container .page-content .read-btn:hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.section2-container .page-content .read-btn:active {
+.section1-container .page-content .read-btn:active {
   background-color: rgba(0, 0, 0, 0.15);
+}
+.section1-container .video-playback-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  backdrop-filter: blur(15px);
+  background-color: rgba(140, 140, 140, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  position: absolute;
+  bottom: min(40px, 5vw);
+  right: min(50px, 5vw);
+  padding: min(15px, 3vw);
+  border-radius: 50%;
+  border: none;
+  transition: background 0.15s;
+  cursor: pointer;
+  z-index: 2;
+}
+.section1-container .video-playback-btn:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.section1-container .video-playback-btn:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.section1-container .video-playback-btn img {
+  width: clamp(15px, 5vw, 27px);
+}
+.section1-container .video-playback-btn .play-icon {
+  display: none;
+}
+.section1-container .video-paused .play-icon {
+  display: block;
+}
+.section1-container .video-paused .pause-icon {
+  display: none;
 }
 
 @media (max-width: 760px) {
-  .section2-container .page-content .page-title {
+  .section1-container .page-content .page-title {
     width: 100%;
     text-align: center;
   }
-  .section2-container .page-content .read-btn {
+  .section1-container .page-content .read-btn {
     width: 100%;
   }
 }
+.section2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+.section2 .section2-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 300px;
+  width: 65%;
+}
+
 body {
-  background-color: rgb(255, 107, 107);
+  background-color: #ffffff;
 }/*# sourceMappingURL=main.css.map */
