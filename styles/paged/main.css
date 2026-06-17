@@ -377,10 +377,96 @@ header .header-container .globe-tooltip {
 .section2 .section2-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 300px;
-  width: 65%;
+  gap: 25px;
+  width: 70%;
+  box-sizing: border-box;
+}
+.section2 .section2-container article {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.section2 .section2-container article:hover img {
+  transform: scale(1.07);
+}
+.section2 .section2-container article {
+  z-index: 1;
+}
+.section2 .section2-container article .article-banner {
+  position: relative;
+  width: 100%;
+  border-radius: 32px;
+  z-index: 2;
+  object-fit: cover;
+  transition-duration: 0.35s;
+}
+.section2 .section2-container article .article-content {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 0 15px;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
+  padding-bottom: min(25px, 7vw);
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+.section2 .section2-container article .article-name {
+  font-family: Porsche Next, Arial;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  color: #ffffff;
+}
+.section2 .section2-container article .arrow-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  backdrop-filter: blur(15px);
+  background-color: rgba(140, 140, 140, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
+  border-radius: 50%;
+  padding: min(5px, 6vw);
+  transition-duration: 0.15s;
+}
+.section2 .section2-container article .arrow-btn:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.section2 .section2-container article .arrow-btn:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.section2 .section2-container article .arrow-btn img {
+  width: clamp(20px, 2.5vw, 30px);
 }
 
+@media (max-width: 1000px) {
+  .section2 .section2-container {
+    grid-template-columns: 1fr;
+  }
+}
 body {
   background-color: #ffffff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+section {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

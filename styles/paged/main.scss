@@ -13,3 +13,9 @@
 body {
   background-color: $background-clr-light;
 }
+main {
+  @include flexbox(column, center, center, 100px);
+}
+section {
+  width: 100%;
+}
