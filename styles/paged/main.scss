@@ -12,10 +12,22 @@
 @use "./home-page/section5";
 body {
   background-color: $background-clr-light;
+  transition: background 1s;
 }
+body.dark-mode {
+  background-color: $background-clr-dark;
+  .section-title {
+    color: $font-clr-light;
+  }
+}
+
 main {
   @include flexbox(column, center, center, 100px);
 }
 section {
   width: 100%;
+  box-sizing: border-box;
+  .section-title {
+    transition-duration: 1s;
+  }
 }

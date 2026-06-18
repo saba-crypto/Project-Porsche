@@ -1,9 +1,11 @@
 @use "../base/fonts" as *;
 $background-clr-dark: #000000;
 $background-clr-light: #ffffff;
-
+$hover-background-clr: rgba(100, 100, 100, 0.8);
 $font-clr-dark: #000000;
 $font-clr-light: #ffffff;
+
+$primary-border-radius: 32px;
 
 $primary-font:
   Porsche Next,
@@ -11,12 +13,14 @@ $primary-font:
 $secondary-font:
   Nexa Script,
   Arial;
-
-$font-sizeXXL: clamp(2.5rem, 12vw + 0.3rem, 6.5rem);
+$optional-font: Din Next;
+$font-sizeXXXL: clamp(2.5rem, 12vw + 0.3rem, 6.5rem);
+$font-sizeXXL: clamp(2rem, 7vw + 0.3rem, 5.1rem);
 $font-sizeXL: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
 $font-sizeL: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
 $font-sizeM: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-$font-sizeS: clamp(0.6rem, 1.1vw + 0.15rem, 0.8rem);
+$font-sizeS: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+$font-sizeXS: clamp(0.6rem, 1.1vw + 0.15rem, 0.8rem);
 
 $breakpointXL: 1000px;
 $breakpointL: 760px;

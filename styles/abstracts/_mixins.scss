@@ -18,3 +18,31 @@
   align-items: $align-items;
   gap: $gap;
 }
+
+@mixin arrow-btn() {
+  @include flexbox(row, center, center);
+  @include glassmorphism();
+  border: none;
+  border-radius: 50%;
+  padding: min(5px, 6vw);
+  transition-duration: 0.15s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.0892);
+    cursor: pointer;
+  }
+  &:active {
+    transition-duration: 0s;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  img {
+    width: clamp(20px, 2.5vw, 30px);
+  }
+}
+
+@mixin fade-to($fade-direction) {
+  background: linear-gradient(
+    to $fade-direction,
+    rgba(0, 0, 0, 0.904),
+    transparent
+  );
+}

@@ -10,9 +10,12 @@
     width: 70%;
     box-sizing: border-box;
     article {
+      opacity: 0;
+      transform: translateY(15%);
       position: relative;
-      border-radius: 32px;
+      border-radius: $primary-border-radius;
       overflow: hidden;
+      transition-duration: 1s;
       &:hover img {
         transform: scale(1.07);
       }
@@ -20,7 +23,7 @@
       .article-banner {
         position: relative;
         width: 100%;
-        border-radius: 32px;
+
         z-index: 2;
         object-fit: cover;
         transition-duration: 0.35s;
@@ -33,10 +36,7 @@
         bottom: 0;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
         padding-bottom: min(25px, 7vw);
-        border-bottom-left-radius: 32px;
-        border-bottom-right-radius: 32px;
         box-sizing: border-box;
-
         z-index: 2;
       }
 
@@ -46,24 +46,12 @@
         color: $font-clr-light;
       }
       .arrow-btn {
-        @include flexbox(row, center, center);
-        @include glassmorphism();
-        border: none;
-        border-radius: 50%;
-        padding: min(5px, 6vw);
-        transition-duration: 0.15s;
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.0892);
-          cursor: pointer;
-        }
-        &:active {
-          transition-duration: 0s;
-          background-color: rgba(0, 0, 0, 0.15);
-        }
-        img {
-          width: clamp(20px, 2.5vw, 30px);
-        }
+        @include arrow-btn;
       }
+    }
+    article.show {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

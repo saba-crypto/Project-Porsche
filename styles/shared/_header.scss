@@ -2,17 +2,14 @@
 @use "../abstracts/variables" as *;
 
 header {
+  @include fade-to(bottom);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding: 25px min(70px, 5vw);
   z-index: 100;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.904),
-    rgba(255, 255, 255, 0)
-  );
+
   .header-container {
     @include flexbox(row, space-between, center, 0px);
     img {
@@ -25,7 +22,7 @@ header {
       cursor: pointer;
       transition-duration: 0.2s;
       &:hover {
-        background-color: rgba(100, 100, 100, 0.8);
+        background-color: $hover-background-clr;
       }
     }
     .burger-menu {
@@ -52,7 +49,7 @@ header {
       border-radius: 50%;
       transition-duration: 0.15s;
       &:hover {
-        background-color: rgba(100, 100, 100, 0.8);
+        background-color: $hover-background-clr;
         cursor: pointer;
       }
       &:hover + .globe-tooltip {
@@ -66,7 +63,7 @@ header {
       right: 50%;
       transform: translate(50%, 50%);
       padding: min(6px, 6vw);
-      background-color: rgba(100, 100, 100, 0.7);
+      background-color: $hover-background-clr;
       color: $font-clr-light;
       font-size: $font-sizeS;
       font-family: $primary-font;

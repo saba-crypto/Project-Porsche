@@ -169,4 +169,9 @@ table {
   src: url(../../assets/fonts/nexa-script/nexa-script-heavy.otf);
   font-weight: 800;
   font-display: swap;
+}
+@font-face {
+  font-family: Din Next;
+  src: url(../../assets/fonts/din-next-font/DINNextW1G-Bold.otf);
+  font-display: swap;
 }/*# sourceMappingURL=car-inspect.css.map */

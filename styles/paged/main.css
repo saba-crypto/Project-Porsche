@@ -170,14 +170,19 @@ table {
   font-weight: 800;
   font-display: swap;
 }
+@font-face {
+  font-family: Din Next;
+  src: url(../../assets/fonts/din-next-font/DINNextW1G-Bold.otf);
+  font-display: swap;
+}
 header {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.904), transparent);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding: 25px min(70px, 5vw);
   z-index: 100;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.904), rgba(255, 255, 255, 0));
 }
 header .header-container {
   display: flex;
@@ -240,9 +245,9 @@ header .header-container .globe-tooltip {
   right: 50%;
   transform: translate(50%, 50%);
   padding: min(6px, 6vw);
-  background-color: rgba(100, 100, 100, 0.7);
+  background-color: rgba(100, 100, 100, 0.8);
   color: #ffffff;
-  font-size: clamp(0.6rem, 1.1vw + 0.15rem, 0.8rem);
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
   font-family: Porsche Next, Arial;
   line-height: 130%;
   white-space: nowrap;
@@ -382,9 +387,12 @@ header .header-container .globe-tooltip {
   box-sizing: border-box;
 }
 .section2 .section2-container article {
+  opacity: 0;
+  transform: translateY(15%);
   position: relative;
   border-radius: 32px;
   overflow: hidden;
+  transition-duration: 1s;
 }
 .section2 .section2-container article:hover img {
   transform: scale(1.07);
@@ -395,7 +403,6 @@ header .header-container .globe-tooltip {
 .section2 .section2-container article .article-banner {
   position: relative;
   width: 100%;
-  border-radius: 32px;
   z-index: 2;
   object-fit: cover;
   transition-duration: 0.35s;
@@ -412,8 +419,6 @@ header .header-container .globe-tooltip {
   bottom: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
   padding-bottom: min(25px, 7vw);
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -449,14 +454,171 @@ header .header-container .globe-tooltip {
 .section2 .section2-container article .arrow-btn img {
   width: clamp(20px, 2.5vw, 30px);
 }
+.section2 .section2-container article.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (max-width: 1000px) {
   .section2 .section2-container {
     grid-template-columns: 1fr;
   }
 }
+.section3-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  width: 92vw;
+  margin: 0 auto;
+}
+.section3-container img {
+  width: 100px;
+}
+.section3-container .section3-title {
+  font-family: Porsche Next, Arial;
+  font-size: clamp(2rem, 7vw + 0.3rem, 5.1rem);
+  align-self: flex-start;
+}
+.section3-container .articles-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.section3-container .articles-container article {
+  position: relative;
+  color: #ffffff;
+  border-radius: 32px;
+  overflow: hidden;
+  font-family: Porsche Next, Arial;
+  flex-grow: 1;
+  height: 40vw;
+  width: 45%;
+  transition: 0.6s;
+}
+.section3-container .articles-container article:hover {
+  width: 50%;
+}
+.section3-container .articles-container article .header {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.904), transparent);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  font-family: Nexa Script, Arial;
+  width: 100%;
+  text-align: center;
+  padding: min(30px, 9vw);
+}
+.section3-container .articles-container article .header911 {
+  font-family: Din Next;
+  letter-spacing: -15%;
+}
+.section3-container .articles-container article .media {
+  width: 100%;
+  height: 100%;
+}
+.section3-container .articles-container article .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section3-container .articles-container article .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: min(30px, 9vw);
+  box-sizing: border-box;
+}
+.section3-container .articles-container article .footer .arrow-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  backdrop-filter: blur(15px);
+  background-color: rgba(140, 140, 140, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
+  border-radius: 50%;
+  padding: min(5px, 6vw);
+  transition-duration: 0.15s;
+}
+.section3-container .articles-container article .footer .arrow-btn:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.section3-container .articles-container article .footer .arrow-btn:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.section3-container .articles-container article .footer .arrow-btn img {
+  width: clamp(20px, 2.5vw, 30px);
+}
+.section3-container .articles-container article .footer .arrow-btn {
+  color: #ffffff;
+}
+.section3-container .articles-container article .footer .explore-title {
+  display: none;
+}
+.section3-container .articles-container article .footer .footer-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.section3-container .articles-container article .footer .fuel-type-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.section3-container .articles-container article .footer .fuel-type {
+  padding: 6px 12px;
+  background-color: rgba(100, 100, 100, 0.8);
+  border-radius: 50px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+}
+.section3-container .articles-container article:hover .arrow-btn {
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.section3-container .articles-container article:hover .arrow-btn .explore-title {
+  display: block;
+}
+
 body {
   background-color: #ffffff;
+  transition: background 1s;
+}
+
+body.dark-mode {
+  background-color: #000000;
+}
+body.dark-mode .section-title {
+  color: #ffffff;
 }
 
 main {
@@ -469,4 +631,8 @@ main {
 
 section {
   width: 100%;
+  box-sizing: border-box;
+}
+section .section-title {
+  transition-duration: 1s;
 }/*# sourceMappingURL=main.css.map */
