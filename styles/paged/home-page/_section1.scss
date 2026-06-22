@@ -5,6 +5,7 @@
   position: relative;
 
   .page-video {
+    @include glassmorphism();
     z-index: 1;
     object-fit: cover;
     width: 100%;
@@ -27,6 +28,7 @@
     }
     .read-btn {
       @include glassmorphism();
+      backdrop-filter: blur(10px);
       border: none;
       padding: min(15px, 8vw) 0;
       width: 15%;
@@ -47,7 +49,7 @@
   }
   .video-playback-btn {
     @include flexbox(row, center, center);
-    @include glassmorphism();
+    @include glassmorphism(10px);
     position: absolute;
     bottom: min(40px, 5vw);
     right: min(50px, 5vw);
@@ -92,8 +94,6 @@
       .read-btn {
         width: 100%;
       }
-    }
-    .video-playback-btn {
     }
   }
 }

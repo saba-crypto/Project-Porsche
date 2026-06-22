@@ -51,9 +51,22 @@
             class="page-video"
             autoplay
             loop
+            playsinline
+            poster="./assets/images/hero-video-cover.webp"
             muted
-            src="./assets/videos/hero-video.mp4"
-          ></video>
+          >
+            <source src="./assets/videos/hero-video-av1.mp4" type="video/mp4" />
+            <source
+              src="./assets/videos/hero-video-h.264.mp4"
+              type="video/mp4"
+            />
+
+            <source
+              src="./assets/videos/hero-video-hevc.mp4"
+              type="video/mp4"
+            />
+            your browser doesn't support video format/codec
+          </video>
           <div class="page-content">
             <h1 class="page-title">Porsche Sonderwunsch The "Tree Of Life"</h1>
             <button class="cta-btn read-btn">Read More</button>

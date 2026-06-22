@@ -273,6 +273,9 @@ header .header-container .globe-tooltip {
   position: relative;
 }
 .section1-container .page-video {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
   z-index: 1;
   object-fit: cover;
   width: 100%;
@@ -299,11 +302,10 @@ header .header-container .globe-tooltip {
   max-width: 650px;
 }
 .section1-container .page-content .read-btn {
-  backdrop-filter: blur(15px);
-  background-color: rgba(140, 140, 140, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  backdrop-filter: blur(10px);
   border: none;
   padding: min(15px, 8vw) 0;
   width: 15%;
@@ -327,10 +329,8 @@ header .header-container .globe-tooltip {
   justify-content: center;
   align-items: center;
   gap: 0px;
-  backdrop-filter: blur(15px);
-  background-color: rgba(140, 140, 140, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
   position: absolute;
   bottom: min(40px, 5vw);
@@ -387,6 +387,9 @@ header .header-container .globe-tooltip {
   box-sizing: border-box;
 }
 .section2 .section2-container article {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
   opacity: 0;
   transform: translateY(15%);
   position: relative;
@@ -408,12 +411,12 @@ header .header-container .globe-tooltip {
   transition-duration: 0.35s;
 }
 .section2 .section2-container article .article-content {
-  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  position: absolute;
   width: 100%;
   padding: 0 15px;
   bottom: 0;
@@ -433,10 +436,8 @@ header .header-container .globe-tooltip {
   justify-content: center;
   align-items: center;
   gap: 0px;
-  backdrop-filter: blur(15px);
-  background-color: rgba(140, 140, 140, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
   border: none;
   border-radius: 50%;
@@ -553,10 +554,8 @@ header .header-container .globe-tooltip {
   justify-content: center;
   align-items: center;
   gap: 0px;
-  backdrop-filter: blur(15px);
-  background-color: rgba(140, 140, 140, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(181, 108, 108, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
   border: none;
   border-radius: 50%;

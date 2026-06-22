@@ -22,6 +22,7 @@ const observer = new IntersectionObserver((entries) => {
     setTimeout(() => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
+        console.log("added");
       }
     }, i * 200);
   });

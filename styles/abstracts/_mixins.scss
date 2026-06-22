@@ -1,8 +1,6 @@
-@mixin glassmorphism() {
-  backdrop-filter: blur(15px);
-  background-color: rgba(140, 140, 140, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(181, 108, 108, 0.4);
+@mixin glassmorphism($blur: 10px) {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur($blur);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
 }
 
@@ -19,7 +17,7 @@
   gap: $gap;
 }
 
-@mixin arrow-btn() {
+@mixin arrow-btn($blur: 10px) {
   @include flexbox(row, center, center);
   @include glassmorphism();
   border: none;
