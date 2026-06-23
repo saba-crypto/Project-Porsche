@@ -1,7 +1,7 @@
 @use "../../abstracts/mixins" as *;
 @use "../../abstracts/variables" as *;
 .section3-container {
-  @include flexbox(column, center, center, 80px);
+  @include flexbox(column, center, center, 20px);
   width: 92vw;
   margin: 0 auto;
   img {
@@ -11,6 +11,54 @@
     font-family: $primary-font;
     font-size: $font-sizeXXL;
     align-self: flex-start;
+  }
+  .slider-nav {
+    @include flexbox(row, center, center, 20px);
+    width: 100%;
+    height: 40px;
+    display: none;
+    .slider-nav-items {
+      @include flexbox(row, space-between, center, 10px);
+      background-color: #191a1d;
+      border-radius: 50px;
+      padding: 0 20px;
+      height: 100%;
+    }
+    .slider-nav-item {
+      padding: 6px;
+      background-color: #5b5b5e;
+      border-radius: 20px;
+      cursor: pointer;
+      transition-duration: 0.2s;
+    }
+    .slider-nav-item.selected {
+      background-color: white;
+      padding: 5px 15px;
+      cursor: default;
+    }
+    .slider-video-toggle {
+      height: 100%;
+      padding: 5px;
+      border-radius: 50%;
+      background-color: #191a1d;
+      cursor: pointer;
+      box-sizing: border-box;
+      .play-icon {
+        display: none;
+      }
+    }
+    .slider-video-toggle.video-paused {
+      .play-icon {
+        display: block;
+      }
+      .pause-icon {
+        display: none;
+      }
+    }
+    .video-toggle-icon {
+      height: 100%;
+      width: auto;
+    }
   }
   .articles-container {
     @include flexbox(row, center, center, 30px);
@@ -39,10 +87,10 @@
         transform: translateX(-50%);
         font-size: $font-sizeXL;
         font-family: $secondary-font;
-
         width: 100%;
         text-align: center;
         padding: min(30px, 9vw);
+        z-index: 2;
       }
       .header911 {
         font-family: $optional-font;
@@ -51,10 +99,24 @@
       .media {
         width: 100%;
         height: 100%;
-        img {
+        img,
+        video {
           width: 100%;
           height: 100%;
           object-fit: cover;
+        }
+        img {
+          transition-duration: 0.8s;
+          transition-delay: 0s;
+        }
+        video {
+          display: none;
+          opacity: 0;
+          z-index: -1;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition-duration: 0.8s;
         }
       }
       .footer {
@@ -88,12 +150,99 @@
         }
       }
     }
+
+    article:hover .card-video {
+      display: block;
+      opacity: 1;
+    }
+    article:hover .card-image {
+      transition-delay: 0.4s;
+      opacity: 0;
+    }
+
     article:hover .arrow-btn {
       border-radius: 10px;
       padding: 5px 10px;
       .explore-title {
         display: block;
       }
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .section3-container {
+    align-items: flex-start;
+    .articles-container {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 90%;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      overflow-x: auto;
+      justify-content: flex-start;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      article {
+        flex-shrink: 0;
+        width: 100%;
+        height: 90vw;
+        scroll-snap-align: start;
+        align-self: center;
+        &:hover {
+          width: 100%;
+        }
+        .footer {
+          flex-direction: column;
+
+          .footer-left {
+            width: 100%;
+            font-size: $font-sizeL;
+          }
+          .footer-right {
+            width: 100%;
+          }
+          .arrow-btn {
+            width: 100%;
+            border-radius: 10px;
+            background-color: white;
+            color: black;
+            padding: min(20px, 3vw) 0;
+            font-size: $font-sizeL;
+
+            &:hover {
+              background-color: rgb(220, 220, 220);
+            }
+            &:active {
+              opacity: 0.9;
+            }
+            img {
+              display: none;
+            }
+            .explore-title {
+              display: block;
+            }
+          }
+        }
+      }
+
+      article.is-viewed {
+        .card-image {
+          transition-delay: 0.4s;
+          opacity: 0;
+          pointer-events: none;
+        }
+        .card-video {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+
+    .slider-nav {
+      display: flex;
     }
   }
 }

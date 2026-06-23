@@ -143,12 +143,23 @@
             Your Porsche journey starts now.
           </h1>
           <div class="articles-container">
-            <article>
+            <article data-index="0" id="slide1" class="car-model-article">
               <div class="header header911">
                 <h3 class="model-name">911</h3>
               </div>
               <div class="media">
-                <img src="./assets/images/911-black.webp" alt="Porsche 911" />
+                <img
+                  class="card-image"
+                  src="./assets/images/911-black.webp"
+                  alt="Porsche-911"
+                />
+                <video
+                  class="card-video"
+                  loop
+                  autoplay
+                  muted
+                  src="./assets/videos/911.mp4"
+                ></video>
               </div>
               <div class="footer">
                 <div class="footer-left">
@@ -170,12 +181,23 @@
                 </div>
               </div>
             </article>
-            <article>
+            <article data-index="1" id="slide2" class="car-model-article">
               <div class="header">
                 <h3 class="model-name">718</h3>
               </div>
               <div class="media">
-                <img src="./assets/images/718-white.webp" alt="Porsche 911" />
+                <img
+                  class="card-image"
+                  src="./assets/images/718-white.webp"
+                  alt="Porsche-718"
+                />
+                <video
+                  class="card-video"
+                  loop
+                  autoplay
+                  muted
+                  src="./assets/videos/718.mp4"
+                ></video>
               </div>
               <div class="footer">
                 <div class="footer-left">
@@ -200,15 +222,23 @@
                 </div>
               </div>
             </article>
-            <article>
+            <article data-index="2" id="slide3" class="car-model-article">
               <div class="header">
                 <h3 class="model-name">taycan</h3>
               </div>
               <div class="media">
                 <img
+                  class="card-image"
                   src="./assets/images/taycan-white.webp"
-                  alt="Porsche 911"
+                  alt="Porsche-taycan"
                 />
+                <video
+                  class="card-video"
+                  loop
+                  autoplay
+                  muted
+                  src="./assets/videos/taycan.mp4"
+                ></video>
               </div>
               <div class="footer">
                 <div class="footer-left">
@@ -231,15 +261,23 @@
               </div>
             </article>
 
-            <article>
+            <article data-index="3" id="slide4" class="car-model-article">
               <div class="header">
                 <h3 class="model-name">Panamera</h3>
               </div>
               <div class="media">
                 <img
+                  class="card-image"
                   src="./assets/images/panamera-white.webp"
-                  alt="Porsche 911"
+                  alt="Porsche-panamera"
                 />
+                <video
+                  class="card-video"
+                  loop
+                  autoplay
+                  muted
+                  src="./assets/videos/panamera.mp4"
+                ></video>
               </div>
               <div class="footer">
                 <div class="footer-left">
@@ -263,12 +301,23 @@
                 </div>
               </div>
             </article>
-            <article>
+            <article data-index="4" id="slide5" class="car-model-article">
               <div class="header">
                 <h3 class="model-name">Macan</h3>
               </div>
               <div class="media">
-                <img src="./assets/images/blue-macan.webp" alt="Porsche 911" />
+                <img
+                  class="card-image"
+                  src="./assets/images/blue-macan.webp"
+                  alt="Porsche 911"
+                />
+                <video
+                  class="card-video"
+                  loop
+                  autoplay
+                  muted
+                  src="./assets/videos/macan.mp4"
+                ></video>
               </div>
               <div class="footer">
                 <div class="footer-left">
@@ -292,15 +341,23 @@
                 </div>
               </div>
             </article>
-            <article>
+            <article data-index="5" id="slide6" class="car-model-article">
               <div class="header">
                 <h3 class="model-name">Cayenne</h3>
               </div>
               <div class="media">
                 <img
+                  class="card-image"
                   src="./assets/images/black-cayenne.webp"
                   alt="Porsche 911"
                 />
+                <video
+                  class="card-video"
+                  loop
+                  autoplay
+                  muted
+                  src="./assets/videos/macan.mp4"
+                ></video>
               </div>
               <div class="footer">
                 <div class="footer-left">
@@ -325,6 +382,40 @@
                 </div>
               </div>
             </article>
+          </div>
+          <div class="slider-nav">
+            <div class="slider-nav-items">
+              <a href="#slide1">
+                <div class="slider-nav-item"></div>
+              </a>
+              <a href="#slide2">
+                <div class="slider-nav-item"></div>
+              </a>
+              <a href="#slide3">
+                <div class="slider-nav-item"></div>
+              </a>
+              <a href="#slide4">
+                <div class="slider-nav-item"></div>
+              </a>
+              <a href="#slide5">
+                <div class="slider-nav-item"></div>
+              </a>
+              <a href="#slide6">
+                <div class="slider-nav-item"></div>
+              </a>
+            </div>
+            <div class="slider-video-toggle">
+              <img
+                class="video-toggle-icon pause-icon"
+                src="./assets/icons/pause.png"
+                alt="pause-video-symbol"
+              />
+              <img
+                class="video-toggle-icon play-icon"
+                src="./assets/icons/play.png"
+                alt="play-video-symbol"
+              />
+            </div>
           </div>
         </div>
       </section>

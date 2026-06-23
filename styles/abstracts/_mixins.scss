@@ -22,7 +22,7 @@
   @include glassmorphism();
   border: none;
   border-radius: 50%;
-  padding: min(5px, 6vw);
+  padding: 7px;
   transition-duration: 0.15s;
   &:hover {
     background-color: rgba(0, 0, 0, 0.0892);
