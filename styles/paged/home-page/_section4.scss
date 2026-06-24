@@ -15,7 +15,7 @@
       @include flexbox(column, space-between, flex-start, 10px);
       height: 100%;
       width: 100%;
-      padding: min(65px, 3vw);
+      padding: min(65px, 4vw);
       color: $font-clr-light;
       font-family: $primary-font;
       box-sizing: border-box;
