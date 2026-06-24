@@ -1,2 +1,67 @@
-@use "../../abstracts/mixins";
-@use "../../abstracts/variables";
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/variables" as *;
+.section4 {
+  @include flexbox(row, center, center);
+  width: 100%;
+  .section4-article {
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    overflow: hidden;
+    border-radius: $primary-border-radius;
+    width: 80%;
+    background-color: $background-clr-dark;
+    box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.1);
+    .article-left {
+      @include flexbox(column, space-between, flex-start, 10px);
+      height: 100%;
+      width: 100%;
+      padding: min(65px, 3vw);
+      color: $font-clr-light;
+      font-family: $primary-font;
+      box-sizing: border-box;
+      .article-title {
+        font-size: $font-sizeX;
+      }
+      .article-description {
+        font-size: $font-sizeM;
+      }
+      .article-btn {
+        width: clamp(100px, 50%, 175px);
+        background-color: $background-clr-light;
+        font-size: $font-sizeM;
+        padding: min(17px, 4vw) 0;
+        border: none;
+        border-radius: 10px;
+        transition-duration: 0.15s;
+        &:hover {
+          opacity: 0.8;
+          cursor: pointer;
+        }
+        &:active {
+          transition-duration: 0s;
+          opacity: 0.7;
+        }
+      }
+    }
+    .article-right {
+      width: 100%;
+      height: 100%;
+      .article-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointXL) {
+  .section4 {
+    .section4-article {
+      @include flexbox(column-reverse, center, center);
+      .article-left {
+        gap: 20px;
+      }
+    }
+  }
+}

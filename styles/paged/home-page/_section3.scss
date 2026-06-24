@@ -4,13 +4,121 @@
   @include flexbox(column, center, center, 20px);
   width: 92vw;
   margin: 0 auto;
-  img {
-    width: 100px;
-  }
+
   .section3-title {
     font-family: $primary-font;
     font-size: $font-sizeXXL;
     align-self: flex-start;
+  }
+  .articles-container {
+    @include flexbox(row, center, center, 30px);
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-top: 50px;
+
+    article {
+      position: relative;
+      color: $font-clr-light;
+      border-radius: $primary-border-radius;
+      overflow: hidden;
+      font-family: $primary-font;
+      flex-grow: 1;
+      height: 40vw;
+      width: 45%;
+      transition: 0.6s;
+      &:hover {
+        width: 50%;
+      }
+
+      .header {
+        @include fade-to(bottom);
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: $font-sizeXL;
+        font-family: $secondary-font;
+        width: 100%;
+        text-align: center;
+        padding: min(30px, 9vw);
+        z-index: 2;
+      }
+      .model-name-signature {
+        width: 20%;
+        filter: invert(100);
+      }
+      .model-name-signature.text {
+        width: 35%;
+      }
+
+      .media {
+        width: 100%;
+        height: 100%;
+        img,
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        img {
+          transition-duration: 0.8s;
+          transition-delay: 0s;
+        }
+        video {
+          display: none;
+          opacity: 0;
+          z-index: -1;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+      .footer {
+        @include flexbox(row, space-between, flex-end, 10px);
+        @include fade-to(top);
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        padding: min(30px, 9vw);
+        box-sizing: border-box;
+        .arrow-btn {
+          @include flexbox(row, center, center, 10px);
+          @include arrow-btn();
+          color: $font-clr-light;
+        }
+        .explore-title {
+          display: none;
+        }
+        .footer-left {
+          @include flexbox(column, center, flex-start, 20px);
+          font-size: $font-sizeM;
+        }
+        .fuel-type-wrapper {
+          @include flexbox(row, flex-start, center, 10px);
+        }
+        .fuel-type {
+          padding: 6px 12px;
+          background-color: $hover-background-clr;
+          border-radius: 50px;
+          font-size: $font-sizeS;
+        }
+      }
+      &:hover .car-video {
+        display: block;
+        opacity: 1;
+      }
+      &:hover .car-image {
+        transition-delay: 0.4s;
+        opacity: 0;
+      }
+      &:hover .arrow-btn {
+        border-radius: 10px;
+        padding: 5px 10px;
+        .explore-title {
+          display: block;
+        }
+      }
+    }
   }
   .slider-nav {
     @include flexbox(row, center, center, 20px);
@@ -60,119 +168,14 @@
       width: auto;
     }
   }
-  .articles-container {
-    @include flexbox(row, center, center, 30px);
-    flex-wrap: wrap;
-    overflow: hidden;
-
-    article {
-      position: relative;
-      color: $font-clr-light;
-      border-radius: $primary-border-radius;
-      overflow: hidden;
-      font-family: $primary-font;
-      flex-grow: 1;
-      height: 40vw;
-      width: 45%;
-      transition: 0.6s;
-      &:hover {
-        width: 50%;
-      }
-
-      .header {
-        @include fade-to(bottom);
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: $font-sizeXL;
-        font-family: $secondary-font;
-        width: 100%;
-        text-align: center;
-        padding: min(30px, 9vw);
-        z-index: 2;
-      }
-      .header911 {
-        font-family: $optional-font;
-        letter-spacing: -15%;
-      }
-      .media {
-        width: 100%;
-        height: 100%;
-        img,
-        video {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        img {
-          transition-duration: 0.8s;
-          transition-delay: 0s;
-        }
-        video {
-          display: none;
-          opacity: 0;
-          z-index: -1;
-          position: absolute;
-          left: 0;
-          top: 0;
-          transition-duration: 0.8s;
-        }
-      }
-      .footer {
-        @include flexbox(row, space-between, flex-end, 10px);
-        @include fade-to(top);
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        padding: min(30px, 9vw);
-        box-sizing: border-box;
-        .arrow-btn {
-          @include flexbox(row, center, center, 10px);
-          @include arrow-btn();
-          color: $font-clr-light;
-        }
-        .explore-title {
-          display: none;
-        }
-        .footer-left {
-          @include flexbox(column, center, flex-start, 20px);
-          font-size: $font-sizeM;
-        }
-        .fuel-type-wrapper {
-          @include flexbox(row, flex-start, center, 10px);
-        }
-        .fuel-type {
-          padding: 6px 12px;
-          background-color: $hover-background-clr;
-          border-radius: 50px;
-          font-size: $font-sizeS;
-        }
-      }
-    }
-
-    article:hover .card-video {
-      display: block;
-      opacity: 1;
-    }
-    article:hover .card-image {
-      transition-delay: 0.4s;
-      opacity: 0;
-    }
-
-    article:hover .arrow-btn {
-      border-radius: 10px;
-      padding: 5px 10px;
-      .explore-title {
-        display: block;
-      }
-    }
-  }
 }
 
 @media (max-width: $breakpointL) {
   .section3-container {
     align-items: flex-start;
+    .slider-nav {
+      display: flex;
+    }
     .articles-container {
       display: grid;
       grid-auto-flow: column;
@@ -188,7 +191,7 @@
       article {
         flex-shrink: 0;
         width: 100%;
-        height: 90vw;
+        height: clamp(400px, 80vw, 1000px);
         scroll-snap-align: start;
         align-self: center;
         &:hover {
@@ -196,7 +199,6 @@
         }
         .footer {
           flex-direction: column;
-
           .footer-left {
             width: 100%;
             font-size: $font-sizeL;
@@ -226,23 +228,18 @@
             }
           }
         }
-      }
-
-      article.is-viewed {
-        .card-image {
-          transition-delay: 0.4s;
-          opacity: 0;
-          pointer-events: none;
+        &.is-viewed {
+          .car-image {
+            transition-delay: 0.4s;
+            opacity: 0;
+            pointer-events: none;
+          }
+          .car-video {
+            display: block;
+            opacity: 1;
+          }
         }
-        .card-video {
-          display: block;
-          opacity: 1;
-        }
       }
-    }
-
-    .slider-nav {
-      display: flex;
     }
   }
 }

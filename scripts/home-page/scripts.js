@@ -40,7 +40,7 @@ const bodyObserver = new IntersectionObserver(
 );
 bodyObserver.observe(section);
 
-const sectionVideos = document.querySelectorAll(".card-video");
+const sectionVideos = document.querySelectorAll(".car-video");
 const sectionArticles = document.querySelectorAll(".car-model-article");
 const sliderNavItems = document.querySelectorAll(".slider-nav-item");
 const videoObserver = new IntersectionObserver(
@@ -61,8 +61,8 @@ sectionArticles.forEach((article) => {
   videoObserver.observe(article);
 });
 
-const carModelImages = document.querySelectorAll(".card-image");
-const carModelVideos = document.querySelectorAll(".card-video");
+const carModelImages = document.querySelectorAll(".car-image");
+const carModelVideos = document.querySelectorAll(".car-video");
 carModelImages.forEach((image, i) => {
   image.addEventListener("mouseenter", () => {
     carModelVideos[i].currentTime = 0;

@@ -31,3 +31,6 @@ section {
     transition-duration: 1s;
   }
 }
+::selection {
+  background-color: rgba(49, 200, 255, 0.4);
+}
