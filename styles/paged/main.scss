@@ -10,6 +10,9 @@
 @use "./home-page/section3";
 @use "./home-page/section4";
 @use "./home-page/section5";
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: $background-clr-light;
   transition: background 1s;
@@ -23,6 +26,7 @@ body.dark-mode {
 
 main {
   @include flexbox(column, center, center, 100px);
+  margin-bottom: 120px;
 }
 section {
   width: 100%;

@@ -1,2 +1,190 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
+
+footer {
+  background-color: $footer-background-clr;
+  color: $font-clr-light;
+  font-family: $primary-font;
+  padding: min(50px, 6.5vw) min(80px, 8vw);
+  box-sizing: border-box;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 40px;
+  width: 100%;
+  a {
+    color: unset;
+    text-decoration: none;
+  }
+  img {
+    //temp
+    width: 40px;
+  }
+  .footer-section {
+    width: 100%;
+  }
+
+  .scroller {
+    a {
+      @include flexbox(column, center, center, 10px);
+    }
+
+    width: unset;
+    font-size: $font-sizeM;
+    .scroller-icon {
+      width: 23px;
+      filter: invert(100);
+      transition-duration: 0.15s;
+      padding: 4px;
+      border-radius: 50%;
+    }
+    &:hover {
+      cursor: pointer;
+      .scroller-icon {
+        background-color: $hover-background-clr;
+        animation:
+          arrow-jump 0.6s,
+          ease-out;
+      }
+    }
+  }
+  .region-selector {
+    @include flexbox(column, center, flex-start, 15px);
+    .region-up {
+      font-size: $font-sizeS;
+      color: $font-clr-darkened;
+    }
+    .region-down {
+      @include flexbox(row, center, center, 20px);
+      font-size: $font-sizeM;
+      .region-flag-icon {
+        width: 30px;
+        border: 1px white solid;
+        border-radius: 50%;
+      }
+      .region-change-link {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .nav-tab {
+      @include flexbox(column, flex-start, flex-start, 15px);
+      .navigation-header {
+        color: $font-clr-darkened;
+        font-size: $font-sizeS;
+        padding: 3px 5px;
+      }
+      .navigation-link {
+        font-size: $font-sizeS;
+        padding: 3px 5px;
+        border-radius: 4px;
+        transition-duration: 0.15s;
+        &:hover {
+          background-color: $hover-background-clr;
+        }
+      }
+    }
+  }
+  .social-media-app {
+    @include flexbox(row, flex-start, center, min(50px, 6vw));
+    .socials {
+      @include flexbox(row, center, center, min(40px, 5vw));
+      flex-wrap: wrap;
+      .social-link {
+        @include flexbox(row, center, center);
+        padding: 10px;
+        transition-duration: 0.15s;
+        border-radius: 50%;
+        &:hover {
+          background-color: $hover-background-clr;
+        }
+      }
+      .social-icon {
+        width: clamp(13px, 5vw, 18px);
+      }
+    }
+    .downloads {
+      @include flexbox(row, center, center, 10px);
+      .download-icon {
+        width: clamp(80px, 6vw, 125px);
+      }
+    }
+  }
+  .footer-text {
+    @include flexbox(column, center, flex-start, 15px);
+    color: $font-clr-darkened;
+    font-size: $font-sizeM;
+    .rules-privacy {
+      @include flexbox(row, center, center, 10px);
+      text-decoration: underline;
+    }
+    .footer-text-content {
+      line-height: 130%;
+      font-size: $font-sizeS;
+    }
+  }
+  .porsche-logo-wrapper {
+    width: unset;
+    .porsche-title {
+      width: clamp(150px, 20vw, 200px);
+    }
+    .porsche-logo {
+      width: clamp(30px, 7vw, 200px);
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .footer-container {
+    .footer-nav {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+    .social-media-app {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      .socials {
+        gap: 5px;
+      }
+    }
+    .footer-text {
+      gap: 20px;
+      .rules-privacy {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .porsche-logo-wrapper {
+      .porsche-logo {
+        display: block;
+      }
+      .porsche-title {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes arrow-jump {
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

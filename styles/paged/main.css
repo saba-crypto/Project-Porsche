@@ -269,6 +269,223 @@ header .header-container .globe-tooltip {
     white-space: wrap;
   }
 }
+footer {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Porsche Next, Arial;
+  padding: min(50px, 6.5vw) min(80px, 8vw);
+  box-sizing: border-box;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 40px;
+  width: 100%;
+}
+.footer-container a {
+  color: unset;
+  text-decoration: none;
+}
+.footer-container img {
+  width: 40px;
+}
+.footer-container .footer-section {
+  width: 100%;
+}
+.footer-container .scroller a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.footer-container .scroller {
+  width: unset;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.footer-container .scroller .scroller-icon {
+  width: 23px;
+  filter: invert(100);
+  transition-duration: 0.15s;
+  padding: 4px;
+  border-radius: 50%;
+}
+.footer-container .scroller:hover {
+  cursor: pointer;
+}
+.footer-container .scroller:hover .scroller-icon {
+  background-color: rgba(100, 100, 100, 0.8);
+  animation: arrow-jump 0.6s, ease-out;
+}
+.footer-container .region-selector {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.footer-container .region-selector .region-up {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  color: #969799;
+}
+.footer-container .region-selector .region-down {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.footer-container .region-selector .region-down .region-flag-icon {
+  width: 30px;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+.footer-container .region-selector .region-down .region-change-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.footer-container .footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.footer-container .footer-nav .nav-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+}
+.footer-container .footer-nav .nav-tab .navigation-header {
+  color: #969799;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: 3px 5px;
+}
+.footer-container .footer-nav .nav-tab .navigation-link {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: 3px 5px;
+  border-radius: 4px;
+  transition-duration: 0.15s;
+}
+.footer-container .footer-nav .nav-tab .navigation-link:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.footer-container .social-media-app {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(50px, 6vw);
+}
+.footer-container .social-media-app .socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: min(40px, 5vw);
+  flex-wrap: wrap;
+}
+.footer-container .social-media-app .socials .social-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  padding: 10px;
+  transition-duration: 0.15s;
+  border-radius: 50%;
+}
+.footer-container .social-media-app .socials .social-link:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.footer-container .social-media-app .socials .social-icon {
+  width: clamp(13px, 5vw, 18px);
+}
+.footer-container .social-media-app .downloads {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.footer-container .social-media-app .downloads .download-icon {
+  width: clamp(80px, 6vw, 125px);
+}
+.footer-container .footer-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+  color: #969799;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.footer-container .footer-text .rules-privacy {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: underline;
+}
+.footer-container .footer-text .footer-text-content {
+  line-height: 130%;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+}
+.footer-container .porsche-logo-wrapper {
+  width: unset;
+}
+.footer-container .porsche-logo-wrapper .porsche-title {
+  width: clamp(150px, 20vw, 200px);
+}
+.footer-container .porsche-logo-wrapper .porsche-logo {
+  width: clamp(30px, 7vw, 200px);
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .footer-container .footer-nav {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .footer-container .social-media-app {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .footer-container .social-media-app .socials {
+    gap: 5px;
+  }
+  .footer-container .footer-text {
+    gap: 20px;
+  }
+  .footer-container .footer-text .rules-privacy {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-container .porsche-logo-wrapper .porsche-logo {
+    display: block;
+  }
+  .footer-container .porsche-logo-wrapper .porsche-title {
+    display: none;
+  }
+}
+@keyframes arrow-jump {
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .section1-container {
   position: relative;
 }
@@ -848,6 +1065,10 @@ header .header-container .globe-tooltip {
   font-weight: 700;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #ffffff;
   transition: background 1s;
@@ -866,6 +1087,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 100px;
+  margin-bottom: 120px;
 }
 
 section {
