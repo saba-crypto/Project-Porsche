@@ -63,6 +63,11 @@
         img {
           transition-duration: 0.8s;
           transition-delay: 0s;
+          &:hover {
+            .car-video {
+              display: b;
+            }
+          }
         }
         video {
           display: none;
@@ -103,20 +108,22 @@
           font-size: $font-sizeS;
         }
       }
-      &:hover .car-video {
-        display: block;
-        opacity: 1;
-      }
-      &:hover .car-image {
-        transition-delay: 0.4s;
-        opacity: 0;
-      }
+
       &:hover .arrow-btn {
         border-radius: 10px;
         padding: 5px 10px;
         .explore-title {
           display: block;
         }
+      }
+      &:hover .car-video {
+        display: block;
+        opacity: 1;
+      }
+
+      &:hover .car-image {
+        transition-delay: 0.4s;
+        opacity: 0;
       }
     }
   }
@@ -155,7 +162,11 @@
         display: none;
       }
     }
-    .slider-video-toggle.video-paused {
+    .video-toggle-icon {
+      height: 100%;
+      width: auto;
+    }
+    .slider-video-toggle.pause {
       .play-icon {
         display: block;
       }
@@ -163,19 +174,13 @@
         display: none;
       }
     }
-    .video-toggle-icon {
-      height: 100%;
-      width: auto;
-    }
   }
 }
 
 @media (max-width: $breakpointL) {
   .section3-container {
     align-items: flex-start;
-    .slider-nav {
-      display: flex;
-    }
+
     .articles-container {
       display: grid;
       grid-auto-flow: column;
@@ -185,6 +190,7 @@
       overflow-x: auto;
       justify-content: flex-start;
       scrollbar-width: none;
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -196,6 +202,9 @@
         align-self: center;
         &:hover {
           width: 100%;
+        }
+        .car-image {
+          pointer-events: none;
         }
         .footer {
           flex-direction: column;
@@ -230,9 +239,8 @@
         }
         &.is-viewed {
           .car-image {
-            transition-delay: 0.4s;
+            transition-delay: 0.1s;
             opacity: 0;
-            pointer-events: none;
           }
           .car-video {
             display: block;
@@ -240,6 +248,20 @@
           }
         }
       }
+
+      article:not(.is-viewed):hover {
+        .car-image {
+          transition-delay: 0s;
+          opacity: 1;
+        }
+        .car-video {
+          display: none;
+          opacity: 0;
+        }
+      }
+    }
+    .slider-nav {
+      display: flex;
     }
   }
 }

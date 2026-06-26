@@ -1,2 +1,161 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 65vw;
+  opacity: 0.5;
+  pointer-events: none;
+  transform: translateX(-105%);
+  z-index: 200;
+  transition-duration: 0.3s;
+  nav {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    .sidebar-close-btn {
+      @include flexbox(row, center, center);
+      @include arrow-btn();
+      display: none;
+      position: absolute;
+      right: -90px;
+      top: 20px;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      .x-icon {
+        width: 25px;
+        filter: invert(100);
+      }
+    }
+  }
+  .background-element {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.401);
+    cursor: pointer;
+  }
+  img {
+    //temp
+    width: 100px;
+  }
+}
+aside.show {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
+  .background-element {
+    display: block;
+  }
+  .sidebar-close-btn {
+    display: block;
+  }
+}
+
+.navigation-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+
+  .navigation-tabs {
+    @include flexbox(column, flex-start, flex-start, min(20px, 5vw));
+    background-color: $sidebar-background-clr-light;
+    height: 100%;
+    padding: min(92px, 7vw) min(35px, 6vw);
+    .navigation-btn {
+      @include flexbox(row, space-between, center, 10px);
+      width: 100%;
+      font-size: $font-sizeL;
+      font-family: $primary-font;
+      border: none;
+      background-color: transparent;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition-duration: 0.2s;
+      white-space: nowrap;
+      .arrow-right {
+        width: 22px;
+      }
+      &.selected {
+        background-color: $sidebar-background-clr-darkened;
+      }
+      &:hover {
+        background-color: $sidebar-btn-hover;
+        cursor: pointer;
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.07);
+      }
+      &:active {
+        opacity: 0.6;
+        transition-duration: 0s;
+      }
+    }
+  }
+  .navigation-action {
+    background-color: $sidebar-background-clr-darkened;
+    height: 100%;
+    overflow-y: auto;
+    .car-models-tab {
+      @include flexbox(column, flex-start, center, min(30px, 6vw));
+      padding: min(92px, 7vw) min(30px, 4vw);
+    }
+  }
+}
+.car-model-card {
+  width: 100%;
+  font-family: $primary-font;
+  padding: min(15px, 4vw);
+  border-radius: 12px;
+  box-sizing: border-box;
+  transition-duration: 0.15s;
+  .car-model-name {
+    font-size: $font-sizeM;
+    padding: 6px 12px;
+  }
+  .car-model-image {
+    width: clamp(100px, 100%, 350px);
+    align-self: center;
+    transition-duration: 0.15s;
+  }
+  .fuel-types {
+    @include flexbox(row, flex-start, center, 5px);
+    flex-wrap: wrap;
+  }
+  .fuel-type {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 50px;
+    background-color: $sidebar-background-clr-light;
+    font-size: $font-sizeS;
+    transition-duration: 0.15s;
+  }
+  &:hover {
+    background-color: $sidebar-background-clr-light;
+    cursor: pointer;
+    .car-model-image {
+      transform: translateX(5%);
+    }
+    .fuel-type {
+      background-color: $sidebar-background-clr-darkened;
+    }
+  }
+}
+
+@media (max-width: $breakpointXL) {
+  aside {
+    width: 85vw;
+  }
+}
+@media (max-width: $breakpointL) {
+  aside {
+    width: 100vw;
+  }
+}

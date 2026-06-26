@@ -14,7 +14,7 @@
   <body>
     <header>
       <div class="header-container">
-        <div class="header-left">
+        <div id="sidebar-toggle" class="header-left">
           <img
             class="burger-menu"
             src="./assets/icons/menu-lines-white.png"
@@ -44,6 +44,118 @@
         </div>
       </div>
     </header>
+    <aside id="sidebar">
+      <div id="sidebar-background" class="background-element"></div>
+      <nav>
+        <button id="nav-close-btn" class="sidebar-close-btn">
+          <img class="x-icon" src="./assets/icons/close.svg" alt="close icon" />
+        </button>
+        <div class="navigation-container">
+          <div class="navigation-tabs">
+            <button class="navigation-btn selected">
+              Models
+              <img
+                class="arrow-right"
+                src="./assets/icons/arrow-head-right.svg"
+                alt="arrow-right"
+              />
+            </button>
+            <button class="navigation-btn">
+              Vehicle Purchase
+              <img
+                class="arrow-right"
+                src="./assets/icons/arrow-head-right.svg"
+                alt="arrow-right"
+              />
+            </button>
+            <button class="navigation-btn">
+              Find a Dealer
+              <img
+                class="arrow-right"
+                src="./assets/icons/arrow-head-right.svg"
+                alt="arrow-right"
+              />
+            </button>
+          </div>
+          <div class="navigation-action">
+            <div class="car-models-tab">
+              <div class="car-model-card">
+                <p class="car-model-name">718</p>
+                <img
+                  class="car-model-image"
+                  src="./assets/images/car-models/718/718-side-profile.webp"
+                  alt="porsche 911 side profile"
+                />
+                <div class="fuel-types">
+                  <p class="fuel-type">საწვავი</p>
+                </div>
+              </div>
+              <div class="car-model-card">
+                <p class="car-model-name">911</p>
+                <img
+                  class="car-model-image"
+                  src="./assets/images/car-models/911/911-side-profile.webp"
+                  alt="porsche 911 side profile"
+                />
+                <div class="fuel-types">
+                  <p class="fuel-type">საწვავი</p>
+                </div>
+              </div>
+              <div class="car-model-card">
+                <p class="car-model-name">Taycan</p>
+                <img
+                  class="car-model-image"
+                  src="./assets/images/car-models/taycan/taycan-side-profile.webp"
+                  alt="porsche 911 side profile"
+                />
+                <div class="fuel-types">
+                  <p class="fuel-type">ელექტრო</p>
+                </div>
+              </div>
+              <div class="car-model-card">
+                <p class="car-model-name">Panamera</p>
+                <img
+                  class="car-model-image"
+                  src="./assets/images/car-models/panamera/panamera-side-profile.webp"
+                  alt="porsche 911 side profile"
+                />
+                <div class="fuel-types">
+                  <p class="fuel-type">ჰიბრიდული</p>
+                  <p class="fuel-type">საწვავი</p>
+                </div>
+              </div>
+              <div class="car-model-card">
+                <p class="car-model-name">Macan</p>
+                <img
+                  class="car-model-image"
+                  src="./assets/images/car-models/macan/macan-side-profile.webp"
+                  alt="porsche 911 side profile"
+                />
+                <div class="fuel-types">
+                  <p class="fuel-type">ელექტრო</p>
+                  <p class="fuel-type">საწვავი</p>
+                </div>
+              </div>
+              <div class="car-model-card">
+                <p class="car-model-name">Cayenne</p>
+                <img
+                  class="car-model-image"
+                  src="./assets/images/car-models/cayenne/cayenne-side-profile.webp"
+                  alt="porsche 911 side profile"
+                />
+                <div class="fuel-types">
+                  <p class="fuel-type">ელექტრო</p>
+                  <p class="fuel-type">ჰიბრიდული</p>
+                  <p class="fuel-type">საწვავი</p>
+                </div>
+              </div>
+            </div>
+            <div class="vehicle-purchase-tab"></div>
+            <div class="dealers-tab"></div>
+          </div>
+        </div>
+      </nav>
+    </aside>
     <main>
       <section id="hero-section" class="section1 hero-section">
         <div class="section1-container">
