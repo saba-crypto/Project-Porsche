@@ -89,7 +89,7 @@ aside.show {
         background-color: $sidebar-background-clr-darkened;
       }
       &:hover {
-        background-color: $sidebar-btn-hover;
+        background-color: $sidebar-btn-hover-background-clr;
         cursor: pointer;
         box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.07);
       }
@@ -103,12 +103,166 @@ aside.show {
     background-color: $sidebar-background-clr-darkened;
     height: 100%;
     overflow-y: auto;
-    .car-models-tab {
-      @include flexbox(column, flex-start, center, min(30px, 6vw));
+    .navigation-tab {
       padding: min(92px, 7vw) min(30px, 4vw);
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .car-models-tab {
+      display: none;
+    }
+    .vehicle-purchase-tab {
+      display: none;
+      a {
+        text-decoration: none;
+        color: $font-clr-dark;
+        font-size: $font-sizeL;
+        font-family: $primary-font;
+        padding: 5px 10px;
+        transition-duration: 0.2s;
+        border-radius: 6px;
+        &:hover {
+          background-color: $sidebar-btn-hover-background-clr;
+        }
+      }
+    }
+    .dealers-tab {
+      display: none;
+
+      .find-dealer-btn {
+        @include flexbox(row, space-between, center);
+        border: none;
+        padding: min(20px, 7vw);
+        background-color: $sidebar-button-background-clr;
+        width: 100%;
+        border-radius: 16px;
+        font-size: $font-sizeM;
+        font-family: $primary-font;
+        transition-duration: 0.2s;
+        .arrow-right-icon {
+          width: 25px;
+        }
+        &:hover {
+          background-color: $sidebar-btn-hover-background-clr;
+          cursor: pointer;
+          .arrow-right-icon {
+            animation: bounce-right 0.5s ease-out;
+          }
+        }
+        &:active {
+          opacity: 0.8;
+          transition-duration: 0s;
+        }
+      }
+      .dealer-details-container {
+        @include flexbox(column, flex-start, flex-start, 20px);
+        font-family: $primary-font;
+        padding: min(40px, 7vw);
+        background-color: $sidebar-background-clr-light;
+        border-radius: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        .dealer-title {
+          font-size: $font-sizeL;
+          color: $font-clr-dark;
+        }
+        .dealer-address {
+          color: $font-clr-darkened;
+          font-size: $font-sizeS;
+        }
+        .dealer-navigation-list {
+          @include flexbox(column, flex-start, flex-start, 10px);
+          .navigation-list-item {
+            padding: 2px 4px;
+            border-radius: 6px;
+            transition-duration: 0.2s;
+            a {
+              @include flexbox(row, flex-start, center, 5px);
+              text-decoration: none;
+              color: $font-clr-dark;
+              .navigation-icon {
+                width: 25px;
+              }
+            }
+            &:hover {
+              background-color: $sidebar-btn-hover-background-clr;
+            }
+          }
+        }
+        .show-more-details-btn {
+          @include flexbox(row, center, center);
+          width: 100%;
+          border: none;
+          background-color: $sidebar-btn-hover-background-clr;
+          padding: min(18px, 6vw);
+          font-size: $font-sizeM;
+          font-family: $primary-font;
+          border-radius: 12px;
+          transition-duration: 0.2s;
+          img {
+            width: 25px;
+          }
+          &:hover {
+            background-color: $sidebar-background-clr-darkened;
+            cursor: pointer;
+            img {
+              animation: float 0.7s infinite ease-in-out;
+            }
+          }
+          &:active {
+            opacity: 0.7;
+            transition-duration: 0s;
+          }
+        }
+      }
+    }
+    .car-models-tab.show {
+      @include flexbox(column, flex-start, center, min(30px, 6vw));
+    }
+    .vehicle-purchase-tab.show {
+      @include flexbox(column, center, flex-start, min(40px, 6vw));
+    }
+    .dealers-tab.show {
+      @include flexbox(column, flex-start, center, min(50px, 7vw));
     }
   }
+  // .navigation-action.show-models {
+  //   .car-models-tab {
+  //     @include flexbox(column, flex-start, center, min(30px, 6vw));
+  //   }
+  //   .vehicle-purchase-tab {
+  //     display: none;
+  //   }
+  //   .dealers-tab {
+  //     display: none;
+  //   }
+  // }
+
+  // .navigation-action.show-vehicle-purchase {
+  //   .car-models-tab {
+  //     display: none;
+  //   }
+  //   .vehicle-purchase-tab {
+  //     @include flexbox(column, center, flex-start, min(40px, 6vw));
+  //   }
+  //   .dealers-tab {
+  //     display: none;
+  //   }
+  // }
+
+  // .navigation-action.show-dealers-tab {
+  //   .car-models-tab {
+  //     display: none;
+  //   }
+  //   .vehicle-purchase-tab {
+  //     display: none;
+  //   }
+  //   .dealers-tab {
+  //     @include flexbox(column, flex-start, center, min(50px, 7vw));
+  //   }
+  // }
 }
+
 .car-model-card {
   width: 100%;
   font-family: $primary-font;
@@ -157,5 +311,54 @@ aside.show {
 @media (max-width: $breakpointL) {
   aside {
     width: 100vw;
+    nav {
+      .sidebar-close-btn {
+        right: 20px;
+        top: 0px;
+        padding: 5px;
+        .x-icon {
+          filter: invert(0);
+        }
+      }
+      .navigation-container {
+        grid-template-columns: 1fr;
+        .navigation-tabs {
+          box-sizing: border-box;
+        }
+        .navigation-action {
+          box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

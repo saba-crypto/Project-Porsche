@@ -625,13 +625,158 @@ aside.show .sidebar-close-btn {
   height: 100%;
   overflow-y: auto;
 }
+.navigation-container .navigation-action .navigation-tab {
+  padding: min(92px, 7vw) min(30px, 4vw);
+  box-sizing: border-box;
+  width: 100%;
+}
 .navigation-container .navigation-action .car-models-tab {
+  display: none;
+}
+.navigation-container .navigation-action .vehicle-purchase-tab {
+  display: none;
+}
+.navigation-container .navigation-action .vehicle-purchase-tab a {
+  text-decoration: none;
+  color: #000000;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  font-family: Porsche Next, Arial;
+  padding: 5px 10px;
+  transition-duration: 0.2s;
+  border-radius: 6px;
+}
+.navigation-container .navigation-action .vehicle-purchase-tab a:hover {
+  background-color: rgba(100, 101, 114, 0.236);
+}
+.navigation-container .navigation-action .dealers-tab {
+  display: none;
+}
+.navigation-container .navigation-action .dealers-tab .find-dealer-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+  border: none;
+  padding: min(20px, 7vw);
+  background-color: #e7e7ea;
+  width: 100%;
+  border-radius: 16px;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  font-family: Porsche Next, Arial;
+  transition-duration: 0.2s;
+}
+.navigation-container .navigation-action .dealers-tab .find-dealer-btn .arrow-right-icon {
+  width: 25px;
+}
+.navigation-container .navigation-action .dealers-tab .find-dealer-btn:hover {
+  background-color: rgba(100, 101, 114, 0.236);
+  cursor: pointer;
+}
+.navigation-container .navigation-action .dealers-tab .find-dealer-btn:hover .arrow-right-icon {
+  animation: bounce-right 0.5s ease-out;
+}
+.navigation-container .navigation-action .dealers-tab .find-dealer-btn:active {
+  opacity: 0.8;
+  transition-duration: 0s;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  font-family: Porsche Next, Arial;
+  padding: min(40px, 7vw);
+  background-color: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-title {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  color: #000000;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-address {
+  color: #969799;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item {
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition-duration: 0.2s;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: #000000;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item a .navigation-icon {
+  width: 25px;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item:hover {
+  background-color: rgba(100, 101, 114, 0.236);
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+  border: none;
+  background-color: rgba(100, 101, 114, 0.236);
+  padding: min(18px, 6vw);
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  font-family: Porsche Next, Arial;
+  border-radius: 12px;
+  transition-duration: 0.2s;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn img {
+  width: 25px;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn:hover {
+  background-color: #f1f1f4;
+  cursor: pointer;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn:hover img {
+  animation: float 0.7s infinite ease-in-out;
+}
+.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn:active {
+  opacity: 0.7;
+  transition-duration: 0s;
+}
+.navigation-container .navigation-action .car-models-tab.show {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: min(30px, 6vw);
-  padding: min(92px, 7vw) min(30px, 4vw);
+}
+.navigation-container .navigation-action .vehicle-purchase-tab.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: min(40px, 6vw);
+}
+.navigation-container .navigation-action .dealers-tab.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(50px, 7vw);
 }
 
 .car-model-card {
@@ -686,6 +831,51 @@ aside.show .sidebar-close-btn {
 @media (max-width: 760px) {
   aside {
     width: 100vw;
+  }
+  aside nav .sidebar-close-btn {
+    right: 20px;
+    top: 0px;
+    padding: 5px;
+  }
+  aside nav .sidebar-close-btn .x-icon {
+    filter: invert(0);
+  }
+  aside nav .navigation-container {
+    grid-template-columns: 1fr;
+  }
+  aside nav .navigation-container .navigation-tabs {
+    box-sizing: border-box;
+  }
+  aside nav .navigation-container .navigation-action {
+    box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 .section1-container {

@@ -44,7 +44,7 @@
         </div>
       </div>
     </header>
-    <aside id="sidebar">
+    <aside class="show" id="sidebar">
       <div id="sidebar-background" class="background-element"></div>
       <nav>
         <button id="nav-close-btn" class="sidebar-close-btn">
@@ -52,7 +52,7 @@
         </button>
         <div class="navigation-container">
           <div class="navigation-tabs">
-            <button class="navigation-btn selected">
+            <button id="models-btn" class="navigation-btn selected">
               Models
               <img
                 class="arrow-right"
@@ -60,7 +60,7 @@
                 alt="arrow-right"
               />
             </button>
-            <button class="navigation-btn">
+            <button id="vehicle-purchase-btn" class="navigation-btn">
               Vehicle Purchase
               <img
                 class="arrow-right"
@@ -68,7 +68,7 @@
                 alt="arrow-right"
               />
             </button>
-            <button class="navigation-btn">
+            <button id="dealer-btn" class="navigation-btn">
               Find a Dealer
               <img
                 class="arrow-right"
@@ -77,8 +77,8 @@
               />
             </button>
           </div>
-          <div class="navigation-action">
-            <div class="car-models-tab">
+          <div class="navigation-action show-models">
+            <div class="car-models-tab navigation-tab show">
               <div class="car-model-card">
                 <p class="car-model-name">718</p>
                 <img
@@ -150,8 +150,70 @@
                 </div>
               </div>
             </div>
-            <div class="vehicle-purchase-tab"></div>
-            <div class="dealers-tab"></div>
+            <div class="vehicle-purchase-tab navigation-tab">
+              <a href="#">Model Overview & Local Services</a>
+              <a href="#">Configure</a>
+              <a href="#">Compare Models</a>
+              <a href="#">Saved Vehicles</a>
+              <a href="#">Find New and Pre-owned Vehicles</a>
+              <a href="#">E-Mobility & E-Performance</a>
+              <a href="#">Genuine Accessories</a>
+            </div>
+            <div class="dealers-tab navigation-tab">
+              <button class="find-dealer-btn">
+                Search for dealers on a map
+                <img
+                  class="arrow-right-icon"
+                  src="./assets/icons/black-arrow-right.svg"
+                  alt="arrow pointing right"
+                />
+              </button>
+              <div class="dealer-details-container">
+                <p class="dealer-title">Porsche center Tbilisi</p>
+                <p class="dealer-address">
+                  12th km., David Agmashenebeli Alley, 0131 Tbilisi
+                </p>
+
+                <ul class="dealer-navigation-list">
+                  <li class="navigation-list-item">
+                    <a href="#">
+                      <img
+                        class="navigation-icon"
+                        src="./assets/icons/pin.svg"
+                        alt="pin"
+                      />
+                      Get Directions
+                    </a>
+                  </li>
+                  <li class="navigation-list-item">
+                    <a href="#">
+                      <img
+                        class="navigation-icon"
+                        src="./assets/icons/globe-black.svg"
+                        alt="pin"
+                      />
+                      Visit Dealer Website
+                    </a>
+                  </li>
+                  <li class="navigation-list-item">
+                    <a href="#">
+                      <img
+                        class="navigation-icon"
+                        src="./assets/icons/car.svg"
+                        alt="pin"
+                      />
+                      See Vehicles for this Dealer
+                    </a>
+                  </li>
+                </ul>
+                <button class="show-more-details-btn">
+                  <img
+                    src="./assets/icons/arrow-head-down.svg"
+                    alt="arrow pointing down"
+                  />how more details
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -799,6 +861,6 @@
         </div>
       </div>
     </footer>
-    <script src="./scripts/home-page/scripts.js"></script>
+    <script type="module" src="./scripts/home-page/scripts.js"></script>
   </body>
 </html>
