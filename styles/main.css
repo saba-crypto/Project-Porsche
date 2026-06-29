@@ -134,47 +134,6 @@ table {
   src: url(../../assets/fonts/porsche-next/porsche-next.ttf);
   font-display: swap;
 }
-@font-face {
-  font-family: Nexa Script;
-  src: url(../../assets/fonts/nexa-script/nexa-script-thin.otf);
-  font-weight: 200;
-  font-display: swap;
-}
-@font-face {
-  font-family: Nexa Script;
-  src: url(../../assets/fonts/nexa-script/nexa-script-light.otf);
-  font-weight: 300;
-  font-display: swap;
-}
-@font-face {
-  font-family: Nexa Script;
-  src: url(../../assets/fonts/nexa-script/nexa-script-regular.otf);
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: Nexa Script;
-  src: url(../../assets/fonts/nexa-script/nexa-script-semibold.otf);
-  font-weight: 600;
-  font-display: swap;
-}
-@font-face {
-  font-family: Nexa Script;
-  src: url(../../assets/fonts/nexa-script/nexa-script-bold.otf);
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: Nexa Script;
-  src: url(../../assets/fonts/nexa-script/nexa-script-heavy.otf);
-  font-weight: 800;
-  font-display: swap;
-}
-@font-face {
-  font-family: Din Next;
-  src: url(../../assets/fonts/din-next-font/DINNextW1G-Bold.otf);
-  font-display: swap;
-}
 header {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.904), transparent);
   position: fixed;
@@ -267,6 +226,408 @@ header .header-container .globe-tooltip {
   }
   header .header-container .globe-tooltip {
     white-space: wrap;
+  }
+}
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 65vw;
+  opacity: 0.5;
+  pointer-events: none;
+  transform: translateX(-105%);
+  z-index: 200;
+  transition-duration: 0.3s;
+}
+aside nav {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+aside nav .sidebar-close-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
+  border-radius: 50%;
+  padding: 7px;
+  transition-duration: 0.15s;
+}
+aside nav .sidebar-close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+aside nav .sidebar-close-btn:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+aside nav .sidebar-close-btn img {
+  width: clamp(20px, 2.5vw, 30px);
+}
+aside nav .sidebar-close-btn {
+  display: none;
+  position: absolute;
+  right: -90px;
+  top: 20px;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+aside nav .sidebar-close-btn .x-icon {
+  width: 25px;
+  filter: invert(100);
+}
+aside a {
+  text-decoration: none;
+  color: unset;
+}
+aside .background-element {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+aside.show {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
+}
+aside.show .background-element {
+  display: block;
+}
+aside.show .sidebar-close-btn {
+  display: block;
+}
+
+.navigation-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+}
+.navigation-container .navigation-tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: min(20px, 5vw);
+  background-color: #ffffff;
+  height: 100%;
+  padding: min(92px, 7vw) min(35px, 6vw);
+}
+.navigation-container .navigation-tabs .navigation-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  font-family: Porsche Next, Arial;
+  border: none;
+  background-color: transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  white-space: nowrap;
+}
+.navigation-container .navigation-tabs .navigation-btn .arrow-right {
+  width: 22px;
+}
+.navigation-container .navigation-tabs .navigation-btn.selected {
+  background-color: #f1f1f4;
+}
+.navigation-container .navigation-tabs .navigation-btn:hover:not(.selected) {
+  background-color: rgba(100, 101, 114, 0.236);
+  cursor: pointer;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.07);
+}
+.navigation-container .navigation-tabs .navigation-btn:active:not(.selected) {
+  opacity: 0.6;
+  transition-duration: 0s;
+}
+.navigation-container .navigation-action {
+  background-color: #f1f1f4;
+  height: 100%;
+  overflow-y: auto;
+}
+.navigation-container .navigation-action .navigation-tab {
+  padding: min(92px, 7vw) min(30px, 4vw);
+  box-sizing: border-box;
+  width: 100%;
+}
+.navigation-container .navigation-action .car-models-tab.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(30px, 6vw);
+}
+.navigation-container .navigation-action .vehicle-purchase-tab.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: min(40px, 6vw);
+}
+.navigation-container .navigation-action .dealers-tab.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(50px, 7vw);
+}
+
+.car-models-tab {
+  display: none;
+}
+.car-models-tab .car-model-card {
+  width: 100%;
+  font-family: Porsche Next, Arial;
+  padding: min(15px, 4vw);
+  border-radius: 12px;
+  box-sizing: border-box;
+  transition-duration: 0.15s;
+}
+.car-models-tab .car-model-card .car-model-name {
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  padding: 6px 12px;
+}
+.car-models-tab .car-model-card .car-model-image {
+  width: clamp(100px, 100%, 350px);
+  align-self: center;
+  transition-duration: 0.15s;
+}
+.car-models-tab .car-model-card .fuel-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.car-models-tab .car-model-card .fuel-type {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 50px;
+  background-color: #ffffff;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.15s;
+}
+.car-models-tab .car-model-card:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.car-models-tab .car-model-card:hover .car-model-image {
+  transform: translateX(5%);
+}
+.car-models-tab .car-model-card:hover .fuel-type {
+  background-color: #f1f1f4;
+}
+
+.vehicle-purchase-tab {
+  display: none;
+}
+.vehicle-purchase-tab a {
+  color: #000000;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  font-family: Porsche Next, Arial;
+  padding: 5px 10px;
+  transition-duration: 0.2s;
+  border-radius: 6px;
+}
+.vehicle-purchase-tab a:hover {
+  background-color: rgba(100, 101, 114, 0.236);
+}
+
+.dealers-tab {
+  display: none;
+}
+.dealers-tab .find-dealer-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+  border: none;
+  padding: min(20px, 7vw);
+  background-color: #e7e7ea;
+  width: 100%;
+  border-radius: 16px;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  font-family: Porsche Next, Arial;
+  transition-duration: 0.2s;
+}
+.dealers-tab .find-dealer-btn .arrow-right-icon {
+  width: 25px;
+}
+.dealers-tab .find-dealer-btn:hover {
+  background-color: rgba(100, 101, 114, 0.236);
+  cursor: pointer;
+}
+.dealers-tab .find-dealer-btn:hover .arrow-right-icon {
+  animation: bounce-right 0.5s ease-out;
+}
+.dealers-tab .find-dealer-btn:active {
+  opacity: 0.8;
+  transition-duration: 0s;
+}
+.dealers-tab .dealer-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  font-family: Porsche Next, Arial;
+  padding: min(40px, 7vw);
+  background-color: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.dealers-tab .dealer-details-container .dealer-title {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  color: #000000;
+}
+.dealers-tab .dealer-details-container .dealer-address {
+  color: #969799;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+}
+.dealers-tab .dealer-details-container .dealer-navigation-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item {
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition-duration: 0.2s;
+}
+.dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  color: #000000;
+}
+.dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item a .navigation-icon {
+  width: 25px;
+}
+.dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item:hover {
+  background-color: rgba(100, 101, 114, 0.236);
+}
+.dealers-tab .dealer-details-container .show-more-details-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+  border: none;
+  background-color: rgba(100, 101, 114, 0.236);
+  padding: min(18px, 6vw);
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  font-family: Porsche Next, Arial;
+  border-radius: 12px;
+  transition-duration: 0.2s;
+}
+.dealers-tab .dealer-details-container .show-more-details-btn .arrow-down-icon {
+  width: 25px;
+}
+.dealers-tab .dealer-details-container .show-more-details-btn:hover {
+  background-color: #f1f1f4;
+  cursor: pointer;
+}
+.dealers-tab .dealer-details-container .show-more-details-btn:hover .arrow-down-icon {
+  animation: float 0.7s infinite ease-in-out;
+}
+.dealers-tab .dealer-details-container .show-more-details-btn:active {
+  opacity: 0.7;
+  transition-duration: 0s;
+}
+
+@media (max-width: 1000px) {
+  aside {
+    width: 85vw;
+  }
+}
+@media (max-width: 760px) {
+  aside {
+    width: 100vw;
+  }
+  aside nav .sidebar-close-btn {
+    right: 20px;
+    top: 20px;
+    padding: 5px;
+  }
+  aside nav .sidebar-close-btn .x-icon {
+    filter: invert(0);
+  }
+  aside nav .navigation-container {
+    grid-template-columns: 1fr;
+  }
+  aside nav .navigation-container .navigation-tabs {
+    box-sizing: border-box;
+  }
+  aside nav .navigation-container .navigation-tabs .navigation-btn {
+    width: 80%;
+  }
+  aside nav .navigation-container .navigation-action {
+    box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 footer {
@@ -486,398 +847,6 @@ footer {
     transform: translateY(0);
   }
 }
-aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 65vw;
-  opacity: 0.5;
-  pointer-events: none;
-  transform: translateX(-105%);
-  z-index: 200;
-  transition-duration: 0.3s;
-}
-aside nav {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  z-index: 100;
-}
-aside nav .sidebar-close-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-}
-aside nav .sidebar-close-btn:hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-aside nav .sidebar-close-btn:active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-aside nav .sidebar-close-btn img {
-  width: clamp(20px, 2.5vw, 30px);
-}
-aside nav .sidebar-close-btn {
-  display: none;
-  position: absolute;
-  right: -90px;
-  top: 20px;
-  border: none;
-  padding: 15px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-aside nav .sidebar-close-btn .x-icon {
-  width: 25px;
-  filter: invert(100);
-}
-aside .background-element {
-  display: none;
-  position: fixed;
-  width: 100vw;
-  height: 100vw;
-  z-index: 50;
-  background-color: rgba(0, 0, 0, 0.401);
-  cursor: pointer;
-}
-aside img {
-  width: 100px;
-}
-
-aside.show {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(0);
-}
-aside.show .background-element {
-  display: block;
-}
-aside.show .sidebar-close-btn {
-  display: block;
-}
-
-.navigation-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 100%;
-  width: 100%;
-}
-.navigation-container .navigation-tabs {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: min(20px, 5vw);
-  background-color: #ffffff;
-  height: 100%;
-  padding: min(92px, 7vw) min(35px, 6vw);
-}
-.navigation-container .navigation-tabs .navigation-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
-  font-family: Porsche Next, Arial;
-  border: none;
-  background-color: transparent;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition-duration: 0.2s;
-  white-space: nowrap;
-}
-.navigation-container .navigation-tabs .navigation-btn .arrow-right {
-  width: 22px;
-}
-.navigation-container .navigation-tabs .navigation-btn.selected {
-  background-color: #f1f1f4;
-}
-.navigation-container .navigation-tabs .navigation-btn:hover {
-  background-color: rgba(100, 101, 114, 0.236);
-  cursor: pointer;
-  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.07);
-}
-.navigation-container .navigation-tabs .navigation-btn:active {
-  opacity: 0.6;
-  transition-duration: 0s;
-}
-.navigation-container .navigation-action {
-  background-color: #f1f1f4;
-  height: 100%;
-  overflow-y: auto;
-}
-.navigation-container .navigation-action .navigation-tab {
-  padding: min(92px, 7vw) min(30px, 4vw);
-  box-sizing: border-box;
-  width: 100%;
-}
-.navigation-container .navigation-action .car-models-tab {
-  display: none;
-}
-.navigation-container .navigation-action .vehicle-purchase-tab {
-  display: none;
-}
-.navigation-container .navigation-action .vehicle-purchase-tab a {
-  text-decoration: none;
-  color: #000000;
-  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
-  font-family: Porsche Next, Arial;
-  padding: 5px 10px;
-  transition-duration: 0.2s;
-  border-radius: 6px;
-}
-.navigation-container .navigation-action .vehicle-purchase-tab a:hover {
-  background-color: rgba(100, 101, 114, 0.236);
-}
-.navigation-container .navigation-action .dealers-tab {
-  display: none;
-}
-.navigation-container .navigation-action .dealers-tab .find-dealer-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0px;
-  border: none;
-  padding: min(20px, 7vw);
-  background-color: #e7e7ea;
-  width: 100%;
-  border-radius: 16px;
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  font-family: Porsche Next, Arial;
-  transition-duration: 0.2s;
-}
-.navigation-container .navigation-action .dealers-tab .find-dealer-btn .arrow-right-icon {
-  width: 25px;
-}
-.navigation-container .navigation-action .dealers-tab .find-dealer-btn:hover {
-  background-color: rgba(100, 101, 114, 0.236);
-  cursor: pointer;
-}
-.navigation-container .navigation-action .dealers-tab .find-dealer-btn:hover .arrow-right-icon {
-  animation: bounce-right 0.5s ease-out;
-}
-.navigation-container .navigation-action .dealers-tab .find-dealer-btn:active {
-  opacity: 0.8;
-  transition-duration: 0s;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
-  font-family: Porsche Next, Arial;
-  padding: min(40px, 7vw);
-  background-color: #ffffff;
-  border-radius: 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-title {
-  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
-  color: #000000;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-address {
-  color: #969799;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 10px;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item {
-  padding: 2px 4px;
-  border-radius: 6px;
-  transition-duration: 0.2s;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item a {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 5px;
-  text-decoration: none;
-  color: #000000;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item a .navigation-icon {
-  width: 25px;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .dealer-navigation-list .navigation-list-item:hover {
-  background-color: rgba(100, 101, 114, 0.236);
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  width: 100%;
-  border: none;
-  background-color: rgba(100, 101, 114, 0.236);
-  padding: min(18px, 6vw);
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  font-family: Porsche Next, Arial;
-  border-radius: 12px;
-  transition-duration: 0.2s;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn img {
-  width: 25px;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn:hover {
-  background-color: #f1f1f4;
-  cursor: pointer;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn:hover img {
-  animation: float 0.7s infinite ease-in-out;
-}
-.navigation-container .navigation-action .dealers-tab .dealer-details-container .show-more-details-btn:active {
-  opacity: 0.7;
-  transition-duration: 0s;
-}
-.navigation-container .navigation-action .car-models-tab.show {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: min(30px, 6vw);
-}
-.navigation-container .navigation-action .vehicle-purchase-tab.show {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: min(40px, 6vw);
-}
-.navigation-container .navigation-action .dealers-tab.show {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: min(50px, 7vw);
-}
-
-.car-model-card {
-  width: 100%;
-  font-family: Porsche Next, Arial;
-  padding: min(15px, 4vw);
-  border-radius: 12px;
-  box-sizing: border-box;
-  transition-duration: 0.15s;
-}
-.car-model-card .car-model-name {
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  padding: 6px 12px;
-}
-.car-model-card .car-model-image {
-  width: clamp(100px, 100%, 350px);
-  align-self: center;
-  transition-duration: 0.15s;
-}
-.car-model-card .fuel-types {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 5px;
-  flex-wrap: wrap;
-}
-.car-model-card .fuel-type {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 50px;
-  background-color: #ffffff;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.15s;
-}
-.car-model-card:hover {
-  background-color: #ffffff;
-  cursor: pointer;
-}
-.car-model-card:hover .car-model-image {
-  transform: translateX(5%);
-}
-.car-model-card:hover .fuel-type {
-  background-color: #f1f1f4;
-}
-
-@media (max-width: 1000px) {
-  aside {
-    width: 85vw;
-  }
-}
-@media (max-width: 760px) {
-  aside {
-    width: 100vw;
-  }
-  aside nav .sidebar-close-btn {
-    right: 20px;
-    top: 0px;
-    padding: 5px;
-  }
-  aside nav .sidebar-close-btn .x-icon {
-    filter: invert(0);
-  }
-  aside nav .navigation-container {
-    grid-template-columns: 1fr;
-  }
-  aside nav .navigation-container .navigation-tabs {
-    box-sizing: border-box;
-  }
-  aside nav .navigation-container .navigation-action {
-    box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1);
-  }
-}
-@keyframes bounce-right {
-  0% {
-    transform: translateX(0px);
-  }
-  25% {
-    transform: translateX(20px);
-  }
-  50% {
-    transform: translateX(-5px);
-  }
-  75% {
-    transform: translateX(10px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
 .section1-container {
   position: relative;
 }
@@ -981,26 +950,7 @@ aside.show .sidebar-close-btn {
     width: 100%;
   }
 }
-.section2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-}
-
-.section5-container {
-  max-height: 1100px;
-}
-
-.small-articles-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  width: 70%;
-  box-sizing: border-box;
-}
-.small-articles-container .small-article {
+.small-article {
   opacity: 0;
   transform: translateY(15%);
   position: relative;
@@ -1008,13 +958,13 @@ aside.show .sidebar-close-btn {
   overflow: hidden;
   transition-duration: 1s;
 }
-.small-articles-container .small-article:hover img {
+.small-article:hover img {
   transform: scale(1.07);
 }
-.small-articles-container .small-article {
+.small-article {
   z-index: 1;
 }
-.small-articles-container .small-article .article-banner {
+.small-article .article-banner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1022,7 +972,7 @@ aside.show .sidebar-close-btn {
   object-fit: cover;
   transition-duration: 0.35s;
 }
-.small-articles-container .small-article .article-content {
+.small-article .article-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1037,12 +987,12 @@ aside.show .sidebar-close-btn {
   box-sizing: border-box;
   z-index: 2;
 }
-.small-articles-container .small-article .article-name {
+.small-article .article-name {
   font-family: Porsche Next, Arial;
   font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
   color: #ffffff;
 }
-.small-articles-container .small-article .arrow-btn {
+.small-article .arrow-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1056,20 +1006,37 @@ aside.show .sidebar-close-btn {
   padding: 7px;
   transition-duration: 0.15s;
 }
-.small-articles-container .small-article .arrow-btn:hover {
+.small-article .arrow-btn:hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.small-articles-container .small-article .arrow-btn:active {
+.small-article .arrow-btn:active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
-.small-articles-container .small-article .arrow-btn img {
+.small-article .arrow-btn img {
   width: clamp(20px, 2.5vw, 30px);
 }
-.small-articles-container article.show {
+
+.small-article.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.section2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+
+.small-articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 70%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1000px) {
@@ -1124,7 +1091,6 @@ aside.show .sidebar-close-btn {
   left: 50%;
   transform: translateX(-50%);
   font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
-  font-family: Nexa Script, Arial;
   width: 100%;
   text-align: center;
   padding: min(30px, 9vw);
@@ -1463,6 +1429,9 @@ aside.show .sidebar-close-btn {
   justify-content: center;
   align-items: center;
   gap: 50px;
+}
+.section5 .section5-container {
+  max-height: 1100px;
 }
 .section5 h2 {
   font-family: Porsche Next, Arial;

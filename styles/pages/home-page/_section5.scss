@@ -2,6 +2,9 @@
 @use "../../abstracts/variables" as *;
 .section5 {
   @include flexbox(column, center, center, 50px);
+  .section5-container {
+    max-height: 1100px;
+  }
   h2 {
     font-family: $primary-font;
     font-size: $font-sizeX;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Porsche Georgia | Official Website</title>
-    <link rel="stylesheet" href="./styles/paged/main.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
     <link
       rel="icon"
       type="image/x-icon"
@@ -44,7 +44,7 @@
         </div>
       </div>
     </header>
-    <aside class="show" id="sidebar">
+    <aside id="sidebar">
       <div id="sidebar-background" class="background-element"></div>
       <nav>
         <button id="nav-close-btn" class="sidebar-close-btn">
@@ -77,7 +77,7 @@
               />
             </button>
           </div>
-          <div class="navigation-action show-models">
+          <div class="navigation-action">
             <div class="car-models-tab navigation-tab show">
               <div class="car-model-card">
                 <p class="car-model-name">718</p>
@@ -90,17 +90,19 @@
                   <p class="fuel-type">საწვავი</p>
                 </div>
               </div>
-              <div class="car-model-card">
-                <p class="car-model-name">911</p>
-                <img
-                  class="car-model-image"
-                  src="./assets/images/car-models/911/911-side-profile.webp"
-                  alt="porsche 911 side profile"
-                />
-                <div class="fuel-types">
-                  <p class="fuel-type">საწვავი</p>
+              <a href="./pages/911.html">
+                <div class="car-model-card">
+                  <p class="car-model-name">911</p>
+                  <img
+                    class="car-model-image"
+                    src="./assets/images/car-models/911/911-side-profile.webp"
+                    alt="porsche 911 side profile"
+                  />
+                  <div class="fuel-types">
+                    <p class="fuel-type">საწვავი</p>
+                  </div>
                 </div>
-              </div>
+              </a>
               <div class="car-model-card">
                 <p class="car-model-name">Taycan</p>
                 <img
@@ -208,6 +210,7 @@
                 </ul>
                 <button class="show-more-details-btn">
                   <img
+                    class="arrow-down-icon"
                     src="./assets/icons/arrow-head-down.svg"
                     alt="arrow pointing down"
                   />how more details
@@ -219,7 +222,7 @@
       </nav>
     </aside>
     <main>
-      <section id="hero-section" class="section1 hero-section">
+      <section id="section1" class="section1 hero-section">
         <div class="section1-container">
           <video
             class="page-video"
@@ -696,7 +699,7 @@
     <footer>
       <div class="footer-container">
         <div class="scroller footer-section">
-          <a href="#hero-section">
+          <a href="#section1">
             <img
               class="scroller-icon"
               src="./assets/icons/arrow-up.svg"
@@ -861,6 +864,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="./scripts/home-page/scripts.js"></script>
+    <script type="module" src="./scripts/pages/home-page.js"></script>
   </body>
 </html>

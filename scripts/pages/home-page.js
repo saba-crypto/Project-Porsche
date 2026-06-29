@@ -1,4 +1,4 @@
-import "../sidebar.js";
+import "../shared/sidebar.js";
 //section1 (hero section)
 const heroVideo = document.querySelector(".page-video");
 const videoToggleButton = document.querySelector(".video-playback-btn");

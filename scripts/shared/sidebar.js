@@ -26,30 +26,3 @@ navigationButtons.forEach((button, i) => {
     sidebarContentTabs[i].classList.add("show");
   });
 });
-
-// const sidebarContentElement = document.querySelector(".navigation-action");
-
-// const carModelsButton = document.getElementById("models-btn");
-// const carPurchaseButton = document.getElementById("vehicle-purchase-btn");
-// const dealerButton = document.getElementById("dealer-btn");
-
-// carModelsButton.addEventListener("click", () => {
-//   sidebarContentElement.classList.remove(
-//     "show-vehicle-purchase",
-//     "show-dealers-tab",
-//   );
-//   sidebarContentElement.classList.add("show-models");
-// });
-
-// carPurchaseButton.addEventListener("click", () => {
-//   sidebarContentElement.classList.remove("show-models", "show-dealers-tab");
-//   sidebarContentElement.classList.add("show-vehicle-purchase");
-// });
-
-// dealerButton.addEventListener("click", () => {
-//   sidebarContentElement.classList.remove(
-//     "show-models",
-//     "show-vehicle-purchase",
-//   );
-//   sidebarContentElement.classList.add("show-dealers-tab");
-// });
