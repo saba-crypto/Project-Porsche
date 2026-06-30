@@ -12,12 +12,17 @@ html {
 body {
   background-color: $background-clr-light;
   transition: background 1s;
+  font-family: $primary-font;
 }
 body.dark-mode {
   background-color: $background-clr-dark;
   .section-title {
     color: $font-clr-light;
   }
+}
+a {
+  text-decoration: none;
+  color: unset;
 }
 
 main {

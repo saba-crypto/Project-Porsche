@@ -1439,6 +1439,156 @@ footer {
   font-weight: 700;
 }
 
+.model-hero-section .section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(100px, 8vw);
+  width: 100%;
+  margin-top: 120px;
+}
+.model-hero-section .section-up {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0px;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(to top, #ededee, #ffffff);
+  height: clamp(80px, 20vw, 100vw);
+}
+.model-hero-section .section-up .model-signature-image {
+  width: clamp(135px, 35%, 10000px);
+  filter: invert(87%);
+}
+.model-hero-section .section-up .model-side-profile-image {
+  width: clamp(250px, 65%, 1000px);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25%;
+}
+.model-hero-section .section-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 65%;
+}
+.model-hero-section .section-down .model-type-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  background-color: #f1f1f4;
+  padding: 3px;
+  border-radius: 5px;
+  overflow-x: auto;
+  width: 100%;
+  max-width: min-content;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+.model-hero-section .section-down .model-type-slider ::-webkit-scrollbar {
+  display: none;
+}
+.model-hero-section .section-down .model-type-slider .model-type-link {
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition-duration: 0.15s;
+  white-space: nowrap;
+}
+.model-hero-section .section-down .model-type-slider .model-type-link.selected {
+  background-color: #d0d0d5;
+}
+.model-hero-section .section-down .model-type-slider .model-type-link:hover:not(.selected) {
+  background-color: #e7e7ea;
+}
+.model-hero-section .section-down .model-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.model-hero-section .section-down .model-details .model-name {
+  font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  color: #000000;
+}
+.model-hero-section .section-down .model-details .fuel-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.model-hero-section .section-down .model-details .fuel-types .fuel-type {
+  padding: 4px 8px;
+  background-color: #dbdbde;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+}
+.model-hero-section .section-down .model-details .model-starting-price {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  font-weight: 600;
+}
+.model-hero-section .section-down .model-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: min(20px, 2vw);
+  flex-wrap: wrap;
+  width: 100%;
+}
+.model-hero-section .section-down .model-btns .model-btn {
+  background-color: #dbdbde;
+  padding: min(20px, 5vw) min(32px, 3vw);
+  border: none;
+  color: #000000;
+  border-radius: 13px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+}
+.model-hero-section .section-down .model-btns .model-btn.special {
+  color: #ffffff;
+  background-color: #000000;
+}
+.model-hero-section .section-down .model-btns .model-btn.special:hover {
+  background-color: #555555;
+}
+.model-hero-section .section-down .model-btns .model-btn:hover {
+  cursor: pointer;
+  background-color: #efefef;
+}
+.model-hero-section .section-down .model-btns .model-btn:active {
+  transform: scale(0.98);
+  transition-duration: 0s;
+}
+.model-hero-section .section-down .additional-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.model-hero-section .section-down .additional-details .additional-detail {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  color: #969799;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .section-container .section-down .model-btns .model-btn {
+    width: 100%;
+  }
+}
 html {
   scroll-behavior: smooth;
 }
@@ -1446,6 +1596,7 @@ html {
 body {
   background-color: #ffffff;
   transition: background 1s;
+  font-family: Porsche Next, Arial;
 }
 
 body.dark-mode {
@@ -1453,6 +1604,11 @@ body.dark-mode {
 }
 body.dark-mode .section-title {
   color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }
 
 main {
