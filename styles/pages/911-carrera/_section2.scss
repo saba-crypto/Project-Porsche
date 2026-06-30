@@ -1,0 +1,76 @@
+@use "../../abstracts/mixins" as *;
+@use "../../abstracts/variables" as *;
+@use "../../components/buttons" as *;
+
+.model-specs-section {
+  @include flexbox(column, center, center);
+  width: 100%;
+  .section-container {
+    @include flexbox(column, center, flex-start, min(60px, 5vw));
+  }
+  .section-content {
+    @include flexbox(row, center, center, 30px);
+    .view-specs-btn {
+      @include gray-button(min(18px, 4vw), min(25px, 4vw));
+    }
+  }
+  .model-specs-wrapper {
+    @include flexbox(column, center, flex-start, min(70px, 7vw));
+
+    .model-specs {
+      @include flexbox(column, center, flex-start, min(55px, 7vw));
+      .spec {
+        @include flexbox(column, center, flex-start, 5px);
+        white-space: nowrap;
+        .spec-result {
+          font-size: $font-sizeXXL;
+          span {
+            font-size: $font-sizeM;
+          }
+        }
+        .spec-description {
+          color: $font-clr-darkened;
+          font-size: $font-sizeS;
+        }
+      }
+    }
+  }
+  .model-image {
+    width: clamp(200px, 40vw, 600px);
+  }
+  .view-specs-btn {
+    @include gray-button(min(18px, 4vw), min(25px, 4vw));
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .model-specs-section {
+    .section-container {
+      align-items: center;
+      .view-specs-btn {
+        width: 80%;
+      }
+    }
+    .section-content {
+      flex-direction: column;
+      width: 80%;
+      .view-specs-btn {
+        display: block;
+        width: 100%;
+      }
+      .model-specs-wrapper {
+        width: 100%;
+        align-items: center;
+        .model-specs {
+          align-items: center;
+          .spec {
+            align-items: center;
+          }
+        }
+      }
+      .model-image {
+        width: 100%;
+      }
+    }
+  }
+}

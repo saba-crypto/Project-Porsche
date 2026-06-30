@@ -1,5 +1,6 @@
 @use "../../abstracts/mixins" as *;
 @use "../../abstracts/variables" as *;
+@use "../../components/buttons" as *;
 
 .model-hero-section {
   .section-container {
@@ -27,7 +28,7 @@
     }
   }
   .section-down {
-    @include flexbox(column, center, center, 30px);
+    @include flexbox(column, center, center, min(30px, 5vw));
     width: 65%;
     .model-type-slider {
       @include flexbox(row, flex-start, center, 4px);
@@ -81,29 +82,7 @@
       flex-wrap: wrap;
       width: 100%;
       .model-btn {
-        background-color: #dbdbde;
-        padding: min(20px, 5vw) min(32px, 3vw);
-        border: none;
-        color: $font-clr-dark;
-        border-radius: 13px;
-        font-size: $font-sizeS;
-        transition-duration: 0.2s;
-        white-space: nowrap;
-        &.special {
-          color: $font-clr-light;
-          background-color: #000000;
-          &:hover {
-            background-color: #555555;
-          }
-        }
-        &:hover {
-          cursor: pointer;
-          background-color: #efefef;
-        }
-        &:active {
-          transform: scale(0.98);
-          transition-duration: 0s;
-        }
+        @include gray-button(min(20px, 5vw), min(32px, 3vw));
       }
     }
     .additional-details {

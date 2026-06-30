@@ -4,4 +4,12 @@
 @use "../../layout/footer";
 @use "../../layout/header";
 @use "../../layout/sidebar";
-@use "../../pages/911-carrera/section1";
+@use "./section1";
+@use "./section2";
+
+.page911 {
+  main {
+    //distance between sections
+    gap: clamp(40px, 15vw, 180px);
+  }
+}

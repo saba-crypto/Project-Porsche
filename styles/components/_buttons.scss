@@ -1,0 +1,53 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+@mixin gray-button(
+  $-padding-vertical: min(12px, 4vw),
+  $-padding-horizontal: min(24px, 4vw)
+) {
+  background-color: #dbdbde;
+  color: $font-clr-dark;
+  padding: $-padding-vertical $-padding-horizontal;
+  border: none;
+  border-radius: 10px;
+  font-size: $font-sizeS;
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+  &:hover {
+    background-color: #efefef;
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.99);
+    transition-duration: 0s;
+  }
+  &.black {
+    background-color: #000000;
+    color: #ffffff;
+    &:hover {
+      background-color: #000000bb;
+    }
+  }
+}
+
+@mixin arrow-btn($blur: 10px) {
+  @include flexbox(row, center, center);
+  @include glassmorphism();
+  border: none;
+  border-radius: 50%;
+  padding: 7px;
+  transition-duration: 0.15s;
+  box-sizing: border-box;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.0892);
+    cursor: pointer;
+  }
+  &:active {
+    transition-duration: 0s;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  img {
+    width: clamp(20px, 2.5vw, 30px);
+  }
+}

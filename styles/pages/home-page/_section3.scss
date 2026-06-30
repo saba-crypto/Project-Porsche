@@ -1,5 +1,7 @@
 @use "../../abstracts/mixins" as *;
 @use "../../abstracts/variables" as *;
+@use "../../components/buttons" as *;
+
 .section3-container {
   @include flexbox(column, center, center, 20px);
   width: 92vw;
