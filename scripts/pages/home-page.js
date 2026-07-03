@@ -9,16 +9,19 @@ videoToggleButton.addEventListener("click", () => {
 
 //section2
 const smallArticles = document.querySelectorAll(".small-article");
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    setTimeout(() => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    }, i * 200);
-  });
-}, {});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, i) => {
+      setTimeout(() => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      }, i * 200);
+    });
+  },
+  { threshold: 0.4 },
+);
 
 smallArticles.forEach((article) => {
   observer.observe(article);

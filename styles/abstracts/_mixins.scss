@@ -20,7 +20,7 @@
 @mixin fade-to($fade-direction) {
   background: linear-gradient(
     to $fade-direction,
-    rgba(0, 0, 0, 0.904),
-    transparent
+    rgba(0, 0, 0, 1) 50%,
+    transparent 100%
   );
 }
