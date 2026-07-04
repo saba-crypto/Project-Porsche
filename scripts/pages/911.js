@@ -1,11 +1,17 @@
 import "../shared/sidebar.js";
 
-const sliderNavigationButtons = document.querySelectorAll(".model-part-link");
-const sliderNavigationArrows = document.querySelectorAll(".arrow-btn");
-const sliderNavigationLinks = document.querySelectorAll(".navigation-link");
-const carModelSlides = document.querySelectorAll(".slider-card");
+//car parts slider
+const carPartSliderNavigationButtons =
+  document.querySelectorAll(".model-part-link");
+const carPartSliderNavigationArrows = document.querySelectorAll(
+  ".car-part-arrow-btn",
+);
+const carPartsSliderNavigationLinks = document.querySelectorAll(
+  ".car-part-navigation-link",
+);
+const carPartSlides = document.querySelectorAll(".car-part-slide");
 
-let currentSlide = carModelSlides[0];
+let currentSlide = carPartSlides[0];
 let currentSlideIndex = Number(currentSlide.dataset.index);
 
 const modelPartsObserver = new IntersectionObserver(
@@ -16,54 +22,105 @@ const modelPartsObserver = new IntersectionObserver(
         currentSlide = entry.target;
         currentSlideIndex = i;
 
-        sliderNavigationLinks[i].classList.add("selected");
-        manageSliderNavigationButtons(entry);
-        manageNavigationArrows(entry, i);
+        carPartsSliderNavigationLinks[i].classList.add("selected");
+        manageSliderNavigationButtons(entry, carPartSliderNavigationButtons);
+        manageNavigationArrows(
+          entry,
+          i,
+          carPartSliderNavigationArrows,
+          carPartSlides,
+        );
       } else {
-        sliderNavigationLinks[i].classList.remove("selected");
+        carPartsSliderNavigationLinks[i].classList.remove("selected");
       }
     });
   },
-  { threshold: 0.7 },
+  { threshold: 0.8 },
 );
 
-carModelSlides.forEach((slide, i) => {
+carPartSlides.forEach((slide, i) => {
   slide.dataset.index = i;
   modelPartsObserver.observe(slide);
 });
 
-function manageSliderNavigationButtons(entry) {
+//highlights slider
+
+let currentHighlightSlide;
+let currentHighlightSlideIndex;
+const carHighlightsSlides = document.querySelectorAll(".highlights-slide");
+const carHighlightsArrows = document.querySelectorAll(".highlights-arrow-btn");
+const carHighlightsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      currentHighlightSlide = entry.target;
+      let i = Number(entry.target.dataset.index);
+      currentHighlightSlideIndex = i;
+      manageNavigationArrows(
+        entry,
+        i,
+        carHighlightsArrows,
+        carHighlightsSlides,
+      );
+    });
+  },
+  { threshold: 0.8 },
+);
+carHighlightsSlides.forEach((slide, i) => {
+  slide.dataset.index = i;
+  carHighlightsObserver.observe(slide);
+});
+
+function manageSliderNavigationButtons(entry, buttons) {
   if (entry.target.id === "slide3") {
-    sliderNavigationButtons[0].classList.remove("selected");
-    sliderNavigationButtons[1].classList.add("selected");
+    buttons[0].classList.remove("selected");
+    buttons[1].classList.add("selected");
   } else if (entry.target.id === "slide1") {
-    sliderNavigationButtons[1].classList.remove("selected");
-    sliderNavigationButtons[0].classList.add("selected");
+    buttons[1].classList.remove("selected");
+    buttons[0].classList.add("selected");
   }
 }
 
-function manageNavigationArrows(entry, i) {
+function manageNavigationArrows(entry, i, arrows, slides) {
   if (i === 0) {
-    sliderNavigationArrows[0].classList.add("disabled");
-    sliderNavigationArrows[1].classList.remove("disabled");
-  } else if (i === carModelSlides.length - 1) {
-    sliderNavigationArrows[0].classList.remove("disabled");
-    sliderNavigationArrows[1].classList.add("disabled");
+    arrows[0].classList.add("disabled");
+    arrows[1].classList.remove("disabled");
+  } else if (i === slides.length - 1) {
+    arrows[0].classList.remove("disabled");
+    arrows[1].classList.add("disabled");
   } else {
-    sliderNavigationArrows[0].classList.remove("disabled");
-    sliderNavigationArrows[1].classList.remove("disabled");
+    arrows[0].classList.remove("disabled");
+    arrows[1].classList.remove("disabled");
   }
 }
 
-sliderNavigationArrows.forEach((arrow) => {
+carPartSliderNavigationArrows.forEach((arrow) => {
   arrow.addEventListener("click", (event) => {
     if (event.target.classList.contains("arrow-btn-left")) {
-      carModelSlides[currentSlideIndex - 1].scrollIntoView({
+      carPartSlides[currentSlideIndex - 1].scrollIntoView({
         behavior: "smooth",
         block: "end",
       });
     } else if (event.target.classList.contains("arrow-btn-right")) {
-      carModelSlides[currentSlideIndex + 1].scrollIntoView({
+      carPartSlides[currentSlideIndex + 1].scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  });
+});
+
+carHighlightsArrows.forEach((arrow) => {
+  arrow.addEventListener("click", () => {
+    // if (arrow.classList.contains("disabled")) {
+    //   return;
+    // }
+    if (event.target.classList.contains("arrow-btn-left")) {
+      carHighlightsSlides[currentHighlightSlideIndex - 1].scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    } else if (event.target.classList.contains("arrow-btn-right")) {
+      carHighlightsSlides[currentHighlightSlideIndex + 1].scrollIntoView({
         behavior: "smooth",
         block: "end",
       });

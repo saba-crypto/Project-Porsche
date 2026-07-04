@@ -1,6 +1,7 @@
 @use "../../abstracts/mixins" as *;
 @use "../../abstracts/variables" as *;
 @use "../../components/buttons" as *;
+@use "../../components/slider-navigation" as *;
 
 .model-details-section {
   width: 100%;
@@ -121,12 +122,13 @@
       display: grid;
       scroll-behavior: smooth;
       overflow-x: auto;
-      scrollbar-width: none;
+
       grid-auto-flow: column;
       grid-auto-columns: 90%;
       gap: min(30px, 3vw);
       padding: 0 20vw;
       box-sizing: border-box;
+      scrollbar-width: none;
       ::-webkit-scrollbar {
         display: none;
       }
@@ -158,21 +160,7 @@
       }
     }
     .slider-navigation {
-      @include flexbox(row, center, center, 10px);
-      .navigation-link {
-        padding: 5px;
-        background-color: #707071;
-        border-radius: 50vh;
-        transition-duration: 0.2s;
-        &.selected {
-          background-color: rgb(0, 0, 0);
-          padding: 5px 13px;
-          pointer-events: none;
-        }
-        &:not(.selected) {
-          cursor: pointer;
-        }
-      }
+      @include slider-navigation();
     }
     .fuel-consumption-text {
       color: $font-clr-darkened;

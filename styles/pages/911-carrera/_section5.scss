@@ -1,2 +1,129 @@
 @use "../../abstracts/mixins" as *;
 @use "../../abstracts/variables" as *;
+@use "../../components/buttons" as *;
+@use "../../components/slider-navigation" as *;
+
+.highlights-section {
+  width: 100%;
+  img {
+    width: 100px;
+  }
+  .section-container {
+    @include flexbox(column, center, center, 20px);
+    width: 100%;
+  }
+  .section-heading {
+    font-size: $font-sizeXL;
+  }
+  .arrow-btns {
+    @include flexbox(row, center, center, 5px);
+    align-self: flex-end;
+    padding: 0 min(110px, 6vw);
+    .arrow-btn {
+      @include arrow-btn();
+      background-color: transparent;
+      padding: 9px;
+      transition-duration: 0.15s;
+      box-shadow: none;
+      .arrow-icon {
+        width: 22px;
+        pointer-events: none;
+        filter: invert(100);
+      }
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      &.disabled:hover {
+        background-color: unset;
+      }
+      &:not(.disabled):hover {
+        background-color: #dbdbde;
+      }
+    }
+    .arrow-btn-left {
+      transform: rotate(180deg);
+    }
+  }
+  .slider-wrapper {
+    width: 100%;
+    .slider {
+      @include flexbox(row, flex-start, center, min(20px, 2.5vw));
+      padding: 0 10vw;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      box-sizing: border-box;
+      height: 85vh;
+      scrollbar-width: none;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .slider-card {
+        position: relative;
+        border-radius: $primary-border-radius;
+        overflow: hidden;
+        scroll-snap-align: center;
+        //width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        .slider-media {
+          position: relative;
+          height: 100%;
+          max-width: 70vw;
+          min-width: 250px;
+          .slider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          &::after {
+            @include fade-to(top);
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 28%;
+            z-index: 2;
+          }
+        }
+        .slider-body {
+          @include flexbox(column, center, flex-start, min(25px, 5vw));
+          color: $font-clr-light;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: min(30px, 5vw);
+          box-sizing: border-box;
+          z-index: 3;
+          .slider-heading {
+            font-size: $font-sizeX;
+          }
+          .slider-description {
+            font-size: $font-sizeS;
+            line-height: 130%;
+          }
+        }
+      }
+    }
+  }
+  .slider-navigation {
+    @include slider-navigation();
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .highlights-section {
+    .arrow-btns {
+      display: none;
+    }
+    .slider-wrapper {
+      .slider {
+        padding: 0 min(100px, 5vw);
+        height: 60vh;
+      }
+    }
+  }
+}
