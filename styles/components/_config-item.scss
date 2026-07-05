@@ -1,0 +1,17 @@
+@mixin config-item() {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 2px;
+  transition-duration: 0.1s;
+  &:hover {
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  &:active {
+    scale: 0.95;
+    transition-duration: 0.01s;
+  }
+}
