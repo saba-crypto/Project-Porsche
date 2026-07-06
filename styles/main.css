@@ -2301,6 +2301,7 @@ footer {
 }
 .model-configuration-section .section-heading {
   font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  text-align: center;
 }
 .model-configuration-section .model-config-window {
   width: 100%;
@@ -2308,7 +2309,7 @@ footer {
   display: grid;
   grid-template-columns: 6fr 2fr;
   grid-template-rows: 1fr;
-  gap: min(40px, 6vw);
+  gap: min(40px, 4vw);
   align-items: start;
 }
 .model-configuration-section .model-config-window .config-left {
@@ -2431,6 +2432,10 @@ footer {
 .model-configuration-section .model-config-window .config-left .thumbnails .thumbnail:not(.selected):hover {
   cursor: pointer;
 }
+.model-configuration-section .model-config-window .config-left .thumbnails .thumbnail:not(.selected):active {
+  transition-duration: 0.03s;
+  scale: 0.95;
+}
 .model-configuration-section .model-config-window .config-left .thumbnails .thumbnail .thumbnail-image {
   width: 100%;
   border-radius: 10px;
@@ -2440,7 +2445,7 @@ footer {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: min(20px, 3vw);
   height: 100%;
 }
 .model-configuration-section .model-config-window .config-right .color-config-container,
@@ -2510,6 +2515,63 @@ footer {
   scale: 0.95;
   transition-duration: 0.01s;
 }
+.model-configuration-section .model-config-window .config-right .config-container-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: min(15px, 4vw);
+  border-radius: 15px;
+  box-sizing: border-box;
+  width: 30%;
+  max-height: 100px;
+  min-width: min-content;
+  flex-grow: 1;
+}
+.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 2px;
+  transition-duration: 0.1s;
+}
+.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item:hover {
+  border: 2px solid black;
+  cursor: pointer;
+}
+.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item:active {
+  scale: 0.95;
+  transition-duration: 0.01s;
+}
+.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item {
+  width: clamp(25px, 20vw, 50px);
+  height: 100%;
+}
+.model-configuration-section .model-config-window .config-right .config-container-mobile .plus-icon {
+  width: clamp(25px, 20vw, 50px);
+  min-width: 40px;
+  padding: 10px;
+  aspect-ratio: 1/1;
+  background-color: #dbdbde;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition-duration: 0.15s;
+}
+.model-configuration-section .model-config-window .config-right .config-container-mobile .plus-icon:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+  cursor: pointer;
+}
+.model-configuration-section .model-config-window .config-right .config-container-mobile .plus-icon:active {
+  transition-duration: 0s;
+  opacity: 0.7;
+}
 .model-configuration-section .model-config-window .config-right .rims-config-container {
   display: flex;
   flex-direction: column;
@@ -2567,6 +2629,7 @@ footer {
 }
 .model-configuration-section .section-description {
   font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  text-align: center;
 }
 .model-configuration-section .build-btn {
   background-color: #dbdbde;
@@ -2600,11 +2663,37 @@ footer {
     padding: 0;
   }
   .model-configuration-section .section-container .model-config-window {
+    height: auto;
     grid-template-columns: 1fr;
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: 1fr min-content;
   }
   .model-configuration-section .section-container .model-config-window .main-window {
     border-radius: unset;
+  }
+  .model-configuration-section .section-container .model-config-window .config-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 min(100px, 5vw);
+  }
+  .model-configuration-section .section-container .model-config-window .config-right .color-config-container {
+    display: none;
+  }
+  .model-configuration-section .section-container .model-config-window .config-right .color-config-container-mobile {
+    display: flex;
+  }
+  .model-configuration-section .section-container .model-config-window .config-right .rims-config-container {
+    display: none;
+  }
+  .model-configuration-section .section-container .model-config-window .config-right .rims-config-container-mobile {
+    display: flex;
+  }
+  .model-configuration-section .section-container .model-config-window .config-right .interactions-config-container {
+    display: none;
+  }
+  .model-configuration-section .section-container .model-config-window .config-right .interactions-config-container-mobile {
+    display: flex;
   }
 }
 .page911 main {

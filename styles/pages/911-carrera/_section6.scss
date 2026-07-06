@@ -6,12 +6,14 @@
 .model-configuration-section {
   width: 100%;
   padding: 0 min(140px, 6.5vw);
+
   .section-container {
     @include flexbox(column, center, center, min(80px, 5vw));
     width: 100%;
   }
   .section-heading {
     font-size: $font-sizeXL;
+    text-align: center;
   }
   .model-config-window {
     width: 100%;
@@ -19,7 +21,7 @@
     display: grid;
     grid-template-columns: 6fr 2fr;
     grid-template-rows: 1fr;
-    gap: min(40px, 6vw);
+    gap: min(40px, 4vw);
     align-items: start;
     .config-left {
       @include flexbox(column, center, flex-start, 20px);
@@ -124,6 +126,10 @@
           &:not(.selected):hover {
             cursor: pointer;
           }
+          &:not(.selected):active {
+            transition-duration: 0.03s;
+            scale: 0.95;
+          }
 
           .thumbnail-image {
             width: 100%;
@@ -133,7 +139,7 @@
       }
     }
     .config-right {
-      @include flexbox(column, flex-start, center, 20px);
+      @include flexbox(column, flex-start, center, min(20px, 3vw));
       height: 100%;
       .color-config-container,
       .rims-config-container,
@@ -184,6 +190,49 @@
           }
         }
       }
+      .config-container-mobile {
+        @include flexbox(row, space-between, center, 10px);
+        justify-content: center;
+        align-items: center;
+        display: none;
+        box-shadow:
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+        padding: min(15px, 4vw);
+        border-radius: 15px;
+        box-sizing: border-box;
+        width: 30%;
+        max-height: 100px;
+        min-width: min-content;
+        flex-grow: 1;
+        .config-item {
+          @include config-item();
+          width: clamp(25px, 20vw, 50px);
+          height: 100%;
+        }
+        .plus-icon {
+          width: clamp(25px, 20vw, 50px);
+          min-width: 40px;
+          padding: 10px;
+          aspect-ratio: 1/1;
+          background-color: $light-dark-clr;
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition-duration: 0.15s;
+          &:hover {
+            background-color: $hover-background-clr;
+            cursor: pointer;
+          }
+          &:active {
+            transition-duration: 0s;
+            opacity: 0.7;
+          }
+        }
+      }
+
       .rims-config-container {
         @include flexbox(column, flex-start, flex-start, 20px);
         .rims-scroller {
@@ -192,6 +241,7 @@
           }
         }
       }
+
       .interactions-config-container {
         @include flexbox(column, flex-start, flex-start, 20px);
         .interactions-scroller {
@@ -207,6 +257,7 @@
   }
   .section-description {
     font-size: $font-sizeM;
+    text-align: center;
   }
   .build-btn {
     @include gray-button(min(20px, 6vw), min(60px, 6vw));
@@ -218,10 +269,36 @@
     padding: 0;
     .section-container {
       .model-config-window {
+        height: auto;
         grid-template-columns: 1fr;
-        grid-template-rows: 4fr 1fr;
+        grid-template-rows: 1fr min-content;
         .main-window {
           border-radius: unset;
+        }
+        .config-right {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          padding: 0 min(100px, 5vw);
+          .color-config-container {
+            display: none;
+          }
+          .color-config-container-mobile {
+            display: flex;
+          }
+          .rims-config-container {
+            display: none;
+          }
+          .rims-config-container-mobile {
+            display: flex;
+          }
+          .interactions-config-container {
+            display: none;
+          }
+          .interactions-config-container-mobile {
+            display: flex;
+          }
         }
       }
     }
