@@ -2304,11 +2304,8 @@ footer {
   text-align: center;
 }
 .model-configuration-section .model-config-window {
-  width: 100%;
-  height: 85vh;
   display: grid;
   grid-template-columns: 6fr 2fr;
-  grid-template-rows: 1fr;
   gap: min(40px, 4vw);
   align-items: start;
 }
@@ -2318,15 +2315,14 @@ footer {
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
-  align-self: flex-start;
 }
-.model-configuration-section .model-config-window .config-left .main-window {
+.model-configuration-section .model-config-window .main-window {
   position: relative;
   width: 100%;
   border-radius: 32px;
   overflow: hidden;
 }
-.model-configuration-section .model-config-window .config-left .main-window .theme-controller {
+.model-configuration-section .model-config-window .main-window .theme-controller {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -2341,15 +2337,15 @@ footer {
   z-index: 2;
   transition-duration: 0.15s;
 }
-.model-configuration-section .model-config-window .config-left .main-window .theme-controller:hover {
+.model-configuration-section .model-config-window .main-window .theme-controller:hover {
   cursor: pointer;
   background-color: rgb(40, 40, 40);
 }
-.model-configuration-section .model-config-window .config-left .main-window .moon-icon {
+.model-configuration-section .model-config-window .main-window .moon-icon {
   width: 24px;
   filter: invert(100);
 }
-.model-configuration-section .model-config-window .config-left .main-window .model-signature-text {
+.model-configuration-section .model-config-window .main-window .model-signature-text {
   position: absolute;
   top: min(30px, 4vw);
   left: min(30px, 4vw);
@@ -2357,11 +2353,11 @@ footer {
   z-index: 2;
   filter: invert(100);
 }
-.model-configuration-section .model-config-window .config-left .main-window .background-media {
+.model-configuration-section .model-config-window .main-window .background-media {
   position: relative;
   width: 100%;
 }
-.model-configuration-section .model-config-window .config-left .main-window .background-media::after {
+.model-configuration-section .model-config-window .main-window .background-media::after {
   background: linear-gradient(to top, rgb(0, 0, 0) 50%, transparent 100%);
   content: "";
   position: absolute;
@@ -2371,11 +2367,11 @@ footer {
   height: 15%;
   z-index: 1;
 }
-.model-configuration-section .model-config-window .config-left .main-window .background-media .background-image {
+.model-configuration-section .model-config-window .main-window .background-media .background-image {
   width: 100%;
   object-fit: cover;
 }
-.model-configuration-section .model-config-window .config-left .main-window .slider-navigation {
+.model-configuration-section .model-config-window .main-window .slider-navigation {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -2387,33 +2383,32 @@ footer {
   left: 50%;
   transform: translateX(-50%);
 }
-.model-configuration-section .model-config-window .config-left .main-window .slider-navigation .navigation-item {
+.model-configuration-section .model-config-window .main-window .navigation-item {
   background-color: #dbdbde;
   padding: 4.5px;
   border-radius: 50px;
 }
-.model-configuration-section .model-config-window .config-left .main-window .slider-navigation .navigation-item.selected {
+.model-configuration-section .model-config-window .main-window .navigation-item.selected {
   background-color: white;
   padding: 4.5px 14px;
 }
-.model-configuration-section .model-config-window .config-left .main-window .slider-navigation .navigation-item:not(.selected):hover {
+.model-configuration-section .model-config-window .main-window .navigation-item:not(.selected):hover {
   cursor: pointer;
 }
-.model-configuration-section .model-config-window .config-left .thumbnails {
+.model-configuration-section .model-config-window .thumbnails {
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
 }
-.model-configuration-section .model-config-window .config-left .thumbnails ::-webkit-scrollbar {
+.model-configuration-section .model-config-window .thumbnails ::-webkit-scrollbar {
   display: none;
 }
-.model-configuration-section .model-config-window .config-left .thumbnails .thumbnail {
+.model-configuration-section .model-config-window .thumbnail {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -2426,58 +2421,70 @@ footer {
   box-sizing: border-box;
   transition-duration: 0.1s;
 }
-.model-configuration-section .model-config-window .config-left .thumbnails .thumbnail.selected, .model-configuration-section .model-config-window .config-left .thumbnails .thumbnail:hover {
+.model-configuration-section .model-config-window .thumbnail.selected, .model-configuration-section .model-config-window .thumbnail:hover {
   border: 2px solid black;
 }
-.model-configuration-section .model-config-window .config-left .thumbnails .thumbnail:not(.selected):hover {
+.model-configuration-section .model-config-window .thumbnail:not(.selected):hover {
   cursor: pointer;
 }
-.model-configuration-section .model-config-window .config-left .thumbnails .thumbnail:not(.selected):active {
+.model-configuration-section .model-config-window .thumbnail:not(.selected):active {
   transition-duration: 0.03s;
-  scale: 0.95;
+  transform: scale(0.95);
 }
-.model-configuration-section .model-config-window .config-left .thumbnails .thumbnail .thumbnail-image {
+.model-configuration-section .model-config-window .thumbnail .thumbnail-image {
   width: 100%;
   border-radius: 10px;
 }
 .model-configuration-section .model-config-window .config-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: min(20px, 3vw);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: min(15px, 3vw);
   height: 100%;
 }
-.model-configuration-section .model-config-window .config-right .color-config-container,
-.model-configuration-section .model-config-window .config-right .rims-config-container,
-.model-configuration-section .model-config-window .config-right .interactions-config-container {
-  height: 100%;
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-  padding: 20px;
-  border-radius: 15px;
-  box-sizing: border-box;
-}
-.model-configuration-section .model-config-window .config-right .config-heading {
+.model-configuration-section .model-config-window .config-heading {
   font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
   font-weight: 600;
 }
-.model-configuration-section .model-config-window .config-right .config-grid {
+.model-configuration-section .model-config-window .config-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  height: 100%;
+}
+.model-configuration-section .model-config-window .config-container .config-grid {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
   gap: 6px;
   place-items: center;
+  height: 100%;
 }
-.model-configuration-section .model-config-window .config-right .color-config-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
+.model-configuration-section .model-config-window .config-container .config-item {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 2px;
+  transition-duration: 0.1s;
 }
-.model-configuration-section .model-config-window .config-right .color-config-container .color-scroller {
+.model-configuration-section .model-config-window .config-container .config-item:hover {
+  border: 2px solid black;
+  cursor: pointer;
+}
+.model-configuration-section .model-config-window .config-container .config-item:active {
+  scale: 0.95;
+  transition-duration: 0.01s;
+}
+.model-configuration-section .model-config-window .color-config-container .color-scroller {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -2485,55 +2492,33 @@ footer {
   gap: 20px;
   overflow-y: auto;
   max-height: 200px;
-  width: 100%;
 }
-.model-configuration-section .model-config-window .config-right .color-config-container .color-scroller .color-category {
+.model-configuration-section .model-config-window .color-config-container .color-scroller .color-category {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
-  width: 100%;
 }
-.model-configuration-section .model-config-window .config-right .color-config-container .color-scroller .color-category .color-category-heading {
+.model-configuration-section .model-config-window .color-config-container .color-scroller .color-category-heading {
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
 }
-.model-configuration-section .model-config-window .config-right .color-config-container .color-scroller .color-category .colors .config-clr {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 15px;
-  box-sizing: border-box;
-  padding: 2px;
-  transition-duration: 0.1s;
-}
-.model-configuration-section .model-config-window .config-right .color-config-container .color-scroller .color-category .colors .config-clr:hover {
-  border: 2px solid black;
-  cursor: pointer;
-}
-.model-configuration-section .model-config-window .config-right .color-config-container .color-scroller .color-category .colors .config-clr:active {
-  scale: 0.95;
-  transition-duration: 0.01s;
-}
-.model-configuration-section .model-config-window .config-right .config-container-mobile {
+.model-configuration-section .model-config-window .config-container-mobile {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
   justify-content: center;
   align-items: center;
-  display: none;
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
   padding: min(15px, 4vw);
   border-radius: 15px;
-  box-sizing: border-box;
   width: 30%;
-  max-height: 100px;
   min-width: min-content;
   flex-grow: 1;
+  box-sizing: border-box;
+  display: none;
 }
-.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item {
+.model-configuration-section .model-config-window .config-container-mobile .config-item {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -2542,19 +2527,19 @@ footer {
   padding: 2px;
   transition-duration: 0.1s;
 }
-.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item:hover {
+.model-configuration-section .model-config-window .config-container-mobile .config-item:hover {
   border: 2px solid black;
   cursor: pointer;
 }
-.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item:active {
+.model-configuration-section .model-config-window .config-container-mobile .config-item:active {
   scale: 0.95;
   transition-duration: 0.01s;
 }
-.model-configuration-section .model-config-window .config-right .config-container-mobile .config-item {
+.model-configuration-section .model-config-window .config-container-mobile .config-item {
   width: clamp(25px, 20vw, 50px);
   height: 100%;
 }
-.model-configuration-section .model-config-window .config-right .config-container-mobile .plus-icon {
+.model-configuration-section .model-config-window .config-container-mobile .plus-icon {
   width: clamp(25px, 20vw, 50px);
   min-width: 40px;
   padding: 10px;
@@ -2564,61 +2549,13 @@ footer {
   box-sizing: border-box;
   transition-duration: 0.15s;
 }
-.model-configuration-section .model-config-window .config-right .config-container-mobile .plus-icon:hover {
+.model-configuration-section .model-config-window .config-container-mobile .plus-icon:hover {
   background-color: rgba(100, 100, 100, 0.8);
   cursor: pointer;
 }
-.model-configuration-section .model-config-window .config-right .config-container-mobile .plus-icon:active {
+.model-configuration-section .model-config-window .config-container-mobile .plus-icon:active {
   transition-duration: 0s;
   opacity: 0.7;
-}
-.model-configuration-section .model-config-window .config-right .rims-config-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
-}
-.model-configuration-section .model-config-window .config-right .rims-config-container .rims-scroller .config-rim {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 15px;
-  box-sizing: border-box;
-  padding: 2px;
-  transition-duration: 0.1s;
-}
-.model-configuration-section .model-config-window .config-right .rims-config-container .rims-scroller .config-rim:hover {
-  border: 2px solid black;
-  cursor: pointer;
-}
-.model-configuration-section .model-config-window .config-right .rims-config-container .rims-scroller .config-rim:active {
-  scale: 0.95;
-  transition-duration: 0.01s;
-}
-.model-configuration-section .model-config-window .config-right .interactions-config-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
-}
-.model-configuration-section .model-config-window .config-right .interactions-config-container .interactions-scroller .config-interaction {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 15px;
-  box-sizing: border-box;
-  padding: 2px;
-  transition-duration: 0.1s;
-}
-.model-configuration-section .model-config-window .config-right .interactions-config-container .interactions-scroller .config-interaction:hover {
-  border: 2px solid black;
-  cursor: pointer;
-}
-.model-configuration-section .model-config-window .config-right .interactions-config-container .interactions-scroller .config-interaction:active {
-  scale: 0.95;
-  transition-duration: 0.01s;
 }
 .model-configuration-section .section-footer {
   display: flex;
@@ -2627,11 +2564,11 @@ footer {
   align-items: center;
   gap: 20px;
 }
-.model-configuration-section .section-description {
+.model-configuration-section .section-footer .section-description {
   font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
   text-align: center;
 }
-.model-configuration-section .build-btn {
+.model-configuration-section .section-footer .build-btn {
   background-color: #dbdbde;
   color: #000000;
   padding: min(20px, 6vw) min(60px, 6vw);
@@ -2642,19 +2579,19 @@ footer {
   white-space: nowrap;
   box-sizing: border-box;
 }
-.model-configuration-section .build-btn:hover {
+.model-configuration-section .section-footer .build-btn:hover {
   background-color: #efefef;
   cursor: pointer;
 }
-.model-configuration-section .build-btn:active {
+.model-configuration-section .section-footer .build-btn:active {
   transform: scale(0.99);
   transition-duration: 0s;
 }
-.model-configuration-section .build-btn.black {
+.model-configuration-section .section-footer .build-btn.black {
   background-color: #000000;
   color: #ffffff;
 }
-.model-configuration-section .build-btn.black:hover {
+.model-configuration-section .section-footer .build-btn.black:hover {
   background-color: rgba(0, 0, 0, 0.7333333333);
 }
 
@@ -2662,38 +2599,90 @@ footer {
   .model-configuration-section {
     padding: 0;
   }
-  .model-configuration-section .section-container .model-config-window {
-    height: auto;
+  .model-configuration-section .model-config-window {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr min-content;
   }
-  .model-configuration-section .section-container .model-config-window .main-window {
+  .model-configuration-section .model-config-window .main-window {
     border-radius: unset;
   }
-  .model-configuration-section .section-container .model-config-window .config-right {
+  .model-configuration-section .model-config-window .config-right {
+    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: min(10px, 3vw);
+    flex-wrap: wrap;
     padding: 0 min(100px, 5vw);
   }
-  .model-configuration-section .section-container .model-config-window .config-right .color-config-container {
+  .model-configuration-section .model-config-window .config-container {
     display: none;
   }
-  .model-configuration-section .section-container .model-config-window .config-right .color-config-container-mobile {
+  .model-configuration-section .model-config-window .config-container-mobile {
     display: flex;
   }
-  .model-configuration-section .section-container .model-config-window .config-right .rims-config-container {
-    display: none;
+}
+.model-video-section {
+  padding: 0 min(130px, 10vw);
+  width: 100%;
+  box-sizing: border-box;
+}
+.model-video-section .section-container {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.model-video-section .model-video {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+}
+.model-video-section .video-playback-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  padding: min(15px, 2.5vw);
+  border-radius: 50%;
+  border: none;
+  transition: background 0.15s;
+}
+.model-video-section .video-playback-btn:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.model-video-section .video-playback-btn:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.model-video-section .video-playback-btn img {
+  width: clamp(15px, 5vw, 27px);
+}
+.model-video-section .video-playback-btn .play-icon {
+  display: none;
+}
+.model-video-section .video-playback-btn.video-paused .play-icon {
+  display: block;
+}
+.model-video-section .video-playback-btn.video-paused .pause-icon {
+  display: none;
+}
+.model-video-section .video-playback-btn {
+  position: absolute;
+  bottom: min(20px, 5vw);
+  right: min(20px, 5vw);
+}
+
+@media (max-width: 760px) {
+  .model-video-section {
+    padding: 0 min(50px, 6vw);
   }
-  .model-configuration-section .section-container .model-config-window .config-right .rims-config-container-mobile {
-    display: flex;
-  }
-  .model-configuration-section .section-container .model-config-window .config-right .interactions-config-container {
-    display: none;
-  }
-  .model-configuration-section .section-container .model-config-window .config-right .interactions-config-container-mobile {
-    display: flex;
+  .model-video-section .model-video {
+    height: clamp(300px, 150vw, 1000px);
   }
 }
 .page911 main {

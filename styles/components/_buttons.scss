@@ -1,4 +1,4 @@
-@use "../abstracts/mixins" as *;
+@use "../abstracts/mixins" as mixins;
 @use "../abstracts/variables" as *;
 
 @mixin gray-button(
@@ -32,8 +32,8 @@
 }
 
 @mixin arrow-btn($blur: 10px) {
-  @include flexbox(row, center, center);
-  @include glassmorphism();
+  @include mixins.flexbox(row, center, center);
+  @include mixins.glassmorphism();
   border: none;
   border-radius: 50%;
   padding: 7px;
@@ -49,5 +49,36 @@
   }
   img {
     width: clamp(20px, 2.5vw, 30px);
+  }
+}
+
+@mixin video-playback-button() {
+  @include mixins.flexbox(row, center, center);
+  @include mixins.glassmorphism(10px);
+  padding: $paddingM;
+  border-radius: 50%;
+  border: none;
+  transition: background 0.15s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.0892);
+    cursor: pointer;
+  }
+  &:active {
+    transition-duration: 0s;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  img {
+    width: clamp(15px, 5vw, 27px);
+  }
+  .play-icon {
+    display: none;
+  }
+  &.video-paused {
+    .play-icon {
+      display: block;
+    }
+    .pause-icon {
+      display: none;
+    }
   }
 }

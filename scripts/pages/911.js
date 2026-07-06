@@ -111,9 +111,6 @@ carPartSliderNavigationArrows.forEach((arrow) => {
 
 carHighlightsArrows.forEach((arrow) => {
   arrow.addEventListener("click", () => {
-    // if (arrow.classList.contains("disabled")) {
-    //   return;
-    // }
     if (event.target.classList.contains("arrow-btn-left")) {
       carHighlightsSlides[currentHighlightSlideIndex - 1].scrollIntoView({
         behavior: "smooth",
@@ -127,3 +124,18 @@ carHighlightsArrows.forEach((arrow) => {
     }
   });
 });
+
+const videoPlaybackButton = document.querySelector(".video-playback-btn");
+const modelVideo = document.querySelector(".model-video");
+videoPlaybackButton.addEventListener("click", (event) => {
+  toggleVideo(modelVideo, videoPlaybackButton);
+});
+function toggleVideo(video, button) {
+  if (video.paused) {
+    video.play();
+    button.classList.remove("video-paused");
+  } else {
+    video.pause();
+    button.classList.add("video-paused");
+  }
+}

@@ -1,14 +1,14 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/config-item" as *;
-@use "../../components/buttons" as *;
+@use "../../components/model-configs" as config-components;
+@use "../../components/buttons" as button-components;
 
 .model-configuration-section {
   width: 100%;
   padding: 0 min(140px, 6.5vw);
 
   .section-container {
-    @include flexbox(column, center, center, min(80px, 5vw));
+    @include mixins.flexbox(column, center, center, min(80px, 5vw));
     width: 100%;
   }
   .section-heading {
@@ -16,290 +16,185 @@
     text-align: center;
   }
   .model-config-window {
-    width: 100%;
-    height: 85vh;
     display: grid;
     grid-template-columns: 6fr 2fr;
-    grid-template-rows: 1fr;
     gap: min(40px, 4vw);
     align-items: start;
     .config-left {
-      @include flexbox(column, center, flex-start, 20px);
-      align-self: flex-start;
-
-      .main-window {
-        position: relative;
-        width: 100%;
-        border-radius: $primary-border-radius;
-        overflow: hidden;
-        .theme-controller {
-          position: absolute;
-          @include flexbox(row, center, center);
-          background-color: black;
-          padding: min(15px, 2.5vw);
-          border-radius: 50%;
-          bottom: min(30px, 4vw);
-          left: min(30px, 4vw);
-          z-index: 2;
-          transition-duration: 0.15s;
-          &:hover {
-            cursor: pointer;
-            background-color: rgba(40, 40, 40);
-          }
-        }
-        .moon-icon {
-          width: 24px;
-          filter: invert(100);
-        }
-        .model-signature-text {
-          position: absolute;
-          top: min(30px, 4vw);
-          left: min(30px, 4vw);
-          width: clamp(60px, 8vw, 105px);
-          z-index: 2;
-          filter: invert(100);
-        }
-        .background-media {
-          position: relative;
-          width: 100%;
-          &::after {
-            @include fade-to(top);
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 15%;
-            z-index: 1;
-          }
-          .background-image {
-            width: 100%;
-            object-fit: cover;
-          }
-        }
-        .slider-navigation {
-          @include flexbox(row, center, center, 7px);
-          position: absolute;
-          z-index: 2;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-
-          .navigation-item {
-            background-color: $light-dark-clr;
-            padding: 4.5px;
-            border-radius: 50px;
-
-            &.selected {
-              background-color: white;
-              padding: 4.5px 14px;
-            }
-            &:not(.selected):hover {
-              cursor: pointer;
-            }
-          }
+      @include mixins.flexbox(column, center, flex-start, 20px);
+    }
+    .main-window {
+      position: relative;
+      width: 100%;
+      border-radius: $primary-border-radius;
+      overflow: hidden;
+      .theme-controller {
+        position: absolute;
+        @include mixins.flexbox(row, center, center);
+        background-color: black;
+        padding: min(15px, 2.5vw);
+        border-radius: 50%;
+        bottom: min(30px, 4vw);
+        left: min(30px, 4vw);
+        z-index: 2;
+        transition-duration: 0.15s;
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(40, 40, 40);
         }
       }
-      .thumbnails {
+      .moon-icon {
+        width: 24px;
+        filter: invert(100);
+      }
+      .model-signature-text {
+        position: absolute;
+        top: min(30px, 4vw);
+        left: min(30px, 4vw);
+        width: clamp(60px, 8vw, 105px);
+        z-index: 2;
+        filter: invert(100);
+      }
+      .background-media {
         position: relative;
-        @include flexbox(row, flex-start, center, 10px);
         width: 100%;
-        overflow-x: auto;
-        scrollbar-width: none;
-
-        ::-webkit-scrollbar {
-          display: none;
+        &::after {
+          @include mixins.fade-to(top);
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 15%;
+          z-index: 1;
         }
-        .thumbnail {
-          @include flexbox(row, center, center);
-          flex: 0 0 110px;
-          border-radius: 12px;
-          overflow: hidden;
-          padding: 2px;
-          box-sizing: border-box;
-          transition-duration: 0.1s;
+        .background-image {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .slider-navigation {
+        @include mixins.flexbox(row, center, center, 7px);
+        position: absolute;
+        z-index: 2;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navigation-item {
+        background-color: $light-dark-clr;
+        padding: 4.5px;
+        border-radius: 50px;
 
-          &.selected,
-          &:hover {
-            border: 2px solid black;
-          }
-          &:not(.selected):hover {
-            cursor: pointer;
-          }
-          &:not(.selected):active {
-            transition-duration: 0.03s;
-            scale: 0.95;
-          }
-
-          .thumbnail-image {
-            width: 100%;
-            border-radius: 10px;
-          }
+        &.selected {
+          background-color: white;
+          padding: 4.5px 14px;
+        }
+        &:not(.selected):hover {
+          cursor: pointer;
         }
       }
     }
-    .config-right {
-      @include flexbox(column, flex-start, center, min(20px, 3vw));
-      height: 100%;
-      .color-config-container,
-      .rims-config-container,
-      .interactions-config-container {
-        height: 100%;
-        width: 100%;
-        box-shadow:
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-        padding: 20px;
-        border-radius: 15px;
-        box-sizing: border-box;
-      }
-      .config-heading {
-        font-size: $font-sizeM;
-        font-weight: 600;
-      }
-      .config-grid {
-        display: grid;
-        width: 100%;
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 1fr;
-        gap: 6px;
-        place-items: center;
-      }
-      .color-config-container {
-        @include flexbox(column, center, flex-start, 20px);
+    .thumbnails {
+      position: relative;
+      @include mixins.flexbox(row, flex-start, center, 10px);
 
-        .color-scroller {
-          @include flexbox(column, flex-start, flex-start, 20px);
-          overflow-y: auto;
-          max-height: 200px;
-          width: 100%;
-          .color-category {
-            @include flexbox(column, center, flex-start, 10px);
-            width: 100%;
-            .color-category-heading {
-              font-size: $font-sizeS;
-            }
-            .colors {
-              .config-clr {
-                @include config-item();
-              }
-            }
-          }
-        }
-      }
-      .config-container-mobile {
-        @include flexbox(row, space-between, center, 10px);
-        justify-content: center;
-        align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+      ::-webkit-scrollbar {
         display: none;
-        box-shadow:
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-          rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-        padding: min(15px, 4vw);
-        border-radius: 15px;
-        box-sizing: border-box;
-        width: 30%;
-        max-height: 100px;
-        min-width: min-content;
-        flex-grow: 1;
-        .config-item {
-          @include config-item();
-          width: clamp(25px, 20vw, 50px);
-          height: 100%;
-        }
-        .plus-icon {
-          width: clamp(25px, 20vw, 50px);
-          min-width: 40px;
-          padding: 10px;
-          aspect-ratio: 1/1;
-          background-color: $light-dark-clr;
-          border-radius: 50%;
-          box-sizing: border-box;
-          transition-duration: 0.15s;
-          &:hover {
-            background-color: $hover-background-clr;
-            cursor: pointer;
-          }
-          &:active {
-            transition-duration: 0s;
-            opacity: 0.7;
-          }
-        }
       }
+    }
+    .thumbnail {
+      @include mixins.flexbox(row, center, center);
+      flex: 0 0 110px;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 2px;
+      box-sizing: border-box;
+      transition-duration: 0.1s;
 
-      .rims-config-container {
-        @include flexbox(column, flex-start, flex-start, 20px);
-        .rims-scroller {
-          .config-rim {
-            @include config-item();
-          }
-        }
+      &.selected,
+      &:hover {
+        border: 2px solid black;
       }
+      &:not(.selected):hover {
+        cursor: pointer;
+      }
+      &:not(.selected):active {
+        transition-duration: 0.03s;
+        transform: scale(0.95);
+      }
+      .thumbnail-image {
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
 
-      .interactions-config-container {
-        @include flexbox(column, flex-start, flex-start, 20px);
-        .interactions-scroller {
-          .config-interaction {
-            @include config-item();
-          }
+    .config-right {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr 1fr 1fr;
+      gap: min(15px, 3vw);
+      height: 100%;
+    }
+
+    .config-heading {
+      font-size: $font-sizeM;
+      font-weight: 600;
+    }
+    .config-container {
+      @include config-components.config-container();
+    }
+    .color-config-container {
+      .color-scroller {
+        @include mixins.flexbox(column, flex-start, flex-start, 20px);
+        overflow-y: auto;
+        max-height: 200px;
+        .color-category {
+          @include mixins.flexbox(column, center, flex-start, 10px);
+        }
+        .color-category-heading {
+          font-size: $font-sizeS;
         }
       }
+    }
+
+    .config-container-mobile {
+      @include config-components.config-container(mobile);
     }
   }
   .section-footer {
-    @include flexbox(column, center, center, 20px);
-  }
-  .section-description {
-    font-size: $font-sizeM;
-    text-align: center;
-  }
-  .build-btn {
-    @include gray-button(min(20px, 6vw), min(60px, 6vw));
+    @include mixins.flexbox(column, center, center, 20px);
+    .section-description {
+      font-size: $font-sizeM;
+      text-align: center;
+    }
+    .build-btn {
+      @include button-components.gray-button(min(20px, 6vw), min(60px, 6vw));
+    }
   }
 }
 
 @media (max-width: $breakpointXL) {
   .model-configuration-section {
     padding: 0;
-    .section-container {
-      .model-config-window {
-        height: auto;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr min-content;
-        .main-window {
-          border-radius: unset;
-        }
-        .config-right {
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-          padding: 0 min(100px, 5vw);
-          .color-config-container {
-            display: none;
-          }
-          .color-config-container-mobile {
-            display: flex;
-          }
-          .rims-config-container {
-            display: none;
-          }
-          .rims-config-container-mobile {
-            display: flex;
-          }
-          .interactions-config-container {
-            display: none;
-          }
-          .interactions-config-container-mobile {
-            display: flex;
-          }
-        }
+    .model-config-window {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr min-content;
+      .main-window {
+        border-radius: unset;
+      }
+      .config-right {
+        @include mixins.flexbox(row, center, center, min(10px, 3vw));
+        flex-wrap: wrap;
+        padding: 0 min(100px, 5vw);
+      }
+      .config-container {
+        display: none;
+      }
+      .config-container-mobile {
+        display: flex;
       }
     }
   }
