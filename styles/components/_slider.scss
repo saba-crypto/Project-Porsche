@@ -1,0 +1,32 @@
+@use "../abstracts/mixins" as mixins;
+
+@mixin slider($padding-x: 10vw) {
+  @include mixins.flexbox(row, flex-start, center, min(90px, 5vw));
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  padding: 0 $padding-x;
+  scrollbar-width: none;
+  box-sizing: border-box;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin slider-navigation() {
+  @include mixins.flexbox(row, center, center, 10px);
+  .navigation-link {
+    padding: 5px;
+    background-color: #707071;
+    border-radius: 50vh;
+    transition-duration: 0.2s;
+    &.selected {
+      background-color: rgb(0, 0, 0);
+      padding: 5px 13px;
+      pointer-events: none;
+    }
+    &:not(.selected) {
+      cursor: pointer;
+    }
+  }
+}

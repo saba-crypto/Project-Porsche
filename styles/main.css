@@ -2685,6 +2685,126 @@ footer {
     height: clamp(300px, 150vw, 1000px);
   }
 }
+.model-parts-section .section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(100px, 11vw);
+}
+.model-parts-section .section-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(30px, 3vw);
+  width: clamp(200px, 60%, 100%);
+}
+.model-parts-section .section-heading {
+  font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  text-align: center;
+}
+.model-parts-section .section-description {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  line-height: 140%;
+  text-align: center;
+}
+.model-parts-section .slider-wrapper {
+  width: 100%;
+}
+.model-parts-section .slider-wrapper .slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(90px, 5vw);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  padding: 0 10vw;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+.model-parts-section .slider-wrapper .slider ::-webkit-scrollbar {
+  display: none;
+}
+.model-parts-section .slider-wrapper .slider-card {
+  scroll-snap-align: center;
+  flex: 0 0 75vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
+}
+.model-parts-section .slider-wrapper .slider-card .slide-image-wrapper {
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.model-parts-section .slider-wrapper .slider-card .slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.model-parts-section .slider-wrapper .slider-card .slide-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: min(30px, 4vw);
+  padding: min(50px, 6vw);
+  box-sizing: border-box;
+}
+.model-parts-section .slider-wrapper .slider-card .slide-heading {
+  font-size: clamp(1.4rem, 3vw + 0.3rem, 2.3rem);
+  font-weight: 400;
+}
+.model-parts-section .slider-wrapper .slider-card .slide-description {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  line-height: 150%;
+}
+.model-parts-section .slider-wrapper .slider-card .slide-additional-text {
+  font-size: clamp(0.6rem, 1.1vw + 0.15rem, 0.8rem);
+  color: #8b8b8b;
+  margin-top: 10px;
+}
+.model-parts-section .slider-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.model-parts-section .slider-navigation .navigation-link {
+  padding: 5px;
+  background-color: #707071;
+  border-radius: 50vh;
+  transition-duration: 0.2s;
+}
+.model-parts-section .slider-navigation .navigation-link.selected {
+  background-color: rgb(0, 0, 0);
+  padding: 5px 13px;
+  pointer-events: none;
+}
+.model-parts-section .slider-navigation .navigation-link:not(.selected) {
+  cursor: pointer;
+}
+.model-parts-section .slider-navigation {
+  margin-top: min(50px, 5vw);
+  align-self: center;
+}
+
+@media (max-width: 1000px) {
+  .model-parts-section .slider-wrapper .slider {
+    padding: 0 min(20px, 3vw);
+  }
+  .model-parts-section .slider-wrapper .slider-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .model-parts-section .slider-wrapper .slider-card .slide-body {
+    padding: 0;
+  }
+}
 .page911 main {
   gap: clamp(40px, 15vw, 180px);
 }
