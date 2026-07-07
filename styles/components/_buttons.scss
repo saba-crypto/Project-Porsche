@@ -82,3 +82,21 @@
     }
   }
 }
+
+@mixin glass-button($padding-y: 0px, $padding-x: 0px) {
+  @include mixins.glassmorphism();
+  border: none;
+  box-sizing: border-box;
+  padding: $padding-y $padding-x;
+  transition: background 0.15s;
+  font-size: $font-sizeM;
+  border-radius: 10px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.0892);
+    cursor: pointer;
+  }
+  &:active {
+    transition-duration: 0s;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
