@@ -20,8 +20,11 @@
     grid-template-columns: 6fr 2fr;
     gap: min(40px, 4vw);
     align-items: start;
+    width: 100%;
     .config-left {
       @include mixins.flexbox(column, center, flex-start, 20px);
+      overflow: hidden;
+      width: 100%;
     }
     .main-window {
       position: relative;
@@ -96,8 +99,11 @@
       }
     }
     .thumbnails {
-      position: relative;
       @include mixins.flexbox(row, flex-start, center, 10px);
+
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 100%;
 
       overflow-x: auto;
       scrollbar-width: none;

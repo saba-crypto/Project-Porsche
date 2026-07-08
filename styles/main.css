@@ -2308,6 +2308,7 @@ footer {
   grid-template-columns: 6fr 2fr;
   gap: min(40px, 4vw);
   align-items: start;
+  width: 100%;
 }
 .model-configuration-section .model-config-window .config-left {
   display: flex;
@@ -2315,6 +2316,8 @@ footer {
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  overflow: hidden;
+  width: 100%;
 }
 .model-configuration-section .model-config-window .main-window {
   position: relative;
@@ -2396,12 +2399,14 @@ footer {
   cursor: pointer;
 }
 .model-configuration-section .model-config-window .thumbnails {
-  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
 }
