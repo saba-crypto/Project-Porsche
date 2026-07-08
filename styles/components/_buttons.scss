@@ -39,16 +39,40 @@
   padding: 7px;
   transition-duration: 0.15s;
   box-sizing: border-box;
-  &:hover {
+  &:not(.disabled):hover {
     background-color: rgba(0, 0, 0, 0.0892);
     cursor: pointer;
   }
-  &:active {
+  &:not(.disabled):active {
     transition-duration: 0s;
     background-color: rgba(0, 0, 0, 0.15);
   }
+
   img {
     width: clamp(20px, 2.5vw, 30px);
+  }
+}
+@mixin navigation-arrow-buttons() {
+  @include mixins.flexbox(row, center, center, 5px);
+  .arrow-btn {
+    @include arrow-btn();
+    background-color: transparent;
+    padding: 9px;
+    transition-duration: 0.15s;
+    .arrow-icon {
+      width: 22px;
+      pointer-events: none;
+    }
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:not(.disabled):hover {
+      background-color: #414143;
+    }
+  }
+  .arrow-btn-left {
+    transform: rotate(180deg);
   }
 }
 

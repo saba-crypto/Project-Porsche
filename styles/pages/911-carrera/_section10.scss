@@ -1,0 +1,296 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../components/buttons" as button-components;
+@use "../../abstracts/variables" as *;
+@use "../../components/slider" as slider-components;
+.porsche-models-section {
+  .section-container {
+    @include mixins.flexbox(column, center, center, min(40px, 5vw)); //temp
+  }
+  .section-heading {
+    font-size: $font-sizeXL;
+    text-align: center;
+  }
+  .section-navigation {
+    @include mixins.flexbox(column, center, center, min(40px, 4vw));
+    width: 100%;
+    .compare-selector {
+      @include mixins.flexbox(column, center, center, 10px);
+      .compare-text {
+        font-size: $font-sizeM;
+      }
+      .compare-btns {
+        @include mixins.flexbox(row, center, center, min(10px, 4vw));
+      }
+      .compare-btn {
+        @include button-components.gray-button($paddingS, $paddingM);
+        &.selected {
+          background-color: #f3f3f4;
+          border: $light-dark-clr 1px solid;
+        }
+      }
+    }
+    .model-navigation-wrapper {
+      @include mixins.flexbox(row, space-between, center, 20px);
+      width: 100%;
+      padding: 0 10vw;
+      box-sizing: border-box;
+      .model-type-slider {
+        @include slider-components.slider-navigation-tabs();
+      }
+      .arrow-btns {
+        @include button-components.navigation-arrow-buttons();
+        .arrow-btn {
+          background-color: transparent;
+          box-shadow: none;
+
+          .arrow-icon {
+            filter: invert(100);
+          }
+          &:not(.disabled):hover {
+            background-color: #dbdbde;
+          }
+        }
+      }
+    }
+  }
+  img {
+    width: 25px;
+  }
+  .slider-wrapper {
+    width: 100%;
+    display: grid;
+    gap: 20px;
+  }
+
+  .slider {
+    @include slider-components.slider();
+    gap: min(40px, 5vw);
+    padding: 100px 10vw;
+    padding-bottom: 0;
+    height: 100%;
+    box-sizing: border-box;
+    .slide {
+      @include mixins.flexbox(
+        column,
+        space-between,
+        flex-start,
+        min(40px, 4vw)
+      );
+      position: relative;
+      flex: 0 0 24vw;
+      background-color: #f1f1f4;
+      padding: $paddingXL;
+      border-radius: $primary-border-radius;
+      min-width: 250px;
+      scroll-snap-align: center;
+      height: 100%;
+      box-sizing: border-box;
+      .head {
+        width: 100%;
+        padding-top: 30px;
+        .head-content {
+          @include mixins.flexbox(column, center, flex-start, 10px);
+        }
+        .model-name {
+          font-size: $font-sizeL;
+        }
+        .model-starting-price {
+          font-size: $font-sizeXS;
+          color: rgb(60, 60, 60);
+        }
+        .model-details {
+          @include mixins.flexbox(row, flex-start, center, 5px);
+          flex-wrap: wrap;
+          .model-detail {
+            font-size: $font-sizeS;
+            background-color: $background-clr-light;
+            padding: $paddingXS $paddingS;
+            border-radius: 50px;
+            &.model-year {
+              background-color: $background-clr-dark;
+              color: $font-clr-light;
+            }
+          }
+        }
+      }
+      .body {
+        @include mixins.flexbox(column, center, flex-start, 20px);
+        width: 100%;
+        .model-spec {
+          @include mixins.flexbox(column, center, flex-start, 5px);
+        }
+        .model-spec-result {
+          font-size: $font-sizeL;
+        }
+        .model-spec-detail {
+          font-size: $font-sizeS;
+          color: rgb(60, 60, 60);
+        }
+      }
+      .footer {
+        @include mixins.flexbox(column, center, flex-start, 20px);
+        padding-top: $paddingL;
+        width: 100%;
+        .fuel-consumption {
+          font-size: $font-sizeXS;
+          color: rgb(60, 60, 60);
+        }
+        .technical-data-link {
+          text-decoration: underline;
+          font-size: $font-sizeS;
+          padding: $paddingXS;
+          border-radius: 50px;
+          transition-duration: 0.15s;
+          &:hover {
+            background-color: $light-dark-clr;
+          }
+        }
+        .configure-btn {
+          @include button-components.gray-button($paddingL, $paddingL);
+          font-size: $font-sizeS;
+          background-color: #dbdbde;
+          box-shadow: none;
+          width: 100%;
+          transition-duration: 0.2s;
+        }
+        .explore-btn {
+          @include button-components.gray-button($paddingL, $paddingL);
+          width: 100%;
+        }
+        .compare-container {
+          @include mixins.flexbox(row, flex-start, center, 5px);
+          &:hover .compare-input {
+            outline: 1px solid black;
+            cursor: pointer;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+          .compare-input {
+            position: relative;
+            appearance: none;
+            outline: 1px solid rgb(147, 147, 147);
+            width: 18px;
+            height: 18px;
+            border-radius: 5px;
+            background-color: $light-dark-clr;
+            box-sizing: border-box;
+
+            &::before {
+              content: "";
+              display: none;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              background-color: black;
+              border-radius: 5px;
+              width: 75%;
+              height: 75%;
+            }
+            &:checked {
+              &::before {
+                display: block;
+              }
+            }
+          }
+          .compare-text {
+            font-size: $font-sizeL;
+          }
+        }
+      }
+
+      .model-image {
+        position: absolute;
+
+        top: -5vw;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+      }
+    }
+    .slide.selected {
+      border: 2px solid $light-dark-clr;
+      background-color: $background-clr-light;
+      .head {
+        .model-detail {
+          background-color: $light-dark-clr;
+        }
+      }
+      .footer {
+        .explore-btn {
+          display: none;
+        }
+      }
+    }
+  }
+  .slider-navigation {
+    @include slider-components.slider-navigation();
+  }
+}
+
+@media (max-width: $breakpointXL) {
+  .porsche-models-section {
+    .section-container {
+      .section-navigation {
+        .model-navigation-wrapper {
+          .arrow-btns {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: $breakpointL) {
+  .porsche-models-section {
+    .slider {
+      padding-top: 100px;
+      .slide {
+        flex-basis: 80vw;
+        .head {
+          .model-name {
+            font-size: $font-sizeXL;
+          }
+          .model-starting-price {
+            font-size: $font-sizeL;
+          }
+          .model-details {
+            .model-detail {
+              font-size: $font-sizeL;
+            }
+          }
+        }
+        .body {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          .model-spec-result {
+            font-size: calc($font-sizeL + 1vw);
+          }
+          .model-spec-detail {
+            font-size: $font-sizeM;
+          }
+        }
+        .footer {
+          padding-top: min(70px, 3vw);
+        }
+
+        .model-image {
+          top: -17vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointM) {
+  .porsche-models-section {
+    .section-container {
+      .slider {
+        .body {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}

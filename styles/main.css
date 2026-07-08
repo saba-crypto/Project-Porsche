@@ -265,11 +265,11 @@ aside nav .sidebar-close-btn {
   transition-duration: 0.15s;
   box-sizing: border-box;
 }
-aside nav .sidebar-close-btn:hover {
+aside nav .sidebar-close-btn:not(.disabled):hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-aside nav .sidebar-close-btn:active {
+aside nav .sidebar-close-btn:not(.disabled):active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
@@ -1008,11 +1008,11 @@ footer {
   transition-duration: 0.15s;
   box-sizing: border-box;
 }
-.small-article .arrow-btn:hover {
+.small-article .arrow-btn:not(.disabled):hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.small-article .arrow-btn:active {
+.small-article .arrow-btn:not(.disabled):active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
@@ -1163,11 +1163,11 @@ footer {
   transition-duration: 0.15s;
   box-sizing: border-box;
 }
-.section3-container .articles-container article .footer .arrow-btn:hover {
+.section3-container .articles-container article .footer .arrow-btn:not(.disabled):hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.section3-container .articles-container article .footer .arrow-btn:active {
+.section3-container .articles-container article .footer .arrow-btn:not(.disabled):active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
@@ -1975,11 +1975,11 @@ footer {
   transition-duration: 0.15s;
   box-sizing: border-box;
 }
-.model-details-section .section-down .arrow-btns .arrow-btn:hover {
+.model-details-section .section-down .arrow-btns .arrow-btn:not(.disabled):hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.model-details-section .section-down .arrow-btns .arrow-btn:active {
+.model-details-section .section-down .arrow-btns .arrow-btn:not(.disabled):active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
@@ -2150,11 +2150,11 @@ footer {
   transition-duration: 0.15s;
   box-sizing: border-box;
 }
-.highlights-section .arrow-btns .arrow-btn:hover {
+.highlights-section .arrow-btns .arrow-btn:not(.disabled):hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.highlights-section .arrow-btns .arrow-btn:active {
+.highlights-section .arrow-btns .arrow-btn:not(.disabled):active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
@@ -2716,6 +2716,7 @@ footer {
 }
 .model-parts-section .slider-wrapper {
   width: 100%;
+  display: grid;
 }
 .model-parts-section .slider-wrapper .slider {
   display: flex;
@@ -2733,10 +2734,15 @@ footer {
 .model-parts-section .slider-wrapper .slider ::-webkit-scrollbar {
   display: none;
 }
+.model-parts-section .slider-wrapper .slider {
+  overflow-y: hidden;
+  height: 100%;
+}
 .model-parts-section .slider-wrapper .slider-card {
   scroll-snap-align: center;
   flex: 0 0 75vw;
   display: grid;
+  height: 100%;
   grid-template-columns: 1fr 1fr;
   box-sizing: border-box;
 }
@@ -2922,8 +2928,491 @@ footer {
     transform: translateX(-50%);
   }
 }
+.porsche-models-section .section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(40px, 5vw);
+}
+.porsche-models-section .section-heading {
+  font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  text-align: center;
+}
+.porsche-models-section .section-navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(40px, 4vw);
+  width: 100%;
+}
+.porsche-models-section .section-navigation .compare-selector {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.porsche-models-section .section-navigation .compare-selector .compare-text {
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.porsche-models-section .section-navigation .compare-selector .compare-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: min(10px, 4vw);
+}
+.porsche-models-section .section-navigation .compare-selector .compare-btn {
+  background-color: #dbdbde;
+  color: #000000;
+  padding: min(10px, 2vw) min(15px, 2.5vw);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.porsche-models-section .section-navigation .compare-selector .compare-btn:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+.porsche-models-section .section-navigation .compare-selector .compare-btn:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+.porsche-models-section .section-navigation .compare-selector .compare-btn.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.porsche-models-section .section-navigation .compare-selector .compare-btn.black:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
+}
+.porsche-models-section .section-navigation .compare-selector .compare-btn.selected {
+  background-color: #f3f3f4;
+  border: #dbdbde 1px solid;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 0 10vw;
+  box-sizing: border-box;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  background-color: #f1f1f4;
+  padding: 3px;
+  border-radius: 5px;
+  overflow-x: auto;
+  width: 100%;
+  max-width: min-content;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider ::-webkit-scrollbar {
+  display: none;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider .model-type-link {
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition-duration: 0.15s;
+  white-space: nowrap;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider .model-type-link.selected {
+  background-color: #d0d0d5;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider .model-type-link:hover:not(.selected) {
+  background-color: #e7e7ea;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
+  border-radius: 50%;
+  padding: 7px;
+  transition-duration: 0.15s;
+  box-sizing: border-box;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn img {
+  width: clamp(20px, 2.5vw, 30px);
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn {
+  background-color: transparent;
+  padding: 9px;
+  transition-duration: 0.15s;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn .arrow-icon {
+  width: 22px;
+  pointer-events: none;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):hover {
+  background-color: #414143;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn-left {
+  transform: rotate(180deg);
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn {
+  background-color: transparent;
+  box-shadow: none;
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn .arrow-icon {
+  filter: invert(100);
+}
+.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):hover {
+  background-color: #dbdbde;
+}
+.porsche-models-section img {
+  width: 25px;
+}
+.porsche-models-section .slider-wrapper {
+  width: 100%;
+  display: grid;
+  gap: 20px;
+}
+.porsche-models-section .slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(90px, 5vw);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  padding: 0 10vw;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+.porsche-models-section .slider ::-webkit-scrollbar {
+  display: none;
+}
+.porsche-models-section .slider {
+  gap: min(40px, 5vw);
+  padding: 100px 10vw;
+  padding-bottom: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+.porsche-models-section .slider .slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: min(40px, 4vw);
+  position: relative;
+  flex: 0 0 24vw;
+  background-color: #f1f1f4;
+  padding: min(30px, 4vw);
+  border-radius: 32px;
+  min-width: 250px;
+  scroll-snap-align: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+.porsche-models-section .slider .slide .head {
+  width: 100%;
+  padding-top: 30px;
+}
+.porsche-models-section .slider .slide .head .head-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+.porsche-models-section .slider .slide .head .model-name {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.porsche-models-section .slider .slide .head .model-starting-price {
+  font-size: clamp(0.6rem, 1.1vw + 0.15rem, 0.8rem);
+  color: rgb(60, 60, 60);
+}
+.porsche-models-section .slider .slide .head .model-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.porsche-models-section .slider .slide .head .model-details .model-detail {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  background-color: #ffffff;
+  padding: min(5px, 1vw) min(10px, 2vw);
+  border-radius: 50px;
+}
+.porsche-models-section .slider .slide .head .model-details .model-detail.model-year {
+  background-color: #000000;
+  color: #ffffff;
+}
+.porsche-models-section .slider .slide .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+.porsche-models-section .slider .slide .body .model-spec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+.porsche-models-section .slider .slide .body .model-spec-result {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.porsche-models-section .slider .slide .body .model-spec-detail {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  color: rgb(60, 60, 60);
+}
+.porsche-models-section .slider .slide .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: min(20px, 3vw);
+  width: 100%;
+}
+.porsche-models-section .slider .slide .footer .fuel-consumption {
+  font-size: clamp(0.6rem, 1.1vw + 0.15rem, 0.8rem);
+  color: rgb(60, 60, 60);
+}
+.porsche-models-section .slider .slide .footer .technical-data-link {
+  text-decoration: underline;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: min(5px, 1vw);
+  border-radius: 50px;
+  transition-duration: 0.15s;
+}
+.porsche-models-section .slider .slide .footer .technical-data-link:hover {
+  background-color: #dbdbde;
+}
+.porsche-models-section .slider .slide .footer .configure-btn {
+  background-color: #dbdbde;
+  color: #000000;
+  padding: min(20px, 3vw) min(20px, 3vw);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.porsche-models-section .slider .slide .footer .configure-btn:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+.porsche-models-section .slider .slide .footer .configure-btn:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+.porsche-models-section .slider .slide .footer .configure-btn.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.porsche-models-section .slider .slide .footer .configure-btn.black:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
+}
+.porsche-models-section .slider .slide .footer .configure-btn {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  background-color: #dbdbde;
+  box-shadow: none;
+  width: 100%;
+  transition-duration: 0.2s;
+}
+.porsche-models-section .slider .slide .footer .explore-btn {
+  background-color: #dbdbde;
+  color: #000000;
+  padding: min(20px, 3vw) min(20px, 3vw);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.porsche-models-section .slider .slide .footer .explore-btn:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+.porsche-models-section .slider .slide .footer .explore-btn:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+.porsche-models-section .slider .slide .footer .explore-btn.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.porsche-models-section .slider .slide .footer .explore-btn.black:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
+}
+.porsche-models-section .slider .slide .footer .explore-btn {
+  width: 100%;
+}
+.porsche-models-section .slider .slide .footer .compare-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.porsche-models-section .slider .slide .footer .compare-container:hover .compare-input {
+  outline: 1px solid black;
+  cursor: pointer;
+}
+.porsche-models-section .slider .slide .footer .compare-container:hover {
+  cursor: pointer;
+}
+.porsche-models-section .slider .slide .footer .compare-container .compare-input {
+  position: relative;
+  appearance: none;
+  outline: 1px solid rgb(147, 147, 147);
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background-color: #dbdbde;
+  box-sizing: border-box;
+}
+.porsche-models-section .slider .slide .footer .compare-container .compare-input::before {
+  content: "";
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 5px;
+  width: 75%;
+  height: 75%;
+}
+.porsche-models-section .slider .slide .footer .compare-container .compare-input:checked::before {
+  display: block;
+}
+.porsche-models-section .slider .slide .footer .compare-container .compare-text {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.porsche-models-section .slider .slide .model-image {
+  position: absolute;
+  top: -5vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+.porsche-models-section .slider .slide.selected {
+  border: 2px solid #dbdbde;
+  background-color: #ffffff;
+}
+.porsche-models-section .slider .slide.selected .head .model-detail {
+  background-color: #dbdbde;
+}
+.porsche-models-section .slider .slide.selected .footer .explore-btn {
+  display: none;
+}
+.porsche-models-section .slider-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.porsche-models-section .slider-navigation .navigation-link {
+  padding: 5px;
+  background-color: #707071;
+  border-radius: 50vh;
+  transition-duration: 0.2s;
+}
+.porsche-models-section .slider-navigation .navigation-link.selected {
+  background-color: rgb(0, 0, 0);
+  padding: 5px 13px;
+  pointer-events: none;
+}
+.porsche-models-section .slider-navigation .navigation-link:not(.selected) {
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .porsche-models-section .section-container .section-navigation .model-navigation-wrapper .arrow-btns {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .porsche-models-section .slider {
+    padding-top: 100px;
+  }
+  .porsche-models-section .slider .slide {
+    flex-basis: 80vw;
+  }
+  .porsche-models-section .slider .slide .head .model-name {
+    font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  }
+  .porsche-models-section .slider .slide .head .model-starting-price {
+    font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  }
+  .porsche-models-section .slider .slide .head .model-details .model-detail {
+    font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  }
+  .porsche-models-section .slider .slide .body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .porsche-models-section .slider .slide .body .model-spec-result {
+    font-size: calc(clamp(1rem, 1.5vw + 0.3rem, 1.4rem) + 1vw);
+  }
+  .porsche-models-section .slider .slide .body .model-spec-detail {
+    font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  }
+  .porsche-models-section .slider .slide .footer {
+    padding-top: min(70px, 3vw);
+  }
+  .porsche-models-section .slider .slide .model-image {
+    top: -17vw;
+  }
+}
+@media (max-width: 480px) {
+  .porsche-models-section .section-container .slider .body {
+    grid-template-columns: 1fr;
+  }
+}
 .page911 main {
-  gap: clamp(40px, 15vw, 180px);
+  gap: clamp(100px, 15vw, 180px);
 }
 
 html {

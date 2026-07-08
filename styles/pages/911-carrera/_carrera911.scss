@@ -13,10 +13,11 @@
 @use "./section7";
 @use "./section8";
 @use "./section9";
+@use "./section10";
 
 .page911 {
   main {
     //distance between sections
-    gap: clamp(40px, 15vw, 180px);
+    gap: clamp(100px, 15vw, 180px);
   }
 }

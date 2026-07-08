@@ -22,14 +22,17 @@
   }
   .slider-wrapper {
     width: 100%;
-
+    display: grid;
     .slider {
       @include slider-components.slider();
+      overflow-y: hidden;
+      height: 100%;
     }
     .slider-card {
       scroll-snap-align: center;
       flex: 0 0 75vw;
       display: grid;
+      height: 100%;
       grid-template-columns: 1fr 1fr;
       box-sizing: border-box;
 
