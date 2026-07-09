@@ -107,6 +107,33 @@
   }
 }
 
+@mixin gray-transparent-button($padding-y: 0px, $padding-x: 0px) {
+  background-color: rgba(156, 156, 159, 0.3);
+  color: $font-clr-light;
+  padding: $padding-y $padding-x;
+  border: none;
+  border-radius: 10px;
+  font-size: $font-sizeS;
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+  &:hover {
+    background-color: hsla(240, 2%, 43%, 0.228);
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.99);
+    transition-duration: 0s;
+  }
+  &.black {
+    background-color: #000000;
+    color: #ffffff;
+    &:hover {
+      background-color: #000000bb;
+    }
+  }
+}
+
 @mixin glass-button($padding-y: 0px, $padding-x: 0px) {
   @include mixins.glassmorphism();
   border: none;

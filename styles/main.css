@@ -135,7 +135,7 @@ table {
   font-display: swap;
 }
 header {
-  background: linear-gradient(to bottom, rgb(0, 0, 0) 50%, transparent 100%);
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 20%, transparent 100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -1087,7 +1087,7 @@ footer {
   width: 50%;
 }
 .section3-container .articles-container article .header {
-  background: linear-gradient(to bottom, rgb(0, 0, 0) 50%, transparent 100%);
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 20%, transparent 100%);
   position: absolute;
   top: 0;
   left: 50%;
@@ -1136,7 +1136,7 @@ footer {
   justify-content: space-between;
   align-items: flex-end;
   gap: 10px;
-  background: linear-gradient(to top, rgb(0, 0, 0) 50%, transparent 100%);
+  background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -1870,7 +1870,7 @@ footer {
 }
 .model-details-section .section-up .image-container::after {
   content: "";
-  background: linear-gradient(to top, rgb(0, 0, 0) 50%, transparent 100%);
+  background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
   position: absolute;
   left: 0;
   bottom: 0;
@@ -2225,7 +2225,7 @@ footer {
   object-fit: cover;
 }
 .highlights-section .slider-wrapper .slider .slider-card .slider-media::after {
-  background: linear-gradient(to top, rgb(0, 0, 0) 50%, transparent 100%);
+  background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
   content: "";
   position: absolute;
   bottom: 0;
@@ -2361,7 +2361,7 @@ footer {
   width: 100%;
 }
 .model-configuration-section .model-config-window .main-window .background-media::after {
-  background: linear-gradient(to top, rgb(0, 0, 0) 50%, transparent 100%);
+  background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
   content: "";
   position: absolute;
   left: 0;
@@ -2843,7 +2843,7 @@ footer {
   object-fit: cover;
 }
 .porsche-connect-section .porsche-connect-article .media::after {
-  background: linear-gradient(to right, rgb(0, 0, 0) 50%, transparent 100%);
+  background: linear-gradient(to right, rgb(0, 0, 0) 20%, transparent 100%);
   content: "";
   position: absolute;
   left: 0;
@@ -2914,7 +2914,7 @@ footer {
     height: clamp(300px, 90vw, 850px);
   }
   .porsche-connect-section .porsche-connect-article .media::after {
-    background: linear-gradient(to top, rgb(0, 0, 0) 50%, transparent 100%);
+    background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
     width: 100%;
     height: 40%;
     bottom: 0;
@@ -3139,7 +3139,7 @@ footer {
   background-color: #f1f1f4;
   padding: min(30px, 4vw);
   border-radius: 32px;
-  min-width: 250px;
+  min-width: 300px;
   scroll-snap-align: center;
   height: 100%;
   box-sizing: border-box;
@@ -3367,15 +3367,57 @@ footer {
 .porsche-models-section .slider-navigation .navigation-link:not(.selected) {
   cursor: pointer;
 }
+.porsche-models-section .additional-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(15px, 3.5vw);
+}
+.porsche-models-section .additional-details-wrapper .comparison-text {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  text-align: center;
+}
+.porsche-models-section .additional-details-wrapper .comparison-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #dbdbde;
+  color: #000000;
+  padding: min(15px, 5vw) min(30px, 6vw);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.porsche-models-section .additional-details-wrapper .comparison-btn:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+.porsche-models-section .additional-details-wrapper .comparison-btn:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+.porsche-models-section .additional-details-wrapper .comparison-btn.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.porsche-models-section .additional-details-wrapper .comparison-btn.black:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
+}
 
 @media (max-width: 1000px) {
-  .porsche-models-section .section-container .section-navigation .model-navigation-wrapper .arrow-btns {
+  .porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns {
     display: none;
   }
 }
 @media (max-width: 760px) {
   .porsche-models-section .slider {
-    padding-top: 100px;
+    padding-top: 150px;
   }
   .porsche-models-section .slider .slide {
     flex-basis: 80vw;
@@ -3407,8 +3449,121 @@ footer {
   }
 }
 @media (max-width: 480px) {
+  .porsche-models-section .section-container .slider {
+    padding-top: 100px;
+  }
   .porsche-models-section .section-container .slider .body {
     grid-template-columns: 1fr;
+  }
+}
+.model-features-section .section-container {
+  display: grid;
+  grid-auto-flow: column;
+  gap: min(30px, 5vw);
+  grid-template-columns: repeat(3, 1fr);
+  width: 70vw;
+  margin: 0 auto;
+  min-width: 650px;
+}
+.model-features-section .model-feature-article {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.model-features-section .model-feature-article .media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.model-features-section .model-feature-article .media .article-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.model-features-section .model-feature-article .media::after {
+  background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  z-index: 1;
+}
+.model-features-section .model-feature-article .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: min(30px, 5vw);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  padding: min(20px, 3vw);
+  box-sizing: border-box;
+}
+.model-features-section .model-feature-article .body .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+.model-features-section .model-feature-article .body .text-wrapper .article-heading {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.model-features-section .model-feature-article .body .text-wrapper .article-description {
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  line-height: 130%;
+}
+.model-features-section .model-feature-article .body .article-btn {
+  background-color: rgba(156, 156, 159, 0.3);
+  color: #ffffff;
+  padding: min(20px, 5vw) 0;
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.model-features-section .model-feature-article .body .article-btn:hover {
+  background-color: hsla(240, 2%, 43%, 0.228);
+  cursor: pointer;
+}
+.model-features-section .model-feature-article .body .article-btn:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+.model-features-section .model-feature-article .body .article-btn.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.model-features-section .model-feature-article .body .article-btn.black:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
+}
+.model-features-section .model-feature-article .body .article-btn {
+  border-radius: calc(32px - min(20px, 3vw));
+  width: 100%;
+}
+
+@media (max-width: 1300px) {
+  .model-features-section .section-container {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    min-width: 200px;
+  }
+}
+@media (max-width: 760px) {
+  .model-features-section .section-container {
+    width: 80vw;
   }
 }
 .page911 main {

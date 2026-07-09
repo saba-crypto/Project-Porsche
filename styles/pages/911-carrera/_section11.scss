@@ -1,0 +1,88 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../components/buttons" as buttons;
+@use "../../abstracts/variables" as *;
+@use "../../components/slider" as slider-components;
+
+.model-features-section {
+  .section-container {
+    display: grid;
+    grid-auto-flow: column;
+    gap: min(30px, 5vw);
+    grid-template-columns: repeat(3, 1fr);
+    width: 70vw;
+    margin: 0 auto;
+    min-width: 650px;
+  }
+  .model-feature-article {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: $primary-border-radius;
+    overflow: hidden;
+    .media {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      .article-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &::after {
+        @include mixins.fade-to(top);
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        z-index: 1;
+      }
+    }
+    .body {
+      @include mixins.flexbox(column, center, flex-start, min(30px, 5vw));
+      color: white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      padding: $paddingL;
+      box-sizing: border-box;
+      .text-wrapper {
+        @include mixins.flexbox(column, center, flex-start, 10px);
+        .article-heading {
+          font-size: $font-sizeL;
+        }
+        .article-description {
+          font-size: $font-sizeM;
+          line-height: 130%;
+        }
+      }
+      .article-btn {
+        @include buttons.gray-transparent-button(min(20px, 5vw), 0);
+        border-radius: calc($primary-border-radius - $paddingL);
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint2XL) {
+  .model-features-section {
+    .section-container {
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+      grid-auto-rows: 1fr;
+      min-width: 200px;
+    }
+  }
+}
+@media (max-width: $breakpointL) {
+  .model-features-section {
+    .section-container {
+      width: 80vw;
+    }
+  }
+}

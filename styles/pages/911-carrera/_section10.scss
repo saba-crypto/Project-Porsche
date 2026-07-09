@@ -4,7 +4,7 @@
 @use "../../components/slider" as slider-components;
 .porsche-models-section {
   .section-container {
-    @include mixins.flexbox(column, center, center, min(40px, 5vw)); //temp
+    @include mixins.flexbox(column, center, center, min(40px, 5vw));
   }
   .section-heading {
     font-size: $font-sizeXL;
@@ -81,7 +81,7 @@
       background-color: #f1f1f4;
       padding: $paddingXL;
       border-radius: $primary-border-radius;
-      min-width: 250px;
+      min-width: 300px;
       scroll-snap-align: center;
       height: 100%;
       box-sizing: border-box;
@@ -227,16 +227,25 @@
   .slider-navigation {
     @include slider-components.slider-navigation();
   }
+  .additional-details-wrapper {
+    @include mixins.flexbox(column, center, center, min(15px, 3.5vw));
+    .comparison-text {
+      font-size: $font-sizeL;
+      text-align: center;
+    }
+    .comparison-btn {
+      @include mixins.flexbox(row, center, center, 10px);
+      @include button-components.gray-button(min(15px, 5vw), min(30px, 6vw));
+    }
+  }
 }
 
 @media (max-width: $breakpointXL) {
   .porsche-models-section {
-    .section-container {
-      .section-navigation {
-        .model-navigation-wrapper {
-          .arrow-btns {
-            display: none;
-          }
+    .section-navigation {
+      .model-navigation-wrapper {
+        .arrow-btns {
+          display: none;
         }
       }
     }
@@ -245,7 +254,7 @@
 @media (max-width: $breakpointL) {
   .porsche-models-section {
     .slider {
-      padding-top: 100px;
+      padding-top: 150px;
       .slide {
         flex-basis: 80vw;
         .head {
@@ -287,6 +296,7 @@
   .porsche-models-section {
     .section-container {
       .slider {
+        padding-top: 100px;
         .body {
           grid-template-columns: 1fr;
         }
