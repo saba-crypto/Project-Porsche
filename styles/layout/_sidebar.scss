@@ -125,6 +125,7 @@ aside.show {
 //sidebar content tabs
 .car-models-tab {
   display: none;
+  box-sizing: border-box;
   .car-model-card {
     width: 100%;
     font-family: $primary-font;
@@ -167,6 +168,7 @@ aside.show {
 }
 .vehicle-purchase-tab {
   display: none;
+  box-sizing: border-box;
   a {
     color: $font-clr-dark;
     font-size: $font-sizeL;
@@ -182,6 +184,8 @@ aside.show {
 
 .dealers-tab {
   display: none;
+  box-sizing: border-box;
+
   .find-dealer-btn {
     @include flexbox(row, space-between, center);
     border: none;
@@ -192,6 +196,7 @@ aside.show {
     font-size: $font-sizeM;
     font-family: $primary-font;
     transition-duration: 0.2s;
+
     .arrow-right-icon {
       width: 25px;
     }

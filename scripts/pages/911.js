@@ -125,6 +125,8 @@ carHighlightsArrows.forEach((arrow) => {
   });
 });
 
+//section7
+
 const videoPlaybackButton = document.querySelector(".video-playback-btn");
 const modelVideo = document.querySelector(".model-video");
 videoPlaybackButton.addEventListener("click", (event) => {
@@ -139,3 +141,34 @@ function toggleVideo(video, button) {
     button.classList.add("video-paused");
   }
 }
+
+//header
+const fixedWhiteHeader = document.querySelector(".white-header-fixed");
+
+const section3 = document.getElementById("section3");
+const section3Observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        fixedWhiteHeader.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.4 },
+);
+
+section3Observer.observe(section3);
+
+const section2 = document.getElementById("section2");
+const section2Observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        fixedWhiteHeader.classList.remove("show");
+      }
+    });
+  },
+  { threshold: 0.7 },
+);
+
+section2Observer.observe(section2);

@@ -1,0 +1,7 @@
+@use "../../layout/header" as headers;
+
+.home-page {
+  header {
+    @include headers.header();
+  }
+}

@@ -61,6 +61,8 @@
 
 @media (max-width: $breakpointL) {
   .model-testimonial-section {
+    padding: $paddingL-x;
+
     .section-container {
       .testimonial {
         width: 100%;
@@ -73,8 +75,8 @@
       }
     }
     .testimonial-image.image3 {
-      bottom: 10vw;
       align-self: flex-start;
+      left: 0;
       width: clamp(200px, 70%, 100%);
       z-index: 2;
     }

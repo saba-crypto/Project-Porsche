@@ -134,100 +134,6 @@ table {
   src: url(../../assets/fonts/porsche-next/porsche-next.ttf);
   font-display: swap;
 }
-header {
-  background: linear-gradient(to bottom, rgb(0, 0, 0) 20%, transparent 100%);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 25px min(70px, 5vw);
-  z-index: 100;
-}
-header .header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0px;
-}
-header .header-container img {
-  width: 50px;
-}
-header .header-container .header-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  padding: 2px 4px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition-duration: 0.2s;
-}
-header .header-container .header-left:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-}
-header .header-container .burger-menu {
-  width: 25px;
-}
-header .header-container .menu {
-  color: #ffffff;
-  font-family: Porsche Next, Arial;
-}
-header .header-container .porsche-logo {
-  display: none;
-  width: 32px;
-}
-header .header-container .porsche-title {
-  width: clamp(150px, 20vw, 200px);
-}
-header .header-container .header-right {
-  position: relative;
-}
-header .header-container .globe-icon {
-  width: 24px;
-  padding: 2px;
-  border-radius: 50%;
-  transition-duration: 0.15s;
-}
-header .header-container .globe-icon:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-  cursor: pointer;
-}
-header .header-container .globe-icon:hover + .globe-tooltip {
-  opacity: 1;
-}
-header .header-container .globe-tooltip {
-  position: absolute;
-  opacity: 0;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
-  padding: min(6px, 6vw);
-  background-color: rgba(100, 100, 100, 0.8);
-  color: #ffffff;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  font-family: Porsche Next, Arial;
-  line-height: 130%;
-  white-space: nowrap;
-  pointer-events: none;
-  transition-duration: 0.3s;
-}
-
-@media (max-width: 760px) {
-  header .header-container .porsche-title {
-    display: none;
-  }
-  header .header-container .porsche-logo {
-    display: block;
-  }
-  header .header-container .menu {
-    display: none;
-  }
-  header .header-container .globe-tooltip {
-    white-space: wrap;
-  }
-}
 aside {
   position: fixed;
   top: 0;
@@ -396,6 +302,7 @@ aside.show .sidebar-close-btn {
 
 .car-models-tab {
   display: none;
+  box-sizing: border-box;
 }
 .car-models-tab .car-model-card {
   width: 100%;
@@ -443,6 +350,7 @@ aside.show .sidebar-close-btn {
 
 .vehicle-purchase-tab {
   display: none;
+  box-sizing: border-box;
 }
 .vehicle-purchase-tab a {
   color: #000000;
@@ -458,6 +366,7 @@ aside.show .sidebar-close-btn {
 
 .dealers-tab {
   display: none;
+  box-sizing: border-box;
 }
 .dealers-tab .find-dealer-btn {
   display: flex;
@@ -848,6 +757,97 @@ footer {
     transform: translateY(0);
   }
 }
+.home-page header {
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 20%, transparent 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 25px min(70px, 5vw);
+  z-index: 100;
+}
+.home-page header .header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+}
+.home-page header .header-container .header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.home-page header .header-container .header-left:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.home-page header .header-container .burger-menu {
+  width: 25px;
+}
+.home-page header .header-container .menu {
+  color: #ffffff;
+  font-family: Porsche Next, Arial;
+}
+.home-page header .header-container .porsche-logo {
+  display: none;
+  width: 32px;
+}
+.home-page header .header-container .porsche-title {
+  width: clamp(150px, 20vw, 200px);
+}
+.home-page header .header-container .header-right {
+  position: relative;
+}
+.home-page header .header-container .globe-icon {
+  width: 24px;
+  padding: 2px;
+  border-radius: 50%;
+  transition-duration: 0.15s;
+}
+.home-page header .header-container .globe-icon:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+  cursor: pointer;
+}
+.home-page header .header-container .globe-icon:hover + .globe-tooltip {
+  opacity: 1;
+}
+.home-page header .header-container .globe-tooltip {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  padding: min(6px, 6vw);
+  background-color: rgba(100, 100, 100, 0.8);
+  color: #ffffff;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  font-family: Porsche Next, Arial;
+  line-height: 130%;
+  white-space: nowrap;
+  pointer-events: none;
+  transition-duration: 0.3s;
+}
+@media (max-width: 760px) {
+  .home-page header .header-container .porsche-title {
+    display: none;
+  }
+  .home-page header .header-container .porsche-logo {
+    display: block;
+  }
+  .home-page header .header-container .menu {
+    display: none;
+  }
+  .home-page header .header-container .globe-tooltip {
+    white-space: wrap;
+  }
+}
+
 .section1-container {
   position: relative;
 }
@@ -1442,6 +1442,193 @@ footer {
   font-weight: 700;
 }
 
+.white-header-static {
+  position: static;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  width: 100%;
+  box-sizing: border-box;
+  padding: min(25px, 4vw) min(70px, 5vw);
+  background-color: #ffffff;
+}
+.white-header-static img {
+  width: 50px;
+}
+.white-header-static .header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: min(20px, 5vw);
+  width: 100%;
+}
+.white-header-static .header-container .header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.white-header-static .header-container .header-left:hover {
+  background-color: #dbdbde;
+}
+.white-header-static .header-container .burger-menu {
+  width: 25px;
+  filter: invert(100);
+}
+.white-header-static .header-container .menu {
+  color: #000000;
+  font-family: Porsche Next, Arial;
+}
+.white-header-static .header-container .porsche-logo {
+  display: none;
+  width: 32px;
+}
+.white-header-static .header-container .porsche-title {
+  width: clamp(150px, 20vw, 200px);
+  filter: invert(100);
+}
+.white-header-static .header-container .header-right {
+  position: relative;
+}
+.white-header-static .header-container .globe-icon {
+  width: 24px;
+  padding: 2px;
+  border-radius: 50%;
+  transition-duration: 0.15s;
+}
+.white-header-static .header-container .globe-icon:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+  cursor: pointer;
+}
+.white-header-static .header-container .globe-icon:hover + .globe-tooltip {
+  opacity: 1;
+}
+.white-header-static .header-container .globe-tooltip {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  padding: min(6px, 6vw);
+  background-color: rgba(100, 100, 100, 0.8);
+  color: #ffffff;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  font-family: Porsche Next, Arial;
+  line-height: 130%;
+  white-space: nowrap;
+  pointer-events: none;
+  transition-duration: 0.3s;
+}
+@media (max-width: 760px) {
+  .white-header-static .header-container .porsche-title {
+    display: none;
+  }
+  .white-header-static .header-container .porsche-logo {
+    display: block;
+  }
+  .white-header-static .header-container .menu {
+    display: none;
+  }
+  .white-header-static .header-container .globe-tooltip {
+    white-space: wrap;
+  }
+}
+
+.white-header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: #ffffff;
+  border-bottom: 2px solid black;
+}
+.white-header-fixed .header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.white-header-fixed .header-container .header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: min(60px, 5vw);
+}
+.white-header-fixed .header-container .model-name {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.white-header-fixed .header-container .vertical-menu-lines {
+  display: none;
+  width: 30px;
+  padding: 2px;
+  border-radius: 50%;
+  transition-duration: 0.15s;
+}
+.white-header-fixed .header-container .vertical-menu-lines:hover {
+  background-color: #dbdbde;
+  cursor: pointer;
+}
+.white-header-fixed .header-container .model-change-link,
+.white-header-fixed .header-container .list-item {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: min(5px, 1vw);
+  transition-duration: 0.15s;
+  border-radius: 6px;
+}
+.white-header-fixed .header-container .model-change-link:hover,
+.white-header-fixed .header-container .list-item:hover {
+  background-color: #dbdbde;
+  cursor: pointer;
+}
+.white-header-fixed .header-container .nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.white-header-fixed {
+  box-sizing: border-box;
+  width: 100%;
+  padding: min(15px, 3vw) min(70px, 5vw);
+}
+@media (max-width: 760px) {
+  .white-header-fixed {
+    border-bottom: 3px solid black;
+  }
+  .white-header-fixed .header-container .model-name {
+    font-weight: 600;
+  }
+  .white-header-fixed .header-container .model-change-link {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .white-header-fixed .header-container .vertical-menu-lines {
+    display: block;
+  }
+  .white-header-fixed .header-container .nav-list {
+    display: none;
+  }
+}
+.white-header-fixed {
+  transform: translateY(-104%);
+  transition-duration: 0.3s;
+  opacity: 0;
+}
+
+.white-header-fixed.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .model-hero-section .section-container {
   display: flex;
   flex-direction: column;
@@ -1449,7 +1636,7 @@ footer {
   align-items: center;
   gap: min(100px, 8vw);
   width: 100%;
-  margin-top: 120px;
+  margin-top: -70px;
 }
 .model-hero-section .section-up {
   display: flex;
@@ -1797,6 +1984,9 @@ footer {
 }
 
 @media (max-width: 760px) {
+  .model-testimonial-section {
+    padding: 0 min(20px, 3vw);
+  }
   .model-testimonial-section .section-container .testimonial {
     width: 100%;
   }
@@ -1807,8 +1997,8 @@ footer {
     animation: none;
   }
   .model-testimonial-section .testimonial-image.image3 {
-    bottom: 10vw;
     align-self: flex-start;
+    left: 0;
     width: clamp(200px, 70%, 100%);
     z-index: 2;
   }
@@ -3597,7 +3787,11 @@ footer {
   color: rgb(90, 90, 90);
 }
 
+.page911 {
+  width: 100%;
+}
 .page911 main {
+  width: 100%;
   gap: clamp(100px, 15vw, 180px);
 }
 

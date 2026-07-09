@@ -90,8 +90,8 @@ sliderVideoToggle.addEventListener("click", () => {
 });
 
 //forces carModelVideo to start over when hovering
-carModelImages.forEach((image, i) => {
-  image.addEventListener("mouseenter", () => {
+carModelArticles.forEach((article, i) => {
+  article.addEventListener("mouseenter", () => {
     carModelVideos[i].currentTime = 0;
   });
 });

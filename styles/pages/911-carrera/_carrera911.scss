@@ -1,8 +1,9 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
 
 @use "../../layout/footer";
-@use "../../layout/header";
+@use "../../layout/header" as headers;
+@use "./header";
 @use "../../layout/sidebar";
 @use "./section1";
 @use "./section2";
@@ -18,8 +19,11 @@
 @use "./section12";
 
 .page911 {
+  width: 100%;
+
   main {
     //distance between sections
+    width: 100%;
     gap: clamp(100px, 15vw, 180px);
   }
 }
