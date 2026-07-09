@@ -257,6 +257,8 @@
       padding-top: 150px;
       .slide {
         flex-basis: 80vw;
+        min-width: 250px;
+
         .head {
           .model-name {
             font-size: $font-sizeXL;
