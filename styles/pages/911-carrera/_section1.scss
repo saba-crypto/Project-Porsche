@@ -1,15 +1,15 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as *;
+@use "../../components/buttons" as buttons;
 
 .model-hero-section {
   .section-container {
-    @include flexbox(column, center, center, min(100px, 8vw));
+    @include mixins.flexbox(column, center, center, min(100px, 8vw));
     width: 100%;
     margin-top: -70px;
   }
   .section-up {
-    @include flexbox(row, center, flex-start);
+    @include mixins.flexbox(row, center, flex-start);
     width: 100%;
     position: relative;
     background: linear-gradient(to top, #ededee, #ffffff);
@@ -28,10 +28,10 @@
     }
   }
   .section-down {
-    @include flexbox(column, center, center, min(30px, 5vw));
+    @include mixins.flexbox(column, center, center, min(30px, 5vw));
     width: 65%;
     .model-type-slider {
-      @include flexbox(row, flex-start, center, 4px);
+      @include mixins.flexbox(row, flex-start, center, 4px);
       background-color: #f1f1f4;
       padding: 3px;
       border-radius: 5px;
@@ -58,13 +58,13 @@
       }
     }
     .model-details {
-      @include flexbox(column, center, center, 20px);
+      @include mixins.flexbox(column, center, center, 20px);
       .model-name {
         font-size: $font-sizeXL;
         color: $font-clr-dark;
       }
       .fuel-types {
-        @include flexbox(row, center, center, 5px);
+        @include mixins.flexbox(row, center, center, 5px);
         .fuel-type {
           padding: 4px 8px;
           background-color: $light-dark-clr;
@@ -78,15 +78,15 @@
       }
     }
     .model-btns {
-      @include flexbox(row, center, center, min(20px, 2vw));
+      @include mixins.flexbox(row, center, center, min(20px, 2vw));
       flex-wrap: wrap;
       width: 100%;
       .model-btn {
-        @include gray-button(min(20px, 5vw), min(32px, 3vw));
+        @include buttons.gray-button(min(20px, 5vw), min(32px, 3vw));
       }
     }
     .additional-details {
-      @include flexbox(column, center, center, 20px);
+      @include mixins.flexbox(column, center, center, 20px);
       .additional-detail {
         font-size: $font-sizeS;
         color: $font-clr-darkened;

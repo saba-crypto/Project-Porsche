@@ -1,9 +1,9 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as *;
+@use "../../components/buttons" as buttons;
 
 .section3-container {
-  @include flexbox(column, center, center, 20px);
+  @include mixins.flexbox(column, center, center, 20px);
   width: 92vw;
   margin: 0 auto;
 
@@ -13,7 +13,7 @@
     align-self: flex-start;
   }
   .articles-container {
-    @include flexbox(row, center, center, 30px);
+    @include mixins.flexbox(row, center, center, 30px);
     flex-wrap: wrap;
     overflow: hidden;
     margin-top: 50px;
@@ -33,7 +33,7 @@
       }
 
       .header {
-        @include fade-to(bottom);
+        @include mixins.fade-to(bottom);
         position: absolute;
         top: 0;
         left: 50%;
@@ -81,27 +81,27 @@
         }
       }
       .footer {
-        @include flexbox(row, space-between, flex-end, 10px);
-        @include fade-to(top);
+        @include mixins.flexbox(row, space-between, flex-end, 10px);
+        @include mixins.fade-to(top);
         position: absolute;
         width: 100%;
         bottom: 0;
         padding: min(30px, 9vw);
         box-sizing: border-box;
         .arrow-btn {
-          @include flexbox(row, center, center, 10px);
-          @include arrow-btn();
+          @include mixins.flexbox(row, center, center, 10px);
+          @include buttons.arrow-btn();
           color: $font-clr-light;
         }
         .explore-title {
           display: none;
         }
         .footer-left {
-          @include flexbox(column, center, flex-start, 20px);
+          @include mixins.flexbox(column, center, flex-start, 20px);
           font-size: $font-sizeM;
         }
         .fuel-type-wrapper {
-          @include flexbox(row, flex-start, center, 10px);
+          @include mixins.flexbox(row, flex-start, center, 10px);
         }
         .fuel-type {
           padding: 6px 12px;
@@ -130,12 +130,12 @@
     }
   }
   .slider-nav {
-    @include flexbox(row, center, center, 20px);
+    @include mixins.flexbox(row, center, center, 20px);
     width: 100%;
     height: 40px;
     display: none;
     .slider-nav-items {
-      @include flexbox(row, space-between, center, 10px);
+      @include mixins.flexbox(row, space-between, center, 10px);
       background-color: #191a1d;
       border-radius: 50px;
       padding: 0 20px;

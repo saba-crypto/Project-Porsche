@@ -1,7 +1,7 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
 .section5 {
-  @include flexbox(column, center, center, 50px);
+  @include mixins.flexbox(column, center, center, 50px);
   .section5-container {
     max-height: 1100px;
   }

@@ -1,9 +1,9 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
 @use "../../components/small-article";
 
 .section2 {
-  @include flexbox(row, center, center);
+  @include mixins.flexbox(row, center, center);
 }
 .small-articles-container {
   display: grid;

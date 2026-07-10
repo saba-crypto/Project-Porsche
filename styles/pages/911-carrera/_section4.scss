@@ -1,18 +1,18 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as *;
-@use "../../components/slider" as *;
+@use "../../components/buttons" as buttons;
+@use "../../components/slider" as sliders;
 
 .model-details-section {
   width: 100%;
   background-color: $background-clr-dark;
   .section-container {
     width: 100%;
-    @include flexbox(column, center, center, 40px);
+    @include mixins.flexbox(column, center, center, 40px);
     color: $font-clr-light;
   }
   .section-up {
-    @include flexbox(column, center, center);
+    @include mixins.flexbox(column, center, center);
     position: relative;
     width: 100%;
     .image-container {
@@ -26,7 +26,7 @@
     }
     .image-container::after {
       content: "";
-      @include fade-to(top);
+      @include mixins.fade-to(top);
       position: absolute;
       left: 0;
       bottom: 0;
@@ -36,7 +36,7 @@
     }
 
     .subsection-text-container {
-      @include flexbox(row, center, center, 20px);
+      @include mixins.flexbox(row, center, center, 20px);
       z-index: 3;
       width: 100%;
       position: absolute;
@@ -44,7 +44,7 @@
       left: 50%;
       transform: translateX(-50%);
       .subsection-text-wrapper {
-        @include flexbox(column, center, center, 20px);
+        @include mixins.flexbox(column, center, center, 20px);
         width: clamp(400px, 50%, 100%);
         padding: 0 min(60px, 7vw);
         .subsection-title {
@@ -59,18 +59,18 @@
     }
   }
   .section-down {
-    @include flexbox(column, center, center, min(40px, 5vw));
+    @include mixins.flexbox(column, center, center, min(40px, 5vw));
     width: 100%;
     background: linear-gradient(to bottom, black 65%, white 35%);
     img {
       width: 100px;
     }
     .slider-nav-buttons {
-      @include flexbox(row, space-between, center, 20px);
+      @include mixins.flexbox(row, space-between, center, 20px);
       width: 70%;
       box-sizing: border-box;
       .model-part-links {
-        @include flexbox(row, center, center, 5px);
+        @include mixins.flexbox(row, center, center, 5px);
         padding: 3px;
         border-radius: 4px;
         background-color: #19191a;
@@ -92,10 +92,10 @@
       }
     }
     .arrow-btns {
-      @include flexbox(row, center, center, 5px);
+      @include mixins.flexbox(row, center, center, 5px);
 
       .arrow-btn {
-        @include arrow-btn();
+        @include buttons.arrow-btn();
         background-color: transparent;
         padding: 9px;
         transition-duration: 0.15s;
@@ -134,7 +134,7 @@
       }
       scroll-snap-type: x mandatory;
       .slider-card {
-        @include flexbox(column, center, center, 20px);
+        @include mixins.flexbox(column, center, center, 20px);
         width: 100%;
         background-color: #f1f1f4;
         padding: min(40px, 4vw);
@@ -143,7 +143,7 @@
         scroll-snap-align: center;
         box-sizing: border-box;
         .model-part-text {
-          @include flexbox(column, center, flex-start, 20px);
+          @include mixins.flexbox(column, center, flex-start, 20px);
           .model-part-title {
             font-size: $font-sizeX;
           }
@@ -160,7 +160,7 @@
       }
     }
     .slider-navigation {
-      @include slider-navigation();
+      @include sliders.slider-navigation();
     }
     .fuel-consumption-text {
       color: $font-clr-darkened;

@@ -1,7 +1,7 @@
 @use "../../abstracts/mixins" as mixins;
-@use "../../components/buttons" as button-components;
+@use "../../components/buttons" as buttons;
 @use "../../abstracts/variables" as *;
-@use "../../components/slider" as slider-components;
+@use "../../components/slider" as sliders;
 .porsche-models-section {
   .section-container {
     @include mixins.flexbox(column, center, center, min(40px, 5vw));
@@ -22,7 +22,7 @@
         @include mixins.flexbox(row, center, center, min(10px, 4vw));
       }
       .compare-btn {
-        @include button-components.gray-button($paddingS, $paddingM);
+        @include buttons.gray-button($paddingS, $paddingM);
         &.selected {
           background-color: #f3f3f4;
           border: $light-dark-clr 1px solid;
@@ -35,10 +35,10 @@
       padding: 0 10vw;
       box-sizing: border-box;
       .model-type-slider {
-        @include slider-components.slider-navigation-tabs();
+        @include sliders.slider-navigation-tabs();
       }
       .arrow-btns {
-        @include button-components.navigation-arrow-buttons();
+        @include buttons.navigation-arrow-buttons();
         .arrow-btn {
           background-color: transparent;
           box-shadow: none;
@@ -63,7 +63,7 @@
   }
 
   .slider {
-    @include slider-components.slider();
+    @include sliders.slider();
     gap: min(40px, 5vw);
     padding: 100px 10vw;
     padding-bottom: 0;
@@ -146,7 +146,7 @@
           }
         }
         .configure-btn {
-          @include button-components.gray-button($paddingL, $paddingL);
+          @include buttons.gray-button($paddingL, $paddingL);
           font-size: $font-sizeS;
           background-color: #dbdbde;
           box-shadow: none;
@@ -154,7 +154,7 @@
           transition-duration: 0.2s;
         }
         .explore-btn {
-          @include button-components.gray-button($paddingL, $paddingL);
+          @include buttons.gray-button($paddingL, $paddingL);
           width: 100%;
         }
         .compare-container {
@@ -225,7 +225,7 @@
     }
   }
   .slider-navigation {
-    @include slider-components.slider-navigation();
+    @include sliders.slider-navigation();
   }
   .additional-details-wrapper {
     @include mixins.flexbox(column, center, center, min(15px, 3.5vw));
@@ -235,7 +235,7 @@
     }
     .comparison-btn {
       @include mixins.flexbox(row, center, center, 10px);
-      @include button-components.gray-button(min(15px, 5vw), min(30px, 6vw));
+      @include buttons.gray-button(min(15px, 5vw), min(30px, 6vw));
     }
   }
 }

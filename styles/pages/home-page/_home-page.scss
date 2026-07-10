@@ -1,3 +1,4 @@
+@use "../../abstracts/mixins" as mixins;
 @use "../../layout/sidebar";
 @use "../../layout/footer";
 @use "./header";
@@ -6,3 +7,10 @@
 @use "./section3";
 @use "./section4";
 @use "./section5";
+
+.home-page {
+  main {
+    @include mixins.flexbox(column, center, center, 100px);
+    margin-bottom: 120px;
+  }
+}

@@ -154,21 +154,18 @@ const section3Observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.4 },
+  { threshold: 0.3 },
 );
 
 section3Observer.observe(section3);
 
-const section2 = document.getElementById("section2");
-const section2Observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        fixedWhiteHeader.classList.remove("show");
-      }
-    });
-  },
-  { threshold: 0.7 },
-);
+const section1 = document.getElementById("section1");
+const section2Observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      fixedWhiteHeader.classList.remove("show");
+    }
+  });
+}, {});
 
-section2Observer.observe(section2);
+section2Observer.observe(section1);

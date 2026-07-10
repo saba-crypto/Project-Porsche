@@ -1,7 +1,7 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/model-configs" as config-components;
-@use "../../components/buttons" as button-components;
+@use "../../components/model-configs" as model-configs;
+@use "../../components/buttons" as buttons;
 
 .model-configuration-section {
   width: 100%;
@@ -150,7 +150,7 @@
       font-weight: 600;
     }
     .config-container {
-      @include config-components.config-container();
+      @include model-configs.config-container();
     }
     .color-config-container {
       .color-scroller {
@@ -167,7 +167,7 @@
     }
 
     .config-container-mobile {
-      @include config-components.config-container(mobile);
+      @include model-configs.config-container(mobile);
     }
   }
   .section-footer {
@@ -177,7 +177,7 @@
       text-align: center;
     }
     .build-btn {
-      @include button-components.gray-button(min(20px, 6vw), min(60px, 6vw));
+      @include buttons.gray-button(min(20px, 6vw), min(60px, 6vw));
     }
   }
 }

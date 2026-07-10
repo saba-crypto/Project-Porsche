@@ -1,7 +1,7 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
 .section4 {
-  @include flexbox(row, center, center);
+  @include mixins.flexbox(row, center, center);
   width: 100%;
   .section4-article {
     display: grid;
@@ -12,7 +12,7 @@
     background-color: $background-clr-dark;
     box-shadow: inset 0px 0px 20px rgba(255, 255, 255, 0.1);
     .article-left {
-      @include flexbox(column, space-between, flex-start, 10px);
+      @include mixins.flexbox(column, space-between, flex-start, 10px);
       height: 100%;
       width: 100%;
       padding: min(65px, 4vw);
@@ -58,7 +58,7 @@
 @media (max-width: $breakpointXL) {
   .section4 {
     .section4-article {
-      @include flexbox(column-reverse, center, center);
+      @include mixins.flexbox(column-reverse, center, center);
       .article-left {
         gap: 20px;
       }

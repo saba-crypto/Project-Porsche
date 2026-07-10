@@ -1,7 +1,7 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as *;
-@use "../../components/slider" as *;
+@use "../../components/buttons" as buttons;
+@use "../../components/slider" as sliders;
 
 .highlights-section {
   width: 100%;
@@ -9,18 +9,18 @@
     width: 100px;
   }
   .section-container {
-    @include flexbox(column, center, center, 20px);
+    @include mixins.flexbox(column, center, center, 20px);
     width: 100%;
   }
   .section-heading {
     font-size: $font-sizeXL;
   }
   .arrow-btns {
-    @include flexbox(row, center, center, 5px);
+    @include mixins.flexbox(row, center, center, 5px);
     align-self: flex-end;
     padding: 0 min(110px, 6vw);
     .arrow-btn {
-      @include arrow-btn();
+      @include buttons.arrow-btn();
       background-color: transparent;
       padding: 9px;
       transition-duration: 0.15s;
@@ -48,7 +48,7 @@
   .slider-wrapper {
     width: 100%;
     .slider {
-      @include flexbox(row, flex-start, center, min(20px, 2.5vw));
+      @include mixins.flexbox(row, flex-start, center, min(20px, 2.5vw));
       padding: 0 10vw;
       overflow-x: auto;
       scroll-behavior: smooth;
@@ -78,7 +78,7 @@
             object-fit: cover;
           }
           &::after {
-            @include fade-to(top);
+            @include mixins.fade-to(top);
             content: "";
             position: absolute;
             bottom: 0;
@@ -89,7 +89,7 @@
           }
         }
         .slider-body {
-          @include flexbox(column, center, flex-start, min(25px, 5vw));
+          @include mixins.flexbox(column, center, flex-start, min(25px, 5vw));
           color: $font-clr-light;
           position: absolute;
           bottom: 0;
@@ -110,7 +110,7 @@
     }
   }
   .slider-navigation {
-    @include slider-navigation();
+    @include sliders.slider-navigation();
   }
 }
 

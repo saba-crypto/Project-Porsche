@@ -2,7 +2,6 @@
 @use "../../abstracts/variables" as *;
 
 @use "../../layout/footer";
-@use "../../layout/header" as headers;
 @use "./header";
 @use "../../layout/sidebar";
 @use "./section1";
@@ -20,10 +19,10 @@
 
 .page911 {
   width: 100%;
-
   main {
-    //distance between sections
-    width: 100%;
+    @include mixins.flexbox(column, center, center);
     gap: clamp(100px, 15vw, 180px);
+    margin-bottom: 120px;
+    width: 100%;
   }
 }

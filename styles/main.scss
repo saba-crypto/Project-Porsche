@@ -1,5 +1,5 @@
 @use "./base/reset";
-@use "./abstracts/mixins" as *;
+@use "./abstracts/mixins" as mixins;
 @use "./abstracts/variables" as *;
 
 //import pages
@@ -25,10 +25,6 @@ a {
   color: unset;
 }
 
-main {
-  @include flexbox(column, center, center, 100px);
-  margin-bottom: 120px;
-}
 section {
   width: 100%;
   box-sizing: border-box;

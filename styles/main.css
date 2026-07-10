@@ -1442,6 +1442,15 @@ footer {
   font-weight: 700;
 }
 
+.home-page main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-bottom: 120px;
+}
+
 .white-header-static {
   position: static;
   border-bottom: 1px solid rgb(219, 219, 219);
@@ -3791,8 +3800,14 @@ footer {
   width: 100%;
 }
 .page911 main {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
   gap: clamp(100px, 15vw, 180px);
+  margin-bottom: 120px;
+  width: 100%;
 }
 
 html {
@@ -3815,15 +3830,6 @@ body.dark-mode .section-title {
 a {
   text-decoration: none;
   color: unset;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 100px;
-  margin-bottom: 120px;
 }
 
 section {

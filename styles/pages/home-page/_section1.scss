@@ -1,18 +1,18 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
 
 .section1-container {
   position: relative;
 
   .page-video {
-    @include glassmorphism();
+    @include mixins.glassmorphism();
     z-index: 1;
     object-fit: cover;
     width: 100%;
     height: 100vh;
   }
   .page-content {
-    @include flexbox(column, center, flex-start, 40px);
+    @include mixins.flexbox(column, center, flex-start, 40px);
     position: absolute;
     z-index: 2;
     left: 0;
@@ -27,7 +27,7 @@
       max-width: 650px;
     }
     .read-btn {
-      @include glassmorphism();
+      @include mixins.glassmorphism();
       backdrop-filter: blur(10px);
       border: none;
       padding: min(15px, 8vw) 0;
@@ -48,8 +48,8 @@
     }
   }
   .video-playback-btn {
-    @include flexbox(row, center, center);
-    @include glassmorphism(10px);
+    @include mixins.flexbox(row, center, center);
+    @include mixins.glassmorphism(10px);
     position: absolute;
     bottom: min(40px, 5vw);
     right: min(50px, 5vw);

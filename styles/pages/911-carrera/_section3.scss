@@ -1,10 +1,10 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
 
 .model-testimonial-section {
   padding: 0 min(90px, 7vw);
   .section-container {
-    @include flexbox(column, center, center, 70px);
+    @include mixins.flexbox(column, center, center, 70px);
     position: relative;
   }
   img {
@@ -27,7 +27,7 @@
   }
 
   .testimonial {
-    @include flexbox(column, center, flex-start, 20px);
+    @include mixins.flexbox(column, center, flex-start, 20px);
     width: clamp(300px, 40%, 100%);
     padding-left: min(90px, 6vw);
     box-sizing: border-box;

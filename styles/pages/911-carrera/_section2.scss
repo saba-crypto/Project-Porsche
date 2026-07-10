@@ -1,26 +1,26 @@
-@use "../../abstracts/mixins" as *;
+@use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as *;
+@use "../../components/buttons" as buttons;
 
 .model-specs-section {
-  @include flexbox(column, center, center);
+  @include mixins.flexbox(column, center, center);
   width: 100%;
   .section-container {
-    @include flexbox(column, center, flex-start, min(60px, 5vw));
+    @include mixins.flexbox(column, center, flex-start, min(60px, 5vw));
   }
   .section-content {
-    @include flexbox(row, center, center, 30px);
+    @include mixins.flexbox(row, center, center, 30px);
     .view-specs-btn {
-      @include gray-button(min(18px, 4vw), min(25px, 4vw));
+      @include buttons.gray-button(min(18px, 4vw), min(25px, 4vw));
     }
   }
   .model-specs-wrapper {
-    @include flexbox(column, center, flex-start, min(70px, 7vw));
+    @include mixins.flexbox(column, center, flex-start, min(70px, 7vw));
 
     .model-specs {
-      @include flexbox(column, center, flex-start, min(55px, 7vw));
+      @include mixins.flexbox(column, center, flex-start, min(55px, 7vw));
       .spec {
-        @include flexbox(column, center, flex-start, 5px);
+        @include mixins.flexbox(column, center, flex-start, 5px);
         white-space: nowrap;
         .spec-result {
           font-size: $font-sizeXXL;
@@ -39,7 +39,7 @@
     width: clamp(200px, 40vw, 600px);
   }
   .view-specs-btn {
-    @include gray-button(min(18px, 4vw), min(25px, 4vw));
+    @include buttons.gray-button(min(18px, 4vw), min(25px, 4vw));
   }
 }
 
