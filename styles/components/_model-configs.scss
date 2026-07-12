@@ -1,7 +1,7 @@
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/variables" as *;
 
-@mixin config-item() {
+.config-item {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -9,68 +9,71 @@
   box-sizing: border-box;
   padding: 2px;
   transition-duration: 0.1s;
+
   &:hover {
     border: 2px solid black;
     cursor: pointer;
   }
+
   &:active {
     scale: 0.95;
     transition-duration: 0.01s;
   }
 }
 
-@mixin config-container($size: desktop) {
-  @if $size == mobile {
-    @include mixins.flexbox(row, center, center, 10px);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-    padding: min(15px, 4vw);
-    border-radius: 15px;
-    width: 30%;
-    min-width: min-content;
-    flex-grow: 1;
-    box-sizing: border-box;
-    display: none;
-    .config-item {
-      @include config-item();
-      width: clamp(25px, 20vw, 50px);
-      height: 100%;
-    }
-    .plus-icon {
-      width: clamp(25px, 20vw, 50px);
-      min-width: 40px;
-      padding: 10px;
-      aspect-ratio: 1/1;
-      background-color: $light-dark-clr;
-      border-radius: 50%;
-      box-sizing: border-box;
-      transition-duration: 0.15s;
-      &:hover {
-        background-color: $hover-background-clr;
-        cursor: pointer;
-      }
-      &:active {
-        transition-duration: 0s;
-        opacity: 0.7;
-      }
-    }
-  } @else if $size == desktop {
-    @include mixins.flexbox(column, center, flex-start, 20px);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-    padding: 20px;
-    border-radius: 15px;
-    box-sizing: border-box;
+.config-container {
+  @include mixins.flexbox(column, center, flex-start, 20px);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  height: 100%;
+
+  .config-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 6px;
+    place-items: center;
     height: 100%;
-    .config-grid {
-      display: grid;
-      width: 100%;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 1fr;
-      gap: 6px;
-      place-items: center;
-      height: 100%;
+  }
+}
+
+.config-container-mobile {
+  @include mixins.flexbox(row, center, center, 10px);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: min(15px, 4vw);
+  border-radius: 15px;
+  width: 30%;
+  min-width: min-content;
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: none;
+
+  .config-item {
+    width: clamp(25px, 20vw, 50px);
+    height: 100%;
+  }
+
+  .plus-icon {
+    width: clamp(25px, 20vw, 50px);
+    min-width: 40px;
+    padding: 10px;
+    aspect-ratio: 1/1;
+    background-color: $light-dark-clr;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition-duration: 0.15s;
+
+    &:hover {
+      background-color: $hover-background-clr;
+      cursor: pointer;
     }
-    .config-item {
-      @include config-item();
+
+    &:active {
+      transition-duration: 0s;
+      opacity: 0.7;
     }
   }
 }

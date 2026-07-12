@@ -7,10 +7,7 @@
     @include mixins.flexbox(column, center, center, 70px);
     position: relative;
   }
-  img {
-    width: 200px;
-    //temp
-  }
+
   .model-signature-image {
     width: clamp(90px, 20vw, 200px);
   }

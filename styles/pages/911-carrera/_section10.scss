@@ -1,6 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/slider" as sliders;
 .porsche-models-section {
   .section-container {
     @include mixins.flexbox(column, center, center, min(40px, 5vw));
@@ -33,9 +32,6 @@
       width: 100%;
       padding: 0 10vw;
       box-sizing: border-box;
-      .model-type-slider {
-        @include sliders.slider-navigation-tabs();
-      }
       .arrow-btns {
         @include mixins.flexbox(row, center, center, 5px);
         .arrow-btn {
@@ -62,7 +58,6 @@
   }
 
   .slider {
-    @include sliders.slider();
     gap: min(40px, 5vw);
     padding: 100px 10vw;
     padding-bottom: 0;
@@ -147,10 +142,11 @@
         .configure-btn {
           padding: $paddingL $paddingL;
           font-size: $font-sizeS;
-          background-color: #dbdbde;
-          box-shadow: none;
           width: 100%;
-          transition-duration: 0.2s;
+          border: 1px solid transparent;
+          &:hover {
+            border: 1px solid black;
+          }
         }
         .explore-btn {
           padding: $paddingL $paddingL;
@@ -224,7 +220,6 @@
     }
   }
   .slider-navigation {
-    @include sliders.slider-navigation();
   }
   .additional-details-wrapper {
     @include mixins.flexbox(column, center, center, min(15px, 3.5vw));

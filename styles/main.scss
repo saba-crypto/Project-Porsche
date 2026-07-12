@@ -3,6 +3,8 @@
 
 @use "./base/reset";
 @use "./components/buttons";
+@use "./components/model-configs";
+@use "./components/slider";
 @use "./components/small-article";
 //import pages
 @use "./pages/home-page/home-page";

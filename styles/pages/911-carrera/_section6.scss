@@ -1,7 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/model-configs" as model-configs;
-@use "../../components/buttons" as buttons;
 
 .model-configuration-section {
   width: 100%;
@@ -149,9 +147,6 @@
       font-size: $font-sizeM;
       font-weight: 600;
     }
-    .config-container {
-      @include model-configs.config-container();
-    }
     .color-config-container {
       .color-scroller {
         @include mixins.flexbox(column, flex-start, flex-start, 20px);
@@ -164,10 +159,6 @@
           font-size: $font-sizeS;
         }
       }
-    }
-
-    .config-container-mobile {
-      @include model-configs.config-container(mobile);
     }
   }
   .section-footer {

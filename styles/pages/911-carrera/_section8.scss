@@ -1,5 +1,4 @@
 @use "../../abstracts/mixins" as mixins;
-@use "../../components/slider" as sliders;
 @use "../../abstracts/variables" as *;
 
 .model-parts-section {
@@ -23,7 +22,6 @@
     width: 100%;
     display: grid;
     .slider {
-      @include sliders.slider();
       overflow-y: hidden;
       height: 100%;
     }
@@ -67,7 +65,6 @@
     }
   }
   .slider-navigation {
-    @include sliders.slider-navigation();
     margin-top: min(50px, 5vw);
     align-self: center;
   }

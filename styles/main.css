@@ -144,6 +144,7 @@ table {
   transition-duration: 0.2s;
   white-space: nowrap;
   box-sizing: border-box;
+  transition: background 0.2s;
 }
 .gray-button:hover {
   background-color: #efefef;
@@ -308,6 +309,155 @@ table {
 .glass-button:active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
+}
+
+.config-item {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 2px;
+  transition-duration: 0.1s;
+}
+.config-item:hover {
+  border: 2px solid black;
+  cursor: pointer;
+}
+.config-item:active {
+  scale: 0.95;
+  transition-duration: 0.01s;
+}
+
+.config-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  height: 100%;
+}
+.config-container .config-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 6px;
+  place-items: center;
+  height: 100%;
+}
+
+.config-container-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: min(15px, 4vw);
+  border-radius: 15px;
+  width: 30%;
+  min-width: min-content;
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: none;
+}
+.config-container-mobile .config-item {
+  width: clamp(25px, 20vw, 50px);
+  height: 100%;
+}
+.config-container-mobile .plus-icon {
+  width: clamp(25px, 20vw, 50px);
+  min-width: 40px;
+  padding: 10px;
+  aspect-ratio: 1/1;
+  background-color: #dbdbde;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition-duration: 0.15s;
+}
+.config-container-mobile .plus-icon:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+  cursor: pointer;
+}
+.config-container-mobile .plus-icon:active {
+  transition-duration: 0s;
+  opacity: 0.7;
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(90px, 5vw);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  padding: 0 10vw;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.model-type-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  background-color: #f1f1f4;
+  padding: 3px;
+  border-radius: 5px;
+  overflow-x: auto;
+  width: 100%;
+  max-width: min-content;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+.model-type-slider::-webkit-scrollbar {
+  display: none;
+}
+.model-type-slider .model-type-link {
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition-duration: 0.15s;
+  white-space: nowrap;
+}
+.model-type-slider .model-type-link.selected {
+  background-color: #d0d0d5;
+}
+.model-type-slider .model-type-link:hover:not(.selected) {
+  background-color: #e7e7ea;
+}
+
+.slider-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.slider-navigation .navigation-link {
+  padding: 5px;
+  background-color: #707071;
+  border-radius: 50vh;
+  transition-duration: 0.2s;
+}
+.slider-navigation .navigation-link.selected {
+  background-color: rgb(0, 0, 0);
+  padding: 5px 13px;
+  pointer-events: none;
+}
+.slider-navigation .navigation-link:not(.selected) {
+  cursor: pointer;
 }
 
 .small-article {
@@ -1971,9 +2121,6 @@ footer {
   gap: 70px;
   position: relative;
 }
-.model-testimonial-section img {
-  width: 200px;
-}
 .model-testimonial-section .model-signature-image {
   width: clamp(90px, 20vw, 200px);
 }
@@ -2237,6 +2384,7 @@ footer {
   align-items: center;
   gap: 20px;
   width: 100%;
+  height: 100%;
   background-color: #f1f1f4;
   padding: min(40px, 4vw);
   color: #000000;
@@ -2262,27 +2410,6 @@ footer {
   width: 100%;
   object-fit: cover;
   flex-grow: 1;
-}
-.model-details-section .section-down .slider-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.model-details-section .section-down .slider-navigation .navigation-link {
-  padding: 5px;
-  background-color: #707071;
-  border-radius: 50vh;
-  transition-duration: 0.2s;
-}
-.model-details-section .section-down .slider-navigation .navigation-link.selected {
-  background-color: rgb(0, 0, 0);
-  padding: 5px 13px;
-  pointer-events: none;
-}
-.model-details-section .section-down .slider-navigation .navigation-link:not(.selected) {
-  cursor: pointer;
 }
 .model-details-section .section-down .fuel-consumption-text {
   color: #8b8b8b;
@@ -2435,28 +2562,6 @@ footer {
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
   line-height: 130%;
 }
-.highlights-section .slider-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.highlights-section .slider-navigation .navigation-link {
-  padding: 5px;
-  background-color: #707071;
-  border-radius: 50vh;
-  transition-duration: 0.2s;
-}
-.highlights-section .slider-navigation .navigation-link.selected {
-  background-color: rgb(0, 0, 0);
-  padding: 5px 13px;
-  pointer-events: none;
-}
-.highlights-section .slider-navigation .navigation-link:not(.selected) {
-  cursor: pointer;
-}
-
 @media (max-width: 760px) {
   .highlights-section .arrow-btns {
     display: none;
@@ -2630,44 +2735,6 @@ footer {
   font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
   font-weight: 600;
 }
-.model-configuration-section .model-config-window .config-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-  padding: 20px;
-  border-radius: 15px;
-  box-sizing: border-box;
-  height: 100%;
-}
-.model-configuration-section .model-config-window .config-container .config-grid {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 6px;
-  place-items: center;
-  height: 100%;
-}
-.model-configuration-section .model-config-window .config-container .config-item {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 15px;
-  box-sizing: border-box;
-  padding: 2px;
-  transition-duration: 0.1s;
-}
-.model-configuration-section .model-config-window .config-container .config-item:hover {
-  border: 2px solid black;
-  cursor: pointer;
-}
-.model-configuration-section .model-config-window .config-container .config-item:active {
-  scale: 0.95;
-  transition-duration: 0.01s;
-}
 .model-configuration-section .model-config-window .color-config-container .color-scroller {
   display: flex;
   flex-direction: column;
@@ -2686,60 +2753,6 @@ footer {
 }
 .model-configuration-section .model-config-window .color-config-container .color-scroller .color-category-heading {
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-}
-.model-configuration-section .model-config-window .config-container-mobile {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-  padding: min(15px, 4vw);
-  border-radius: 15px;
-  width: 30%;
-  min-width: min-content;
-  flex-grow: 1;
-  box-sizing: border-box;
-  display: none;
-}
-.model-configuration-section .model-config-window .config-container-mobile .config-item {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 15px;
-  box-sizing: border-box;
-  padding: 2px;
-  transition-duration: 0.1s;
-}
-.model-configuration-section .model-config-window .config-container-mobile .config-item:hover {
-  border: 2px solid black;
-  cursor: pointer;
-}
-.model-configuration-section .model-config-window .config-container-mobile .config-item:active {
-  scale: 0.95;
-  transition-duration: 0.01s;
-}
-.model-configuration-section .model-config-window .config-container-mobile .config-item {
-  width: clamp(25px, 20vw, 50px);
-  height: 100%;
-}
-.model-configuration-section .model-config-window .config-container-mobile .plus-icon {
-  width: clamp(25px, 20vw, 50px);
-  min-width: 40px;
-  padding: 10px;
-  aspect-ratio: 1/1;
-  background-color: #dbdbde;
-  border-radius: 50%;
-  box-sizing: border-box;
-  transition-duration: 0.15s;
-}
-.model-configuration-section .model-config-window .config-container-mobile .plus-icon:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-  cursor: pointer;
-}
-.model-configuration-section .model-config-window .config-container-mobile .plus-icon:active {
-  transition-duration: 0s;
-  opacity: 0.7;
 }
 .model-configuration-section .section-footer {
   display: flex;
@@ -2841,22 +2854,6 @@ footer {
   display: grid;
 }
 .model-parts-section .slider-wrapper .slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: min(90px, 5vw);
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
-  padding: 0 10vw;
-  scrollbar-width: none;
-  box-sizing: border-box;
-}
-.model-parts-section .slider-wrapper .slider ::-webkit-scrollbar {
-  display: none;
-}
-.model-parts-section .slider-wrapper .slider {
   overflow-y: hidden;
   height: 100%;
 }
@@ -2899,27 +2896,6 @@ footer {
   font-size: clamp(0.6rem, 1.1vw + 0.15rem, 0.8rem);
   color: #8b8b8b;
   margin-top: 10px;
-}
-.model-parts-section .slider-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.model-parts-section .slider-navigation .navigation-link {
-  padding: 5px;
-  background-color: #707071;
-  border-radius: 50vh;
-  transition-duration: 0.2s;
-}
-.model-parts-section .slider-navigation .navigation-link.selected {
-  background-color: rgb(0, 0, 0);
-  padding: 5px 13px;
-  pointer-events: none;
-}
-.model-parts-section .slider-navigation .navigation-link:not(.selected) {
-  cursor: pointer;
 }
 .model-parts-section .slider-navigation {
   margin-top: min(50px, 5vw);
@@ -3085,37 +3061,6 @@ footer {
   padding: 0 10vw;
   box-sizing: border-box;
 }
-.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 4px;
-  background-color: #f1f1f4;
-  padding: 3px;
-  border-radius: 5px;
-  overflow-x: auto;
-  width: 100%;
-  max-width: min-content;
-  box-sizing: border-box;
-  scrollbar-width: none;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider ::-webkit-scrollbar {
-  display: none;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider .model-type-link {
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  padding: 5px 12px;
-  border-radius: 6px;
-  transition-duration: 0.15s;
-  white-space: nowrap;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider .model-type-link.selected {
-  background-color: #d0d0d5;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .model-type-slider .model-type-link:hover:not(.selected) {
-  background-color: #e7e7ea;
-}
 .porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns {
   display: flex;
   flex-direction: row;
@@ -3140,22 +3085,6 @@ footer {
   width: 100%;
   display: grid;
   gap: 20px;
-}
-.porsche-models-section .slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: min(90px, 5vw);
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
-  padding: 0 10vw;
-  scrollbar-width: none;
-  box-sizing: border-box;
-}
-.porsche-models-section .slider ::-webkit-scrollbar {
-  display: none;
 }
 .porsche-models-section .slider {
   gap: min(40px, 5vw);
@@ -3264,10 +3193,11 @@ footer {
 .porsche-models-section .slider .slide .footer .configure-btn {
   padding: min(20px, 3vw) min(20px, 3vw);
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  background-color: #dbdbde;
-  box-shadow: none;
   width: 100%;
-  transition-duration: 0.2s;
+  border: 1px solid transparent;
+}
+.porsche-models-section .slider .slide .footer .configure-btn:hover {
+  border: 1px solid black;
 }
 .porsche-models-section .slider .slide .footer .explore-btn {
   padding: min(20px, 3vw) min(20px, 3vw);
@@ -3331,27 +3261,6 @@ footer {
 }
 .porsche-models-section .slider .slide.selected .footer .explore-btn {
   display: none;
-}
-.porsche-models-section .slider-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.porsche-models-section .slider-navigation .navigation-link {
-  padding: 5px;
-  background-color: #707071;
-  border-radius: 50vh;
-  transition-duration: 0.2s;
-}
-.porsche-models-section .slider-navigation .navigation-link.selected {
-  background-color: rgb(0, 0, 0);
-  padding: 5px 13px;
-  pointer-events: none;
-}
-.porsche-models-section .slider-navigation .navigation-link:not(.selected) {
-  cursor: pointer;
 }
 .porsche-models-section .additional-details-wrapper {
   display: flex;
@@ -3581,6 +3490,4 @@ section .section-title {
 
 ::selection {
   background-color: rgba(49, 200, 255, 0.4);
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

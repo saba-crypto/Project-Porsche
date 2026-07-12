@@ -1,20 +1,21 @@
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/variables" as *;
 
-@mixin slider($padding-x: 10vw) {
+.slider {
   @include mixins.flexbox(row, flex-start, center, min(90px, 5vw));
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   overflow-x: auto;
-  padding: 0 $padding-x;
+  padding: 0 10vw;
   scrollbar-width: none;
   box-sizing: border-box;
-  ::-webkit-scrollbar {
+
+  &::-webkit-scrollbar {
     display: none;
   }
 }
 
-@mixin slider-navigation-tabs() {
+.model-type-slider {
   @include mixins.flexbox(row, flex-start, center, 4px);
   background-color: #f1f1f4;
   padding: 3px;
@@ -24,36 +25,43 @@
   max-width: min-content;
   box-sizing: border-box;
   scrollbar-width: none;
-  ::-webkit-scrollbar {
+
+  &::-webkit-scrollbar {
     display: none;
   }
+
   .model-type-link {
     font-size: $font-sizeM;
     padding: 5px 12px;
     border-radius: 6px;
     transition-duration: 0.15s;
     white-space: nowrap;
+
     &.selected {
       background-color: #d0d0d5;
     }
+
     &:hover:not(.selected) {
       background-color: #e7e7ea;
     }
   }
 }
 
-@mixin slider-navigation() {
+.slider-navigation {
   @include mixins.flexbox(row, center, center, 10px);
+
   .navigation-link {
     padding: 5px;
     background-color: #707071;
     border-radius: 50vh;
     transition-duration: 0.2s;
+
     &.selected {
       background-color: rgb(0, 0, 0);
       padding: 5px 13px;
       pointer-events: none;
     }
+
     &:not(.selected) {
       cursor: pointer;
     }
