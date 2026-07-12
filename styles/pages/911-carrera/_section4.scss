@@ -1,6 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as buttons;
 @use "../../components/slider" as sliders;
 
 .model-details-section {
@@ -95,7 +94,6 @@
       @include mixins.flexbox(row, center, center, 5px);
 
       .arrow-btn {
-        @include buttons.arrow-btn();
         background-color: transparent;
         padding: 9px;
         transition-duration: 0.15s;

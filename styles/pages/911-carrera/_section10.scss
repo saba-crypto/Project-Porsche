@@ -1,5 +1,4 @@
 @use "../../abstracts/mixins" as mixins;
-@use "../../components/buttons" as buttons;
 @use "../../abstracts/variables" as *;
 @use "../../components/slider" as sliders;
 .porsche-models-section {
@@ -22,7 +21,7 @@
         @include mixins.flexbox(row, center, center, min(10px, 4vw));
       }
       .compare-btn {
-        @include buttons.gray-button($paddingS, $paddingM);
+        padding: $paddingS $paddingM;
         &.selected {
           background-color: #f3f3f4;
           border: $light-dark-clr 1px solid;
@@ -38,7 +37,7 @@
         @include sliders.slider-navigation-tabs();
       }
       .arrow-btns {
-        @include buttons.navigation-arrow-buttons();
+        @include mixins.flexbox(row, center, center, 5px);
         .arrow-btn {
           background-color: transparent;
           box-shadow: none;
@@ -146,7 +145,7 @@
           }
         }
         .configure-btn {
-          @include buttons.gray-button($paddingL, $paddingL);
+          padding: $paddingL $paddingL;
           font-size: $font-sizeS;
           background-color: #dbdbde;
           box-shadow: none;
@@ -154,7 +153,7 @@
           transition-duration: 0.2s;
         }
         .explore-btn {
-          @include buttons.gray-button($paddingL, $paddingL);
+          padding: $paddingL $paddingL;
           width: 100%;
         }
         .compare-container {
@@ -235,7 +234,7 @@
     }
     .comparison-btn {
       @include mixins.flexbox(row, center, center, 10px);
-      @include buttons.gray-button(min(15px, 5vw), min(30px, 6vw));
+      padding: min(15px, 5vw) min(30px, 6vw);
     }
   }
 }

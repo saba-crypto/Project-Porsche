@@ -1,6 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as buttons;
 
 .model-video-section {
   padding: $padding4XL-x;
@@ -17,7 +16,6 @@
     border-radius: $primary-border-radius;
   }
   .video-playback-btn {
-    @include buttons.video-playback-button();
     position: absolute;
     bottom: min(20px, 5vw);
     right: min(20px, 5vw);

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Porsche next;
+  src: url(../../assets/fonts/porsche-next/porsche-next.ttf);
+  font-display: swap;
+}
 html,
 body,
 div,
@@ -129,11 +134,233 @@ table {
   border-spacing: 0;
 }
 
-@font-face {
-  font-family: Porsche next;
-  src: url(../../assets/fonts/porsche-next/porsche-next.ttf);
-  font-display: swap;
+.gray-button {
+  background-color: #dbdbde;
+  color: #000000;
+  padding: min(12px, 4vw) min(24px, 4vw);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
+.gray-button:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+.gray-button:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+
+.black-button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: min(12px, 4vw) min(24px, 4vw);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.black-button:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
+  cursor: pointer;
+}
+.black-button:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+
+.arrow-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
+  border-radius: 50%;
+  padding: 7px;
+  transition-duration: 0.15s;
+  box-sizing: border-box;
+}
+.arrow-btn:not(.disabled):hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.arrow-btn:not(.disabled):active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.arrow-btn img {
+  width: clamp(20px, 2.5vw, 30px);
+}
+
+.navigation-arrow-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.navigation-arrow-buttons .arrow-btn {
+  background-color: transparent;
+  padding: 9px;
+  transition-duration: 0.15s;
+}
+.navigation-arrow-buttons .arrow-btn .arrow-icon {
+  width: 22px;
+  pointer-events: none;
+}
+.navigation-arrow-buttons .arrow-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.navigation-arrow-buttons .arrow-btn:not(.disabled):hover {
+  background-color: #414143;
+}
+.navigation-arrow-buttons .arrow-btn-left {
+  transform: rotate(180deg);
+}
+
+.video-playback-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  padding: min(15px, 2.5vw);
+  border-radius: 50%;
+  border: none;
+  transition: background 0.15s;
+}
+.video-playback-button:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.video-playback-button:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.video-playback-button img {
+  width: clamp(15px, 5vw, 27px);
+}
+.video-playback-button .play-icon {
+  display: none;
+}
+.video-playback-button.video-paused .play-icon {
+  display: block;
+}
+.video-playback-button.video-paused .pause-icon {
+  display: none;
+}
+
+.gray-transparent-button {
+  background-color: rgba(156, 156, 159, 0.3);
+  color: #ffffff;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.gray-transparent-button:hover {
+  background-color: hsla(240, 2%, 43%, 0.228);
+  cursor: pointer;
+}
+.gray-transparent-button:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
+}
+.gray-transparent-button.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.gray-transparent-button.black:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
+}
+
+.glass-button {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
+  box-sizing: border-box;
+  padding: 0;
+  transition: background 0.15s;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  border-radius: 10px;
+}
+.glass-button:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.glass-button:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.small-article {
+  opacity: 0;
+  transform: translateY(15%);
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+.small-article:hover img {
+  transform: scale(1.07);
+}
+.small-article {
+  z-index: 1;
+}
+.small-article .article-banner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  object-fit: cover;
+  transition-duration: 0.35s;
+}
+.small-article .article-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 100%;
+  padding: 0 15px;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
+  padding-bottom: min(25px, 7vw);
+  box-sizing: border-box;
+  z-index: 2;
+}
+.small-article .article-name {
+  font-family: Porsche Next, Arial;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  color: #ffffff;
+}
+.small-article .arrow-btn {
+  padding: 7px;
+}
+
+.small-article.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 aside {
   position: fixed;
   top: 0;
@@ -157,32 +384,6 @@ aside nav .sidebar-close-btn {
   justify-content: center;
   align-items: center;
   gap: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-  box-sizing: border-box;
-}
-aside nav .sidebar-close-btn:not(.disabled):hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-aside nav .sidebar-close-btn:not(.disabled):active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-aside nav .sidebar-close-btn img {
-  width: clamp(20px, 2.5vw, 30px);
-}
-aside nav .sidebar-close-btn {
   display: none;
   position: absolute;
   right: -90px;
@@ -951,80 +1152,6 @@ footer {
     width: 100%;
   }
 }
-.small-article {
-  opacity: 0;
-  transform: translateY(15%);
-  position: relative;
-  border-radius: 32px;
-  overflow: hidden;
-  transition-duration: 1s;
-}
-.small-article:hover img {
-  transform: scale(1.07);
-}
-.small-article {
-  z-index: 1;
-}
-.small-article .article-banner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  object-fit: cover;
-  transition-duration: 0.35s;
-}
-.small-article .article-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  width: 100%;
-  padding: 0 15px;
-  bottom: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
-  padding-bottom: min(25px, 7vw);
-  box-sizing: border-box;
-  z-index: 2;
-}
-.small-article .article-name {
-  font-family: Porsche Next, Arial;
-  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
-  color: #ffffff;
-}
-.small-article .arrow-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-  box-sizing: border-box;
-}
-.small-article .arrow-btn:not(.disabled):hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.small-article .arrow-btn:not(.disabled):active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.small-article .arrow-btn img {
-  width: clamp(20px, 2.5vw, 30px);
-}
-
-.small-article.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .section2 {
   display: flex;
   flex-direction: row;
@@ -1149,32 +1276,6 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-  box-sizing: border-box;
-}
-.section3-container .articles-container article .footer .arrow-btn:not(.disabled):hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.section3-container .articles-container article .footer .arrow-btn:not(.disabled):active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.section3-container .articles-container article .footer .arrow-btn img {
-  width: clamp(20px, 2.5vw, 30px);
-}
-.section3-container .articles-container article .footer .arrow-btn {
   color: #ffffff;
 }
 .section3-container .articles-container article .footer .explore-title {
@@ -1746,30 +1847,7 @@ footer {
   width: 100%;
 }
 .model-hero-section .section-down .model-btns .model-btn {
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(20px, 5vw) min(32px, 3vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.model-hero-section .section-down .model-btns .model-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.model-hero-section .section-down .model-btns .model-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.model-hero-section .section-down .model-btns .model-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.model-hero-section .section-down .model-btns .model-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
 }
 .model-hero-section .section-down .additional-details {
   display: flex;
@@ -1812,30 +1890,7 @@ footer {
   gap: 30px;
 }
 .model-specs-section .section-content .view-specs-btn {
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(18px, 4vw) min(25px, 4vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.model-specs-section .section-content .view-specs-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.model-specs-section .section-content .view-specs-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.model-specs-section .section-content .view-specs-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.model-specs-section .section-content .view-specs-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
 }
 .model-specs-section .model-specs-wrapper {
   display: flex;
@@ -1873,30 +1928,7 @@ footer {
   width: clamp(200px, 40vw, 600px);
 }
 .model-specs-section .view-specs-btn {
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(18px, 4vw) min(25px, 4vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.model-specs-section .view-specs-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.model-specs-section .view-specs-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.model-specs-section .view-specs-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.model-specs-section .view-specs-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
 }
 
 @media (max-width: 760px) {
@@ -2160,32 +2192,6 @@ footer {
   gap: 5px;
 }
 .model-details-section .section-down .arrow-btns .arrow-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-  box-sizing: border-box;
-}
-.model-details-section .section-down .arrow-btns .arrow-btn:not(.disabled):hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.model-details-section .section-down .arrow-btns .arrow-btn:not(.disabled):active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.model-details-section .section-down .arrow-btns .arrow-btn img {
-  width: clamp(20px, 2.5vw, 30px);
-}
-.model-details-section .section-down .arrow-btns .arrow-btn {
   background-color: transparent;
   padding: 9px;
   transition-duration: 0.15s;
@@ -2333,32 +2339,6 @@ footer {
   gap: 5px;
   align-self: flex-end;
   padding: 0 min(110px, 6vw);
-}
-.highlights-section .arrow-btns .arrow-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-  box-sizing: border-box;
-}
-.highlights-section .arrow-btns .arrow-btn:not(.disabled):hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.highlights-section .arrow-btns .arrow-btn:not(.disabled):active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.highlights-section .arrow-btns .arrow-btn img {
-  width: clamp(20px, 2.5vw, 30px);
 }
 .highlights-section .arrow-btns .arrow-btn {
   background-color: transparent;
@@ -2773,30 +2753,7 @@ footer {
   text-align: center;
 }
 .model-configuration-section .section-footer .build-btn {
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(20px, 6vw) min(60px, 6vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.model-configuration-section .section-footer .build-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.model-configuration-section .section-footer .build-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.model-configuration-section .section-footer .build-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.model-configuration-section .section-footer .build-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
 }
 
 @media (max-width: 1000px) {
@@ -2840,40 +2797,6 @@ footer {
   width: 100%;
   object-fit: cover;
   border-radius: 32px;
-}
-.model-video-section .video-playback-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  padding: min(15px, 2.5vw);
-  border-radius: 50%;
-  border: none;
-  transition: background 0.15s;
-}
-.model-video-section .video-playback-btn:hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.model-video-section .video-playback-btn:active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.model-video-section .video-playback-btn img {
-  width: clamp(15px, 5vw, 27px);
-}
-.model-video-section .video-playback-btn .play-icon {
-  display: none;
-}
-.model-video-section .video-playback-btn.video-paused .play-icon {
-  display: block;
-}
-.model-video-section .video-playback-btn.video-paused .pause-icon {
-  display: none;
 }
 .model-video-section .video-playback-btn {
   position: absolute;
@@ -3079,25 +3002,7 @@ footer {
   line-height: 140%;
 }
 .porsche-connect-section .porsche-connect-article .discover-btn {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  box-sizing: border-box;
   padding: min(20px, 6vw) min(30px, 6vw);
-  transition: background 0.15s;
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  border-radius: 10px;
-}
-.porsche-connect-section .porsche-connect-article .discover-btn:hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.porsche-connect-section .porsche-connect-article .discover-btn:active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.porsche-connect-section .porsche-connect-article .discover-btn {
   background-color: #413f3e;
   border-radius: 10px;
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
@@ -3164,30 +3069,7 @@ footer {
   gap: min(10px, 4vw);
 }
 .porsche-models-section .section-navigation .compare-selector .compare-btn {
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(10px, 2vw) min(15px, 2.5vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.porsche-models-section .section-navigation .compare-selector .compare-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.porsche-models-section .section-navigation .compare-selector .compare-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.porsche-models-section .section-navigation .compare-selector .compare-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.porsche-models-section .section-navigation .compare-selector .compare-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
 }
 .porsche-models-section .section-navigation .compare-selector .compare-btn.selected {
   background-color: #f3f3f4;
@@ -3240,51 +3122,6 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 5px;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-  box-sizing: border-box;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn img {
-  width: clamp(20px, 2.5vw, 30px);
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn {
-  background-color: transparent;
-  padding: 9px;
-  transition-duration: 0.15s;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn .arrow-icon {
-  width: 22px;
-  pointer-events: none;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):hover {
-  background-color: #414143;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn-left {
-  transform: rotate(180deg);
 }
 .porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn {
   background-color: transparent;
@@ -3425,32 +3262,7 @@ footer {
   background-color: #dbdbde;
 }
 .porsche-models-section .slider .slide .footer .configure-btn {
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(20px, 3vw) min(20px, 3vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.porsche-models-section .slider .slide .footer .configure-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.porsche-models-section .slider .slide .footer .configure-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.porsche-models-section .slider .slide .footer .configure-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.porsche-models-section .slider .slide .footer .configure-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
-}
-.porsche-models-section .slider .slide .footer .configure-btn {
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
   background-color: #dbdbde;
   box-shadow: none;
@@ -3458,32 +3270,7 @@ footer {
   transition-duration: 0.2s;
 }
 .porsche-models-section .slider .slide .footer .explore-btn {
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(20px, 3vw) min(20px, 3vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.porsche-models-section .slider .slide .footer .explore-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.porsche-models-section .slider .slide .footer .explore-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.porsche-models-section .slider .slide .footer .explore-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.porsche-models-section .slider .slide .footer .explore-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
-}
-.porsche-models-section .slider .slide .footer .explore-btn {
   width: 100%;
 }
 .porsche-models-section .slider .slide .footer .compare-container {
@@ -3583,30 +3370,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: #dbdbde;
-  color: #000000;
   padding: min(15px, 5vw) min(30px, 6vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.porsche-models-section .additional-details-wrapper .comparison-btn:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.porsche-models-section .additional-details-wrapper .comparison-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.porsche-models-section .additional-details-wrapper .comparison-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.porsche-models-section .additional-details-wrapper .comparison-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
 }
 
 @media (max-width: 1000px) {
@@ -3723,32 +3487,7 @@ footer {
   line-height: 130%;
 }
 .model-features-section .model-feature-article .body .article-btn {
-  background-color: rgba(156, 156, 159, 0.3);
-  color: #ffffff;
   padding: min(20px, 5vw) 0;
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.model-features-section .model-feature-article .body .article-btn:hover {
-  background-color: hsla(240, 2%, 43%, 0.228);
-  cursor: pointer;
-}
-.model-features-section .model-feature-article .body .article-btn:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.model-features-section .model-feature-article .body .article-btn.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.model-features-section .model-feature-article .body .article-btn.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
-}
-.model-features-section .model-feature-article .body .article-btn {
   border-radius: calc(32px - min(20px, 3vw));
   width: 100%;
 }
@@ -3842,4 +3581,6 @@ section .section-title {
 
 ::selection {
   background-color: rgba(49, 200, 255, 0.4);
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

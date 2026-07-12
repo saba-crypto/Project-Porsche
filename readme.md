@@ -10,6 +10,6 @@
 
 - project uses "animation-timeline" and "animation-range" properties with view() function, its used for native css scroll-driven animations, without any javascript used. ==note:== those properties are not supported on firefox.
 
-- project also features advanced and modern responsive design patterns. such as using min(), max() or clamp() functions. which let's us create responsive font sizes, paddings, margins and images with ease.
+- project also features advanced and modern responsive design patterns. such as using **min(), max() or clamp()** functions. which let's us create responsive font sizes, paddings, margins and images with ease.
 
 - project uses various mixins, components and variables which let's me create thing much faster.

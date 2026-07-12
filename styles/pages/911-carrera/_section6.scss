@@ -177,7 +177,7 @@
       text-align: center;
     }
     .build-btn {
-      @include buttons.gray-button(min(20px, 6vw), min(60px, 6vw));
+      padding: min(20px, 6vw) min(60px, 6vw);
     }
   }
 }

@@ -1,6 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/small-article";
 
 .section2 {
   @include mixins.flexbox(row, center, center);

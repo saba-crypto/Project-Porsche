@@ -1,37 +1,51 @@
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/variables" as *;
 
-@mixin gray-button(
-  $-padding-vertical: min(12px, 4vw),
-  $-padding-horizontal: min(24px, 4vw)
-) {
+.gray-button {
   background-color: #dbdbde;
   color: $font-clr-dark;
-  padding: $-padding-vertical $-padding-horizontal;
+  padding: min(12px, 4vw) min(24px, 4vw);
   border: none;
   border-radius: 10px;
   font-size: $font-sizeS;
   transition-duration: 0.2s;
   white-space: nowrap;
   box-sizing: border-box;
+
   &:hover {
     background-color: #efefef;
     cursor: pointer;
   }
+
   &:active {
     transform: scale(0.99);
     transition-duration: 0s;
   }
-  &.black {
-    background-color: #000000;
-    color: #ffffff;
-    &:hover {
-      background-color: #000000bb;
-    }
+}
+
+.black-button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: min(12px, 4vw) min(24px, 4vw);
+  border: none;
+  border-radius: 10px;
+  font-size: $font-sizeS;
+  transition-duration: 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: #000000bb;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.99);
+    transition-duration: 0s;
   }
 }
 
-@mixin arrow-btn($blur: 10px) {
+.arrow-btn {
   @include mixins.flexbox(row, center, center);
   @include mixins.glassmorphism();
   border: none;
@@ -39,10 +53,12 @@
   padding: 7px;
   transition-duration: 0.15s;
   box-sizing: border-box;
+
   &:not(.disabled):hover {
     background-color: rgba(0, 0, 0, 0.0892);
     cursor: pointer;
   }
+
   &:not(.disabled):active {
     transition-duration: 0s;
     background-color: rgba(0, 0, 0, 0.15);
@@ -52,100 +68,117 @@
     width: clamp(20px, 2.5vw, 30px);
   }
 }
-@mixin navigation-arrow-buttons() {
+
+.navigation-arrow-buttons {
   @include mixins.flexbox(row, center, center, 5px);
+
   .arrow-btn {
-    @include arrow-btn();
     background-color: transparent;
     padding: 9px;
     transition-duration: 0.15s;
+
     .arrow-icon {
       width: 22px;
       pointer-events: none;
     }
+
     &.disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
+
     &:not(.disabled):hover {
       background-color: #414143;
     }
   }
+
   .arrow-btn-left {
     transform: rotate(180deg);
   }
 }
 
-@mixin video-playback-button() {
+.video-playback-button {
   @include mixins.flexbox(row, center, center);
   @include mixins.glassmorphism(10px);
   padding: $paddingM;
   border-radius: 50%;
   border: none;
   transition: background 0.15s;
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.0892);
     cursor: pointer;
   }
+
   &:active {
     transition-duration: 0s;
     background-color: rgba(0, 0, 0, 0.15);
   }
+
   img {
     width: clamp(15px, 5vw, 27px);
   }
+
   .play-icon {
     display: none;
   }
+
   &.video-paused {
     .play-icon {
       display: block;
     }
+
     .pause-icon {
       display: none;
     }
   }
 }
 
-@mixin gray-transparent-button($padding-y: 0px, $padding-x: 0px) {
+.gray-transparent-button {
   background-color: rgba(156, 156, 159, 0.3);
   color: $font-clr-light;
-  padding: $padding-y $padding-x;
+  padding: 0;
   border: none;
   border-radius: 10px;
   font-size: $font-sizeS;
   transition-duration: 0.2s;
   white-space: nowrap;
   box-sizing: border-box;
+
   &:hover {
     background-color: hsla(240, 2%, 43%, 0.228);
     cursor: pointer;
   }
+
   &:active {
     transform: scale(0.99);
     transition-duration: 0s;
   }
+
   &.black {
     background-color: #000000;
     color: #ffffff;
+
     &:hover {
       background-color: #000000bb;
     }
   }
 }
 
-@mixin glass-button($padding-y: 0px, $padding-x: 0px) {
+.glass-button {
   @include mixins.glassmorphism();
   border: none;
   box-sizing: border-box;
-  padding: $padding-y $padding-x;
+  padding: 0;
   transition: background 0.15s;
   font-size: $font-sizeM;
   border-radius: 10px;
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.0892);
     cursor: pointer;
   }
+
   &:active {
     transition-duration: 0s;
     background-color: rgba(0, 0, 0, 0.15);

@@ -1,6 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as buttons;
 
 .model-hero-section {
   .section-container {
@@ -82,7 +81,7 @@
       flex-wrap: wrap;
       width: 100%;
       .model-btn {
-        @include buttons.gray-button(min(20px, 5vw), min(32px, 3vw));
+        padding: min(20px, 5vw) min(32px, 3vw);
       }
     }
     .additional-details {

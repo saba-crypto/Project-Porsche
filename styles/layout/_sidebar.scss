@@ -1,6 +1,5 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
-@use "../components/buttons" as *;
 
 //root styles
 aside {
@@ -20,7 +19,6 @@ aside {
     width: 100%;
     .sidebar-close-btn {
       @include flexbox(row, center, center);
-      @include arrow-btn();
       display: none;
       position: absolute;
       right: -90px;

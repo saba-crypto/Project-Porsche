@@ -1,6 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as buttons;
 
 .model-specs-section {
   @include mixins.flexbox(column, center, center);
@@ -11,7 +10,7 @@
   .section-content {
     @include mixins.flexbox(row, center, center, 30px);
     .view-specs-btn {
-      @include buttons.gray-button(min(18px, 4vw), min(25px, 4vw));
+      padding: min(18px, 4vw) min(25px, 4vw);
     }
   }
   .model-specs-wrapper {
@@ -39,7 +38,7 @@
     width: clamp(200px, 40vw, 600px);
   }
   .view-specs-btn {
-    @include buttons.gray-button(min(18px, 4vw), min(25px, 4vw));
+    padding: min(18px, 4vw) min(25px, 4vw);
   }
 }
 

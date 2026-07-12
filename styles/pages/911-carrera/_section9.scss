@@ -1,5 +1,4 @@
 @use "../../abstracts/mixins" as mixins;
-@use "../../components/buttons" as buttons;
 @use "../../abstracts/variables" as *;
 
 .porsche-connect-section {
@@ -55,7 +54,7 @@
       }
     }
     .discover-btn {
-      @include buttons.glass-button(min(20px, 6vw), min(30px, 6vw));
+      padding: min(20px, 6vw) min(30px, 6vw);
       background-color: #413f3e;
 
       border-radius: 10px;

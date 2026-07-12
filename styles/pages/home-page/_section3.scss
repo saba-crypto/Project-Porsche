@@ -1,6 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
 @use "../../abstracts/variables" as *;
-@use "../../components/buttons" as buttons;
 
 .section3-container {
   @include mixins.flexbox(column, center, center, 20px);
@@ -90,7 +89,6 @@
         box-sizing: border-box;
         .arrow-btn {
           @include mixins.flexbox(row, center, center, 10px);
-          @include buttons.arrow-btn();
           color: $font-clr-light;
         }
         .explore-title {

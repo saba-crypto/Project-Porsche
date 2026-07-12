@@ -20,7 +20,6 @@
     align-self: flex-end;
     padding: 0 min(110px, 6vw);
     .arrow-btn {
-      @include buttons.arrow-btn();
       background-color: transparent;
       padding: 9px;
       transition-duration: 0.15s;
