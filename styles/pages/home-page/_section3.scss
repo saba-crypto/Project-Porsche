@@ -179,27 +179,25 @@
 
 @media (max-width: $breakpointL) {
   .section3-container {
-    align-items: flex-start;
+    align-items: flex-end;
 
     .articles-container {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: 90%;
-      scroll-snap-type: x mandatory;
+      @include mixins.flexbox(row, flex-start, center, 20px);
+      flex-wrap: nowrap;
       scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
       overflow-x: auto;
-      justify-content: flex-start;
       scrollbar-width: none;
-
+      box-sizing: border-box;
+      padding: 0 10vw;
       &::-webkit-scrollbar {
         display: none;
       }
       article {
-        flex-shrink: 0;
-        width: 100%;
+        flex: 0 0 80vw;
+
         height: clamp(400px, 80vw, 1000px);
-        scroll-snap-align: start;
-        align-self: center;
+        scroll-snap-align: center;
         &:hover {
           width: 100%;
         }

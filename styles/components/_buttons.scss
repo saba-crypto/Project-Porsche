@@ -1,9 +1,7 @@
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/variables" as *;
 
-.gray-button {
-  background-color: #dbdbde;
-  color: $font-clr-dark;
+%default-button {
   padding: min(12px, 4vw) min(24px, 4vw);
   border: none;
   border-radius: 10px;
@@ -12,39 +10,35 @@
   white-space: nowrap;
   box-sizing: border-box;
   transition: background 0.2s;
+  &:active {
+    transform: scale(0.99);
+    transition-duration: 0s;
+  }
+}
+
+.gray-button {
+  @extend %default-button;
+  background-color: #dbdbde;
+  color: $font-clr-dark;
+  padding: min(12px, 4vw) min(24px, 4vw);
+
   &:hover {
     background-color: #efefef;
     cursor: pointer;
   }
-
-  &:active {
-    transform: scale(0.99);
-    transition-duration: 0s;
-  }
 }
 
 .black-button {
-  background-color: #000000;
-  color: #ffffff;
-  padding: min(12px, 4vw) min(24px, 4vw);
-  border: none;
-  border-radius: 10px;
-  font-size: $font-sizeS;
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-
+  @extend %default-button;
+  background-color: $background-clr-dark;
+  color: $font-clr-light;
   &:hover {
     background-color: #000000bb;
     cursor: pointer;
   }
-
-  &:active {
-    transform: scale(0.99);
-    transition-duration: 0s;
-  }
 }
 
+//single arrow button component
 .arrow-btn {
   @include mixins.flexbox(row, center, center);
   @include mixins.glassmorphism();
@@ -69,9 +63,9 @@
   }
 }
 
+//twin arrow buttons component(usually used for sliders)
 .navigation-arrow-buttons {
   @include mixins.flexbox(row, center, center, 5px);
-
   .arrow-btn {
     background-color: transparent;
     padding: 9px;
@@ -91,19 +85,20 @@
       background-color: #414143;
     }
   }
-
   .arrow-btn-left {
     transform: rotate(180deg);
   }
 }
 
+//used for pausing or playing the video
+//add .video-paused to apply styles for pause state or the opposite
 .video-playback-button {
   @include mixins.flexbox(row, center, center);
   @include mixins.glassmorphism(10px);
   padding: $paddingM;
   border-radius: 50%;
   border: none;
-  transition: background 0.15s;
+  transition-duration: 0.15s;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.0892);
@@ -135,44 +130,18 @@
 }
 
 .gray-transparent-button {
+  @extend %default-button;
   background-color: rgba(156, 156, 159, 0.3);
   color: $font-clr-light;
-  padding: 0;
-  border: none;
-  border-radius: 10px;
-  font-size: $font-sizeS;
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-
   &:hover {
     background-color: hsla(240, 2%, 43%, 0.228);
     cursor: pointer;
   }
-
-  &:active {
-    transform: scale(0.99);
-    transition-duration: 0s;
-  }
-
-  &.black {
-    background-color: #000000;
-    color: #ffffff;
-
-    &:hover {
-      background-color: #000000bb;
-    }
-  }
 }
 
 .glass-button {
+  @extend %default-button;
   @include mixins.glassmorphism();
-  border: none;
-  box-sizing: border-box;
-  padding: 0;
-  transition: background 0.15s;
-  font-size: $font-sizeM;
-  border-radius: 10px;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.0892);

@@ -48,31 +48,10 @@
     }
   }
   .video-playback-btn {
-    @include mixins.flexbox(row, center, center);
-    @include mixins.glassmorphism(10px);
     position: absolute;
     bottom: min(40px, 5vw);
     right: min(50px, 5vw);
-    padding: min(15px, 3vw);
-    border-radius: 50%;
-    border: none;
-    transition: background 0.15s;
-    cursor: pointer;
     z-index: 2;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.0892);
-      cursor: pointer;
-    }
-    &:active {
-      transition-duration: 0s;
-      background-color: rgba(0, 0, 0, 0.15);
-    }
-    img {
-      width: clamp(15px, 5vw, 27px);
-    }
-    .play-icon {
-      display: none;
-    }
   }
   .video-paused {
     .play-icon {

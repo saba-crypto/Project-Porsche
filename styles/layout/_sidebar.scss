@@ -1,7 +1,7 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 
-//root styles
+//sidebar root styles
 aside {
   position: fixed;
   top: 0;
@@ -58,7 +58,7 @@ aside.show {
   }
 }
 
-//content styles
+//sidebar content styles
 .navigation-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

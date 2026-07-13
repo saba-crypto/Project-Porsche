@@ -1,9 +1,5 @@
 @use "../../abstracts/mixins" as mixins;
-@use "../../abstracts/variables" as *;
 
-@use "../../layout/footer";
-@use "./header";
-@use "../../layout/sidebar";
 @use "./section1";
 @use "./section2";
 @use "./section3";

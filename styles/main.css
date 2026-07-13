@@ -134,383 +134,467 @@ table {
   border-spacing: 0;
 }
 
-.gray-button {
-  background-color: #dbdbde;
-  color: #000000;
-  padding: min(12px, 4vw) min(24px, 4vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-  transition: background 0.2s;
-}
-.gray-button:hover {
-  background-color: #efefef;
-  cursor: pointer;
-}
-.gray-button:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-
-.black-button {
-  background-color: #000000;
-  color: #ffffff;
-  padding: min(12px, 4vw) min(24px, 4vw);
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.black-button:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
-  cursor: pointer;
-}
-.black-button:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-
-.arrow-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  border-radius: 50%;
-  padding: 7px;
-  transition-duration: 0.15s;
-  box-sizing: border-box;
-}
-.arrow-btn:not(.disabled):hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.arrow-btn:not(.disabled):active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.arrow-btn img {
-  width: clamp(20px, 2.5vw, 30px);
-}
-
-.navigation-arrow-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-.navigation-arrow-buttons .arrow-btn {
-  background-color: transparent;
-  padding: 9px;
-  transition-duration: 0.15s;
-}
-.navigation-arrow-buttons .arrow-btn .arrow-icon {
-  width: 22px;
-  pointer-events: none;
-}
-.navigation-arrow-buttons .arrow-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.navigation-arrow-buttons .arrow-btn:not(.disabled):hover {
-  background-color: #414143;
-}
-.navigation-arrow-buttons .arrow-btn-left {
-  transform: rotate(180deg);
-}
-
-.video-playback-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  padding: min(15px, 2.5vw);
-  border-radius: 50%;
-  border: none;
-  transition: background 0.15s;
-}
-.video-playback-button:hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.video-playback-button:active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.video-playback-button img {
-  width: clamp(15px, 5vw, 27px);
-}
-.video-playback-button .play-icon {
-  display: none;
-}
-.video-playback-button.video-paused .play-icon {
-  display: block;
-}
-.video-playback-button.video-paused .pause-icon {
-  display: none;
-}
-
-.gray-transparent-button {
-  background-color: rgba(156, 156, 159, 0.3);
-  color: #ffffff;
-  padding: 0;
-  border: none;
-  border-radius: 10px;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  transition-duration: 0.2s;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-.gray-transparent-button:hover {
-  background-color: hsla(240, 2%, 43%, 0.228);
-  cursor: pointer;
-}
-.gray-transparent-button:active {
-  transform: scale(0.99);
-  transition-duration: 0s;
-}
-.gray-transparent-button.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-.gray-transparent-button.black:hover {
-  background-color: rgba(0, 0, 0, 0.7333333333);
-}
-
-.glass-button {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
-  border: none;
-  box-sizing: border-box;
-  padding: 0;
-  transition: background 0.15s;
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  border-radius: 10px;
-}
-.glass-button:hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.glass-button:active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-
-.config-item {
+.white-header-static,
+.white-header-fixed, .faded-header {
   width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 15px;
-  box-sizing: border-box;
-  padding: 2px;
-  transition-duration: 0.1s;
-}
-.config-item:hover {
-  border: 2px solid black;
-  cursor: pointer;
-}
-.config-item:active {
-  scale: 0.95;
-  transition-duration: 0.01s;
-}
-
-.config-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-  padding: 20px;
-  border-radius: 15px;
-  box-sizing: border-box;
-  height: 100%;
-}
-.config-container .config-grid {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 6px;
-  place-items: center;
-  height: 100%;
-}
-
-.config-container-mobile {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
-  padding: min(15px, 4vw);
-  border-radius: 15px;
-  width: 30%;
-  min-width: min-content;
-  flex-grow: 1;
-  box-sizing: border-box;
-  display: none;
-}
-.config-container-mobile .config-item {
-  width: clamp(25px, 20vw, 50px);
-  height: 100%;
-}
-.config-container-mobile .plus-icon {
-  width: clamp(25px, 20vw, 50px);
-  min-width: 40px;
-  padding: 10px;
-  aspect-ratio: 1/1;
-  background-color: #dbdbde;
-  border-radius: 50%;
-  box-sizing: border-box;
-  transition-duration: 0.15s;
-}
-.config-container-mobile .plus-icon:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-  cursor: pointer;
-}
-.config-container-mobile .plus-icon:active {
-  transition-duration: 0s;
-  opacity: 0.7;
-}
-
-.slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: min(90px, 5vw);
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  overflow-x: auto;
-  padding: 0 10vw;
-  scrollbar-width: none;
   box-sizing: border-box;
 }
-.slider::-webkit-scrollbar {
-  display: none;
-}
-
-.model-type-slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 4px;
-  background-color: #f1f1f4;
-  padding: 3px;
-  border-radius: 5px;
-  overflow-x: auto;
-  width: 100%;
-  max-width: min-content;
-  box-sizing: border-box;
-  scrollbar-width: none;
-}
-.model-type-slider::-webkit-scrollbar {
-  display: none;
-}
-.model-type-slider .model-type-link {
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  padding: 5px 12px;
-  border-radius: 6px;
-  transition-duration: 0.15s;
-  white-space: nowrap;
-}
-.model-type-slider .model-type-link.selected {
-  background-color: #d0d0d5;
-}
-.model-type-slider .model-type-link:hover:not(.selected) {
-  background-color: #e7e7ea;
-}
-
-.slider-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.slider-navigation .navigation-link {
-  padding: 5px;
-  background-color: #707071;
-  border-radius: 50vh;
-  transition-duration: 0.2s;
-}
-.slider-navigation .navigation-link.selected {
-  background-color: rgb(0, 0, 0);
-  padding: 5px 13px;
-  pointer-events: none;
-}
-.slider-navigation .navigation-link:not(.selected) {
-  cursor: pointer;
-}
-
-.small-article {
-  opacity: 0;
-  transform: translateY(15%);
-  position: relative;
-  border-radius: 32px;
-  overflow: hidden;
-  transition-duration: 1s;
-}
-.small-article:hover img {
-  transform: scale(1.07);
-}
-.small-article {
-  z-index: 1;
-}
-.small-article .article-banner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  object-fit: cover;
-  transition-duration: 0.35s;
-}
-.small-article .article-content {
+.white-header-static .header-container,
+.white-header-fixed .header-container, .faded-header .header-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  position: absolute;
+  gap: 0px;
   width: 100%;
-  padding: 0 15px;
-  bottom: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
-  padding-bottom: min(25px, 7vw);
-  box-sizing: border-box;
-  z-index: 2;
 }
-.small-article .article-name {
+.white-header-static .header-container .header-left,
+.white-header-fixed .header-container .header-left, .faded-header .header-container .header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.white-header-static .header-container .burger-menu,
+.white-header-fixed .header-container .burger-menu, .faded-header .header-container .burger-menu {
+  width: 25px;
+}
+.white-header-static .header-container .menu,
+.white-header-fixed .header-container .menu, .faded-header .header-container .menu {
   font-family: Porsche Next, Arial;
-  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.white-header-static .header-container .porsche-logo,
+.white-header-fixed .header-container .porsche-logo, .faded-header .header-container .porsche-logo {
+  display: none;
+  width: 32px;
+}
+.white-header-static .header-container .porsche-title,
+.white-header-fixed .header-container .porsche-title, .faded-header .header-container .porsche-title {
+  width: clamp(150px, 20vw, 200px);
+}
+.white-header-static .header-container .header-right,
+.white-header-fixed .header-container .header-right, .faded-header .header-container .header-right {
+  position: relative;
+}
+.white-header-static .header-container .globe-icon,
+.white-header-fixed .header-container .globe-icon, .faded-header .header-container .globe-icon {
+  width: 24px;
+  padding: 2px;
+  border-radius: 50%;
+  transition-duration: 0.15s;
+}
+.white-header-static .header-container .globe-icon:hover,
+.white-header-fixed .header-container .globe-icon:hover, .faded-header .header-container .globe-icon:hover {
+  cursor: pointer;
+}
+.white-header-static .header-container .globe-icon:hover + .globe-tooltip,
+.white-header-fixed .header-container .globe-icon:hover + .globe-tooltip, .faded-header .header-container .globe-icon:hover + .globe-tooltip {
+  opacity: 1;
+}
+.white-header-static .header-container .globe-tooltip,
+.white-header-fixed .header-container .globe-tooltip, .faded-header .header-container .globe-tooltip {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  padding: min(6px, 6vw);
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  font-family: Porsche Next, Arial;
+  line-height: 130%;
+  white-space: nowrap;
+  pointer-events: none;
+  transition-duration: 0.3s;
+}
+@media (max-width: 760px) {
+  .white-header-static .header-container .porsche-title,
+  .white-header-fixed .header-container .porsche-title, .faded-header .header-container .porsche-title {
+    display: none;
+  }
+  .white-header-static .header-container .porsche-logo,
+  .white-header-fixed .header-container .porsche-logo, .faded-header .header-container .porsche-logo {
+    display: block;
+  }
+  .white-header-static .header-container .menu,
+  .white-header-fixed .header-container .menu, .faded-header .header-container .menu {
+    display: none;
+  }
+  .white-header-static .header-container .globe-tooltip,
+  .white-header-fixed .header-container .globe-tooltip, .faded-header .header-container .globe-tooltip {
+    white-space: wrap;
+  }
+}
+
+.faded-header {
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 20%, transparent 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 25px min(70px, 5vw);
+  z-index: 100;
+}
+.faded-header .header-container .header-left:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.faded-header .header-container .menu {
   color: #ffffff;
 }
-.small-article .arrow-btn {
-  padding: 7px;
+.faded-header .header-container .globe-icon:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.faded-header .header-container .globe-tooltip {
+  background-color: rgba(100, 100, 100, 0.8);
+  color: #ffffff;
 }
 
-.small-article.show {
-  opacity: 1;
+/*
+  911 carrera white header variants.
+  these styles are used by the 911 model page for the static
+  and scroll-revealed header states.
+*/
+.white-header-static,
+.white-header-fixed {
+  padding: min(25px, 4vw) min(70px, 5vw);
+  background-color: #ffffff;
+}
+.white-header-static .header-container,
+.white-header-fixed .header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: min(20px, 5vw);
+}
+.white-header-static .header-container .burger-menu,
+.white-header-fixed .header-container .burger-menu {
+  filter: invert(100);
+}
+.white-header-static .header-container .menu,
+.white-header-fixed .header-container .menu {
+  color: #000000;
+}
+.white-header-static .header-container .porsche-title,
+.white-header-fixed .header-container .porsche-title {
+  filter: invert(100);
+}
+.white-header-static .header-container .globe-icon:hover,
+.white-header-fixed .header-container .globe-icon:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.white-header-static .header-container .globe-tooltip,
+.white-header-fixed .header-container .globe-tooltip {
+  background-color: rgba(100, 100, 100, 0.8);
+  color: #ffffff;
+}
+
+.white-header-static {
+  position: static;
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+.white-header-static .header-container .header-left:hover {
+  background-color: #dbdbde;
+}
+
+.white-header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 1px solid black;
+  transform: translateY(-104%);
+  transition-duration: 0.3s;
+  opacity: 0;
+}
+.white-header-fixed .header-container .header-left .model-name {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.white-header-fixed .header-container .header-left .model-change-link {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: min(5px, 1vw);
+  transition-duration: 0.15s;
+  border-radius: 6px;
+}
+.white-header-fixed .header-container .header-left .model-change-link:hover {
+  background-color: #dbdbde;
+  cursor: pointer;
+}
+.white-header-fixed .header-container .vertical-menu-lines {
+  display: none;
+  width: 30px;
+  padding: 2px;
+  border-radius: 50%;
+  transition-duration: 0.15s;
+}
+.white-header-fixed .header-container .vertical-menu-lines:hover {
+  background-color: #dbdbde;
+  cursor: pointer;
+}
+.white-header-fixed .header-container .nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.white-header-fixed .header-container .nav-list .list-item {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: min(5px, 1vw);
+  transition-duration: 0.15s;
+  border-radius: 6px;
+}
+.white-header-fixed .header-container .nav-list .list-item:hover {
+  background-color: #dbdbde;
+  cursor: pointer;
+}
+@media (max-width: 760px) {
+  .white-header-fixed {
+    border-bottom: 3px solid black;
+  }
+  .white-header-fixed .header-container .header-left .model-name {
+    font-weight: 600;
+  }
+  .white-header-fixed .header-container .header-left .model-change-link {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .white-header-fixed .header-container .vertical-menu-lines {
+    display: block;
+  }
+  .white-header-fixed .header-container .nav-list {
+    display: none;
+  }
+}
+
+.white-header-fixed.show {
   transform: translateY(0);
+  opacity: 1;
 }
 
+footer {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Porsche Next, Arial;
+  padding: min(50px, 6.5vw) min(80px, 8vw);
+  box-sizing: border-box;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 40px;
+  width: 100%;
+}
+.footer-container a {
+  color: unset;
+  text-decoration: none;
+}
+.footer-container img {
+  width: 40px;
+}
+.footer-container .footer-section {
+  width: 100%;
+}
+.footer-container .scroller a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.footer-container .scroller {
+  width: unset;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.footer-container .scroller .scroller-icon {
+  width: 23px;
+  filter: invert(100);
+  transition-duration: 0.15s;
+  padding: 4px;
+  border-radius: 50%;
+}
+.footer-container .scroller:hover {
+  cursor: pointer;
+}
+.footer-container .scroller:hover .scroller-icon {
+  background-color: rgba(100, 100, 100, 0.8);
+  animation: arrow-jump 0.6s, ease-out;
+}
+.footer-container .region-selector {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.footer-container .region-selector .region-up {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  color: #8b8b8b;
+}
+.footer-container .region-selector .region-down {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.footer-container .region-selector .region-down .region-flag-icon {
+  width: 30px;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+.footer-container .region-selector .region-down .region-change-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.footer-container .footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.footer-container .footer-nav .nav-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+}
+.footer-container .footer-nav .nav-tab .navigation-header {
+  color: #8b8b8b;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: 3px 5px;
+}
+.footer-container .footer-nav .nav-tab .navigation-link {
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  padding: 3px 5px;
+  border-radius: 4px;
+  transition-duration: 0.15s;
+}
+.footer-container .footer-nav .nav-tab .navigation-link:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.footer-container .social-media-app {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(50px, 6vw);
+}
+.footer-container .social-media-app .socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: min(40px, 5vw);
+  flex-wrap: wrap;
+}
+.footer-container .social-media-app .socials .social-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  padding: 10px;
+  transition-duration: 0.15s;
+  border-radius: 50%;
+}
+.footer-container .social-media-app .socials .social-link:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.footer-container .social-media-app .socials .social-icon {
+  width: clamp(13px, 5vw, 18px);
+}
+.footer-container .social-media-app .downloads {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.footer-container .social-media-app .downloads .download-icon {
+  width: clamp(80px, 6vw, 125px);
+}
+.footer-container .footer-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+  color: #8b8b8b;
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+}
+.footer-container .footer-text .rules-privacy {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: underline;
+}
+.footer-container .footer-text .footer-text-content {
+  line-height: 130%;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+}
+.footer-container .porsche-logo-wrapper {
+  width: unset;
+}
+.footer-container .porsche-logo-wrapper .porsche-title {
+  width: clamp(150px, 20vw, 200px);
+}
+.footer-container .porsche-logo-wrapper .porsche-logo {
+  width: clamp(30px, 7vw, 200px);
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .footer-container .footer-nav {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .footer-container .social-media-app {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .footer-container .social-media-app .socials {
+    gap: 5px;
+  }
+  .footer-container .footer-text {
+    gap: 20px;
+  }
+  .footer-container .footer-text .rules-privacy {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-container .porsche-logo-wrapper .porsche-logo {
+    display: block;
+  }
+  .footer-container .porsche-logo-wrapper .porsche-title {
+    display: none;
+  }
+}
+@keyframes arrow-jump {
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 aside {
   position: fixed;
   top: 0;
@@ -891,312 +975,350 @@ aside.show .sidebar-close-btn {
     transform: rotate(360deg);
   }
 }
-footer {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: Porsche Next, Arial;
-  padding: min(50px, 6.5vw) min(80px, 8vw);
+.glass-button, .gray-transparent-button, .black-button, .gray-button {
+  padding: min(12px, 4vw) min(24px, 4vw);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+  transition-duration: 0.2s;
+  white-space: nowrap;
   box-sizing: border-box;
+  transition: background 0.2s;
+}
+.glass-button:active, .gray-transparent-button:active, .black-button:active, .gray-button:active {
+  transform: scale(0.99);
+  transition-duration: 0s;
 }
 
-.footer-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap: 40px;
-  width: 100%;
+.gray-button {
+  background-color: #dbdbde;
+  color: #000000;
+  padding: min(12px, 4vw) min(24px, 4vw);
 }
-.footer-container a {
-  color: unset;
-  text-decoration: none;
-}
-.footer-container img {
-  width: 40px;
-}
-.footer-container .footer-section {
-  width: 100%;
-}
-.footer-container .scroller a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.footer-container .scroller {
-  width: unset;
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-}
-.footer-container .scroller .scroller-icon {
-  width: 23px;
-  filter: invert(100);
-  transition-duration: 0.15s;
-  padding: 4px;
-  border-radius: 50%;
-}
-.footer-container .scroller:hover {
+.gray-button:hover {
+  background-color: #efefef;
   cursor: pointer;
 }
-.footer-container .scroller:hover .scroller-icon {
-  background-color: rgba(100, 100, 100, 0.8);
-  animation: arrow-jump 0.6s, ease-out;
+
+.black-button {
+  background-color: #000000;
+  color: #ffffff;
 }
-.footer-container .region-selector {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 15px;
-}
-.footer-container .region-selector .region-up {
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  color: #8b8b8b;
-}
-.footer-container .region-selector .region-down {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-}
-.footer-container .region-selector .region-down .region-flag-icon {
-  width: 30px;
-  border: 1px white solid;
-  border-radius: 50%;
-}
-.footer-container .region-selector .region-down .region-change-link {
-  text-decoration: underline;
+.black-button:hover {
+  background-color: rgba(0, 0, 0, 0.7333333333);
   cursor: pointer;
 }
-.footer-container .footer-nav {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.footer-container .footer-nav .nav-tab {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 15px;
-}
-.footer-container .footer-nav .nav-tab .navigation-header {
-  color: #8b8b8b;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  padding: 3px 5px;
-}
-.footer-container .footer-nav .nav-tab .navigation-link {
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  padding: 3px 5px;
-  border-radius: 4px;
-  transition-duration: 0.15s;
-}
-.footer-container .footer-nav .nav-tab .navigation-link:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-}
-.footer-container .social-media-app {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: min(50px, 6vw);
-}
-.footer-container .social-media-app .socials {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: min(40px, 5vw);
-  flex-wrap: wrap;
-}
-.footer-container .social-media-app .socials .social-link {
+
+.arrow-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0px;
-  padding: 10px;
-  transition-duration: 0.15s;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  border: none;
   border-radius: 50%;
+  padding: 7px;
+  transition-duration: 0.15s;
+  box-sizing: border-box;
 }
-.footer-container .social-media-app .socials .social-link:hover {
-  background-color: rgba(100, 100, 100, 0.8);
+.arrow-btn:not(.disabled):hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
 }
-.footer-container .social-media-app .socials .social-icon {
-  width: clamp(13px, 5vw, 18px);
+.arrow-btn:not(.disabled):active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
 }
-.footer-container .social-media-app .downloads {
+.arrow-btn img {
+  width: clamp(20px, 2.5vw, 30px);
+}
+
+.navigation-arrow-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
-.footer-container .social-media-app .downloads .download-icon {
-  width: clamp(80px, 6vw, 125px);
+.navigation-arrow-buttons .arrow-btn {
+  background-color: transparent;
+  padding: 9px;
+  transition-duration: 0.15s;
 }
-.footer-container .footer-text {
+.navigation-arrow-buttons .arrow-btn .arrow-icon {
+  width: 22px;
+  pointer-events: none;
+}
+.navigation-arrow-buttons .arrow-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.navigation-arrow-buttons .arrow-btn:not(.disabled):hover {
+  background-color: #414143;
+}
+.navigation-arrow-buttons .arrow-btn-left {
+  transform: rotate(180deg);
+}
+
+.video-playback-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+  padding: min(15px, 2.5vw);
+  border-radius: 50%;
+  border: none;
+  transition-duration: 0.15s;
+}
+.video-playback-button:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.video-playback-button:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.video-playback-button img {
+  width: clamp(15px, 5vw, 27px);
+}
+.video-playback-button .play-icon {
+  display: none;
+}
+.video-playback-button.video-paused .play-icon {
+  display: block;
+}
+.video-playback-button.video-paused .pause-icon {
+  display: none;
+}
+
+.gray-transparent-button {
+  background-color: rgba(156, 156, 159, 0.3);
+  color: #ffffff;
+}
+.gray-transparent-button:hover {
+  background-color: hsla(240, 2%, 43%, 0.228);
+  cursor: pointer;
+}
+
+.glass-button {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
+}
+.glass-button:hover {
+  background-color: rgba(0, 0, 0, 0.0892);
+  cursor: pointer;
+}
+.glass-button:active {
+  transition-duration: 0s;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.config-item {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 2px;
+  transition-duration: 0.1s;
+}
+.config-item:hover {
+  border: 2px solid black;
+  cursor: pointer;
+}
+.config-item:active {
+  scale: 0.95;
+  transition-duration: 0.01s;
+}
+
+.config-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 15px;
-  color: #8b8b8b;
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  height: 100%;
 }
-.footer-container .footer-text .rules-privacy {
+.config-container .config-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 6px;
+  place-items: center;
+  height: 100%;
+}
+
+.config-container-mobile {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  text-decoration: underline;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px 0px;
+  padding: min(15px, 4vw);
+  border-radius: 15px;
+  width: 30%;
+  min-width: min-content;
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: none;
 }
-.footer-container .footer-text .footer-text-content {
-  line-height: 130%;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
+.config-container-mobile .config-item {
+  width: clamp(25px, 20vw, 50px);
+  height: 100%;
 }
-.footer-container .porsche-logo-wrapper {
-  width: unset;
+.config-container-mobile .plus-icon {
+  width: clamp(25px, 20vw, 50px);
+  min-width: 40px;
+  padding: 10px;
+  aspect-ratio: 1/1;
+  background-color: #dbdbde;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition-duration: 0.15s;
 }
-.footer-container .porsche-logo-wrapper .porsche-title {
-  width: clamp(150px, 20vw, 200px);
+.config-container-mobile .plus-icon:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+  cursor: pointer;
 }
-.footer-container .porsche-logo-wrapper .porsche-logo {
-  width: clamp(30px, 7vw, 200px);
+.config-container-mobile .plus-icon:active {
+  transition-duration: 0s;
+  opacity: 0.7;
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: min(90px, 5vw);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  padding: 0 10vw;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+.slider::-webkit-scrollbar {
   display: none;
 }
 
-@media (max-width: 760px) {
-  .footer-container .footer-nav {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  .footer-container .social-media-app {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .footer-container .social-media-app .socials {
-    gap: 5px;
-  }
-  .footer-container .footer-text {
-    gap: 20px;
-  }
-  .footer-container .footer-text .rules-privacy {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer-container .porsche-logo-wrapper .porsche-logo {
-    display: block;
-  }
-  .footer-container .porsche-logo-wrapper .porsche-title {
-    display: none;
-  }
+.model-type-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  background-color: #f1f1f4;
+  padding: 3px;
+  border-radius: 5px;
+  overflow-x: auto;
+  width: 100%;
+  max-width: min-content;
+  box-sizing: border-box;
+  scrollbar-width: none;
 }
-@keyframes arrow-jump {
-  25% {
-    transform: translateY(-5px);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-  75% {
-    transform: translateY(-3px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.model-type-slider::-webkit-scrollbar {
+  display: none;
 }
-.home-page header {
-  background: linear-gradient(to bottom, rgb(0, 0, 0) 20%, transparent 100%);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 25px min(70px, 5vw);
-  z-index: 100;
+.model-type-slider .model-type-link {
+  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition-duration: 0.15s;
+  white-space: nowrap;
 }
-.home-page header .header-container {
+.model-type-slider .model-type-link.selected {
+  background-color: #d0d0d5;
+}
+.model-type-slider .model-type-link:hover:not(.selected) {
+  background-color: #e7e7ea;
+}
+
+.slider-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.slider-navigation .navigation-link {
+  padding: 5px;
+  background-color: #707071;
+  border-radius: 50vh;
+  transition-duration: 0.2s;
+}
+.slider-navigation .navigation-link.selected {
+  background-color: rgb(0, 0, 0);
+  padding: 5px 13px;
+  pointer-events: none;
+}
+.slider-navigation .navigation-link:not(.selected) {
+  cursor: pointer;
+}
+
+.small-article {
+  opacity: 0;
+  transform: translateY(15%);
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+.small-article:hover img {
+  transform: scale(1.07);
+}
+.small-article {
+  z-index: 1;
+}
+.small-article .article-banner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  object-fit: cover;
+  transition-duration: 0.35s;
+}
+.small-article .article-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 0px;
-}
-.home-page header .header-container .header-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  padding: 2px 4px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition-duration: 0.2s;
-}
-.home-page header .header-container .header-left:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-}
-.home-page header .header-container .burger-menu {
-  width: 25px;
-}
-.home-page header .header-container .menu {
-  color: #ffffff;
-  font-family: Porsche Next, Arial;
-}
-.home-page header .header-container .porsche-logo {
-  display: none;
-  width: 32px;
-}
-.home-page header .header-container .porsche-title {
-  width: clamp(150px, 20vw, 200px);
-}
-.home-page header .header-container .header-right {
-  position: relative;
-}
-.home-page header .header-container .globe-icon {
-  width: 24px;
-  padding: 2px;
-  border-radius: 50%;
-  transition-duration: 0.15s;
-}
-.home-page header .header-container .globe-icon:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-  cursor: pointer;
-}
-.home-page header .header-container .globe-icon:hover + .globe-tooltip {
-  opacity: 1;
-}
-.home-page header .header-container .globe-tooltip {
+  gap: 10px;
   position: absolute;
-  opacity: 0;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
-  padding: min(6px, 6vw);
-  background-color: rgba(100, 100, 100, 0.8);
-  color: #ffffff;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  font-family: Porsche Next, Arial;
-  line-height: 130%;
-  white-space: nowrap;
-  pointer-events: none;
-  transition-duration: 0.3s;
+  width: 100%;
+  padding: 0 15px;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.904), transparent);
+  padding-bottom: min(25px, 7vw);
+  box-sizing: border-box;
+  z-index: 2;
 }
-@media (max-width: 760px) {
-  .home-page header .header-container .porsche-title {
-    display: none;
-  }
-  .home-page header .header-container .porsche-logo {
-    display: block;
-  }
-  .home-page header .header-container .menu {
-    display: none;
-  }
-  .home-page header .header-container .globe-tooltip {
-    white-space: wrap;
-  }
+.small-article .article-name {
+  font-family: Porsche Next, Arial;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  color: #ffffff;
+}
+.small-article .arrow-btn {
+  padding: 7px;
+}
+
+.small-article.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section1-container {
@@ -1254,37 +1376,10 @@ footer {
   background-color: rgba(0, 0, 0, 0.15);
 }
 .section1-container .video-playback-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
   position: absolute;
   bottom: min(40px, 5vw);
   right: min(50px, 5vw);
-  padding: min(15px, 3vw);
-  border-radius: 50%;
-  border: none;
-  transition: background 0.15s;
-  cursor: pointer;
   z-index: 2;
-}
-.section1-container .video-playback-btn:hover {
-  background-color: rgba(0, 0, 0, 0.0892);
-  cursor: pointer;
-}
-.section1-container .video-playback-btn:active {
-  transition-duration: 0s;
-  background-color: rgba(0, 0, 0, 0.15);
-}
-.section1-container .video-playback-btn img {
-  width: clamp(15px, 5vw, 27px);
-}
-.section1-container .video-playback-btn .play-icon {
-  display: none;
 }
 .section1-container .video-paused .play-icon {
   display: block;
@@ -1524,27 +1619,29 @@ footer {
 
 @media (max-width: 760px) {
   .section3-container {
-    align-items: flex-start;
+    align-items: flex-end;
   }
   .section3-container .articles-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 90%;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
     scrollbar-width: none;
+    box-sizing: border-box;
+    padding: 0 10vw;
   }
   .section3-container .articles-container::-webkit-scrollbar {
     display: none;
   }
   .section3-container .articles-container article {
-    flex-shrink: 0;
-    width: 100%;
+    flex: 0 0 80vw;
     height: clamp(400px, 80vw, 1000px);
-    scroll-snap-align: start;
-    align-self: center;
+    scroll-snap-align: center;
   }
   .section3-container .articles-container article:hover {
     width: 100%;
@@ -1700,193 +1797,6 @@ footer {
   align-items: center;
   gap: 100px;
   margin-bottom: 120px;
-}
-
-.white-header-static {
-  position: static;
-  border-bottom: 1px solid rgb(219, 219, 219);
-  width: 100%;
-  box-sizing: border-box;
-  padding: min(25px, 4vw) min(70px, 5vw);
-  background-color: #ffffff;
-}
-.white-header-static img {
-  width: 50px;
-}
-.white-header-static .header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: min(20px, 5vw);
-  width: 100%;
-}
-.white-header-static .header-container .header-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  padding: 2px 4px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition-duration: 0.2s;
-}
-.white-header-static .header-container .header-left:hover {
-  background-color: #dbdbde;
-}
-.white-header-static .header-container .burger-menu {
-  width: 25px;
-  filter: invert(100);
-}
-.white-header-static .header-container .menu {
-  color: #000000;
-  font-family: Porsche Next, Arial;
-}
-.white-header-static .header-container .porsche-logo {
-  display: none;
-  width: 32px;
-}
-.white-header-static .header-container .porsche-title {
-  width: clamp(150px, 20vw, 200px);
-  filter: invert(100);
-}
-.white-header-static .header-container .header-right {
-  position: relative;
-}
-.white-header-static .header-container .globe-icon {
-  width: 24px;
-  padding: 2px;
-  border-radius: 50%;
-  transition-duration: 0.15s;
-}
-.white-header-static .header-container .globe-icon:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-  cursor: pointer;
-}
-.white-header-static .header-container .globe-icon:hover + .globe-tooltip {
-  opacity: 1;
-}
-.white-header-static .header-container .globe-tooltip {
-  position: absolute;
-  opacity: 0;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
-  padding: min(6px, 6vw);
-  background-color: rgba(100, 100, 100, 0.8);
-  color: #ffffff;
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  font-family: Porsche Next, Arial;
-  line-height: 130%;
-  white-space: nowrap;
-  pointer-events: none;
-  transition-duration: 0.3s;
-}
-@media (max-width: 760px) {
-  .white-header-static .header-container .porsche-title {
-    display: none;
-  }
-  .white-header-static .header-container .porsche-logo {
-    display: block;
-  }
-  .white-header-static .header-container .menu {
-    display: none;
-  }
-  .white-header-static .header-container .globe-tooltip {
-    white-space: wrap;
-  }
-}
-
-.white-header-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  top: 0;
-  z-index: 100;
-  background-color: #ffffff;
-  border-bottom: 2px solid black;
-}
-.white-header-fixed .header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-.white-header-fixed .header-container .header-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: min(60px, 5vw);
-}
-.white-header-fixed .header-container .model-name {
-  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
-}
-.white-header-fixed .header-container .vertical-menu-lines {
-  display: none;
-  width: 30px;
-  padding: 2px;
-  border-radius: 50%;
-  transition-duration: 0.15s;
-}
-.white-header-fixed .header-container .vertical-menu-lines:hover {
-  background-color: #dbdbde;
-  cursor: pointer;
-}
-.white-header-fixed .header-container .model-change-link,
-.white-header-fixed .header-container .list-item {
-  font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
-  padding: min(5px, 1vw);
-  transition-duration: 0.15s;
-  border-radius: 6px;
-}
-.white-header-fixed .header-container .model-change-link:hover,
-.white-header-fixed .header-container .list-item:hover {
-  background-color: #dbdbde;
-  cursor: pointer;
-}
-.white-header-fixed .header-container .nav-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-.white-header-fixed {
-  box-sizing: border-box;
-  width: 100%;
-  padding: min(15px, 3vw) min(70px, 5vw);
-}
-@media (max-width: 760px) {
-  .white-header-fixed {
-    border-bottom: 3px solid black;
-  }
-  .white-header-fixed .header-container .model-name {
-    font-weight: 600;
-  }
-  .white-header-fixed .header-container .model-change-link {
-    display: none;
-  }
-}
-@media (max-width: 1000px) {
-  .white-header-fixed .header-container .vertical-menu-lines {
-    display: block;
-  }
-  .white-header-fixed .header-container .nav-list {
-    display: none;
-  }
-}
-.white-header-fixed {
-  transform: translateY(-104%);
-  transition-duration: 0.3s;
-  opacity: 0;
-}
-
-.white-header-fixed.show {
-  transform: translateX(0);
-  opacity: 1;
 }
 
 .model-hero-section .section-container {

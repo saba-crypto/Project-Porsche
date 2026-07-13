@@ -2,13 +2,19 @@
 @use "./abstracts/variables" as *;
 
 @use "./base/reset";
+
+@use "./layout/header";
+@use "./layout/footer";
+@use "./layout/sidebar";
+
 @use "./components/buttons";
 @use "./components/model-configs";
 @use "./components/slider";
 @use "./components/small-article";
-//import pages
+
 @use "./pages/home-page/home-page";
 @use "./pages/911-carrera/carrera911";
+@use "./pages/central-eastern-europe/central-eastern-europe";
 
 html {
   scroll-behavior: smooth;

@@ -1,7 +1,95 @@
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/variables" as *;
 
-@mixin header() {
+%default-header {
+  width: 100%;
+  box-sizing: border-box;
+  .header-container {
+    @include mixins.flexbox(row, space-between, center, 0px);
+    width: 100%;
+
+    .header-left {
+      @include mixins.flexbox(row, center, center, 7px);
+      padding: 2px 4px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition-duration: 0.2s;
+    }
+    .burger-menu {
+      width: 25px;
+    }
+
+    .menu {
+      font-family: $primary-font;
+    }
+
+    .porsche-logo {
+      display: none;
+      width: 32px;
+    }
+
+    .porsche-title {
+      width: clamp(150px, 20vw, 200px);
+    }
+
+    .header-right {
+      position: relative;
+    }
+
+    .globe-icon {
+      width: 24px;
+      padding: 2px;
+      border-radius: 50%;
+      transition-duration: 0.15s;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover + .globe-tooltip {
+        opacity: 1;
+      }
+    }
+
+    .globe-tooltip {
+      position: absolute;
+      opacity: 0;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, 50%);
+      padding: min(6px, 6vw);
+      font-size: $font-sizeS;
+      font-family: $primary-font;
+      line-height: 130%;
+      white-space: nowrap;
+      pointer-events: none;
+      transition-duration: 0.3s;
+    }
+  }
+
+  @media (max-width: $breakpointL) {
+    .header-container {
+      .porsche-title {
+        display: none;
+      }
+
+      .porsche-logo {
+        display: block;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .globe-tooltip {
+        white-space: wrap;
+      }
+    }
+  }
+}
+
+.faded-header {
+  @extend %default-header;
   @include mixins.fade-to(bottom);
   position: fixed;
   top: 0;
@@ -11,250 +99,152 @@
   z-index: 100;
 
   .header-container {
-    @include mixins.flexbox(row, space-between, center, 0px);
-
     .header-left {
-      @include mixins.flexbox(row, center, center, 7px);
-      padding: 2px 4px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition-duration: 0.2s;
       &:hover {
         background-color: $hover-background-clr;
       }
     }
-    .burger-menu {
-      width: 25px;
-    }
+
     .menu {
       color: $font-clr-light;
-      font-family: $primary-font;
-    }
-    .porsche-logo {
-      display: none;
-      width: 32px;
-    }
-    .porsche-title {
-      width: clamp(150px, 20vw, 200px);
     }
 
-    .header-right {
-      position: relative;
-    }
     .globe-icon {
-      width: 24px;
-      padding: 2px;
-      border-radius: 50%;
-      transition-duration: 0.15s;
       &:hover {
         background-color: $hover-background-clr;
-        cursor: pointer;
-      }
-      &:hover + .globe-tooltip {
-        opacity: 1;
       }
     }
+
     .globe-tooltip {
-      position: absolute;
-      opacity: 0;
-      top: 50%;
-      right: 50%;
-      transform: translate(50%, 50%);
-      padding: min(6px, 6vw);
       background-color: $hover-background-clr;
       color: $font-clr-light;
-      font-size: $font-sizeS;
-      font-family: $primary-font;
-      line-height: 130%;
-      white-space: nowrap;
-      pointer-events: none;
-      transition-duration: 0.3s;
-    }
-  }
-  @media (max-width: $breakpointL) {
-    & {
-      .header-container {
-        .porsche-title {
-          display: none;
-        }
-        .porsche-logo {
-          display: block;
-        }
-        .menu {
-          display: none;
-        }
-        .globe-tooltip {
-          white-space: wrap;
-        }
-      }
     }
   }
 }
 
-@mixin header-white($position) {
-  @if $position == static {
-    position: static;
-    border-bottom: 1px solid rgb(219, 219, 219);
-  } @else if $position == fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    border-bottom: 1px solid black;
-  }
-  width: 100%;
-  box-sizing: border-box;
+/*
+  911 carrera white header variants.
+  these styles are used by the 911 model page for the static
+  and scroll-revealed header states.
+*/
+.white-header-static,
+.white-header-fixed {
+  @extend %default-header;
   padding: min(25px, 4vw) min(70px, 5vw);
   background-color: $background-clr-light;
-  img {
-    width: 50px;
-    //temp
-  }
+
   .header-container {
     @include mixins.flexbox(row, space-between, center, min(20px, 5vw));
-    width: 100%;
+
+    .burger-menu {
+      filter: invert(100);
+    }
+
+    .menu {
+      color: $font-clr-dark;
+    }
+
+    .porsche-title {
+      filter: invert(100);
+    }
+
+    .globe-icon {
+      &:hover {
+        background-color: $hover-background-clr;
+      }
+    }
+
+    .globe-tooltip {
+      background-color: $hover-background-clr;
+      color: $font-clr-light;
+    }
+  }
+}
+
+.white-header-static {
+  position: static;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  .header-container {
     .header-left {
-      @include mixins.flexbox(row, center, center, 7px);
-      padding: 2px 4px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition-duration: 0.2s;
       &:hover {
         background-color: $light-dark-clr;
       }
     }
-    .burger-menu {
-      width: 25px;
-      filter: invert(100);
-    }
-    .menu {
-      color: $font-clr-dark;
-      font-family: $primary-font;
-    }
-    .porsche-logo {
-      display: none;
-      width: 32px;
-    }
-    .porsche-title {
-      width: clamp(150px, 20vw, 200px);
-      filter: invert(100);
-    }
-
-    .header-right {
-      position: relative;
-    }
-    .globe-icon {
-      width: 24px;
-      padding: 2px;
-      border-radius: 50%;
-      transition-duration: 0.15s;
-      &:hover {
-        background-color: $hover-background-clr;
-        cursor: pointer;
-      }
-      &:hover + .globe-tooltip {
-        opacity: 1;
-      }
-    }
-    .globe-tooltip {
-      position: absolute;
-      opacity: 0;
-      top: 50%;
-      right: 50%;
-      transform: translate(50%, 50%);
-      padding: min(6px, 6vw);
-      background-color: $hover-background-clr;
-      color: $font-clr-light;
-      font-size: $font-sizeS;
-      font-family: $primary-font;
-      line-height: 130%;
-      white-space: nowrap;
-      pointer-events: none;
-      transition-duration: 0.3s;
-    }
-  }
-  @media (max-width: $breakpointL) {
-    & {
-      .header-container {
-        .porsche-title {
-          display: none;
-        }
-        .porsche-logo {
-          display: block;
-        }
-        .menu {
-          display: none;
-        }
-        .globe-tooltip {
-          white-space: wrap;
-        }
-      }
-    }
   }
 }
 
-@mixin model-header-white($position) {
-  @if $position == static {
-    position: static;
-  } @else if $position == fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    top: 0;
-    z-index: 100;
-    background-color: $background-clr-light;
-  }
-  border-bottom: 2px solid black;
+.white-header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 1px solid black;
+  transform: translateY(-104%);
+  transition-duration: 0.3s;
+  opacity: 0;
+
   .header-container {
-    @include mixins.flexbox(row, space-between, center, 20px);
     .header-left {
-      @include mixins.flexbox(row, center, center, min(60px, 5vw));
+      .model-name {
+        font-size: $font-sizeL;
+      }
+
+      .model-change-link {
+        font-size: $font-sizeS;
+        padding: $paddingXS;
+        transition-duration: 0.15s;
+        border-radius: 6px;
+
+        &:hover {
+          background-color: $light-dark-clr;
+          cursor: pointer;
+        }
+      }
     }
-    .model-name {
-      font-size: $font-sizeL;
-    }
+
     .vertical-menu-lines {
       display: none;
       width: 30px;
       padding: 2px;
       border-radius: 50%;
       transition-duration: 0.15s;
+
       &:hover {
         background-color: $light-dark-clr;
         cursor: pointer;
       }
     }
-    .model-change-link,
-    .list-item {
-      font-size: $font-sizeS;
-      padding: $paddingXS;
-      transition-duration: 0.15s;
-      border-radius: 6px;
-      &:hover {
-        background-color: $light-dark-clr;
-        cursor: pointer;
-      }
-    }
+
     .nav-list {
       @include mixins.flexbox(row, center, center, 20px);
+
+      .list-item {
+        font-size: $font-sizeS;
+        padding: $paddingXS;
+        transition-duration: 0.15s;
+        border-radius: 6px;
+
+        &:hover {
+          background-color: $light-dark-clr;
+          cursor: pointer;
+        }
+      }
     }
   }
-  box-sizing: border-box;
-
-  width: 100%;
-  padding: min(15px, 3vw) min(70px, 5vw);
 
   @media (max-width: $breakpointL) {
     border-bottom: 3px solid black;
 
     .header-container {
-      .model-name {
-        font-weight: 600;
-      }
+      .header-left {
+        .model-name {
+          font-weight: 600;
+        }
 
-      .model-change-link {
-        display: none;
+        .model-change-link {
+          display: none;
+        }
       }
     }
   }
@@ -264,9 +254,15 @@
       .vertical-menu-lines {
         display: block;
       }
+
       .nav-list {
         display: none;
       }
     }
   }
+}
+
+.white-header-fixed.show {
+  transform: translateY(0);
+  opacity: 1;
 }
