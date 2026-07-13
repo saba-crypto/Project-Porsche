@@ -1,0 +1,46 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/variables" as *;
+
+.pcer-hero-section {
+  width: 100%;
+  .section-container {
+    position: relative;
+    width: 100%;
+  }
+  .media {
+    position: relative;
+    width: 100%;
+    .section-background {
+      width: 100%;
+      object-fit: cover;
+    }
+    &::after {
+      @include mixins.fade-to(top);
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 30%;
+    }
+  }
+  .section-heading {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    right: 5%;
+    color: $font-clr-light;
+    font-size: $font-sizeXL;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .pcer-hero-section {
+    .media {
+      .section-background {
+        aspect-ratio: 1;
+      }
+    }
+  }
+}

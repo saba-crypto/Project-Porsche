@@ -134,6 +134,40 @@ table {
   border-spacing: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  transition: background 1s;
+  font-family: Porsche Next, Arial;
+}
+
+body.dark-mode {
+  background-color: #000000;
+}
+body.dark-mode .section-title {
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+section {
+  width: 100%;
+  box-sizing: border-box;
+}
+section .section-title {
+  transition-duration: 1s;
+}
+
+::selection {
+  background-color: rgba(49, 200, 255, 0.4);
+}
+
 .white-header-static,
 .white-header-fixed, .faded-header {
   width: 100%;
@@ -3368,36 +3402,42 @@ aside.show .sidebar-close-btn {
   width: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #ffffff;
-  transition: background 1s;
-  font-family: Porsche Next, Arial;
-}
-
-body.dark-mode {
-  background-color: #000000;
-}
-body.dark-mode .section-title {
-  color: #ffffff;
-}
-
-a {
-  text-decoration: none;
-  color: unset;
-}
-
-section {
+.pcer-hero-section {
   width: 100%;
-  box-sizing: border-box;
 }
-section .section-title {
-  transition-duration: 1s;
+.pcer-hero-section .section-container {
+  position: relative;
+  width: 100%;
+}
+.pcer-hero-section .media {
+  position: relative;
+  width: 100%;
+}
+.pcer-hero-section .media .section-background {
+  width: 100%;
+  object-fit: cover;
+}
+.pcer-hero-section .media::after {
+  background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+}
+.pcer-hero-section .section-heading {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  right: 5%;
+  color: #ffffff;
+  font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  text-wrap: balance;
 }
 
-::selection {
-  background-color: rgba(49, 200, 255, 0.4);
+@media (max-width: 760px) {
+  .pcer-hero-section .media .section-background {
+    aspect-ratio: 1;
+  }
 }/*# sourceMappingURL=main.css.map */

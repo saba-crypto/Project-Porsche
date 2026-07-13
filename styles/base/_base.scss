@@ -1,0 +1,30 @@
+@use "../abstracts/variables" as *;
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $background-clr-light;
+  transition: background 1s;
+  font-family: $primary-font;
+}
+body.dark-mode {
+  background-color: $background-clr-dark;
+  .section-title {
+    color: $font-clr-light;
+  }
+}
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+section {
+  width: 100%;
+  box-sizing: border-box;
+  .section-title {
+    transition-duration: 1s;
+  }
+}
+::selection {
+  background-color: rgba(49, 200, 255, 0.4);
+}

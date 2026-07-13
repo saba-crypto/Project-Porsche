@@ -1,7 +1,8 @@
 @use "./abstracts/mixins" as mixins;
-@use "./abstracts/variables" as *;
+@use "./abstracts/variables";
 
 @use "./base/reset";
+@use "./base/base";
 
 @use "./layout/header";
 @use "./layout/footer";
@@ -15,33 +16,3 @@
 @use "./pages/home-page/home-page";
 @use "./pages/911-carrera/carrera911";
 @use "./pages/central-eastern-europe/central-eastern-europe";
-
-html {
-  scroll-behavior: smooth;
-}
-body {
-  background-color: $background-clr-light;
-  transition: background 1s;
-  font-family: $primary-font;
-}
-body.dark-mode {
-  background-color: $background-clr-dark;
-  .section-title {
-    color: $font-clr-light;
-  }
-}
-a {
-  text-decoration: none;
-  color: unset;
-}
-
-section {
-  width: 100%;
-  box-sizing: border-box;
-  .section-title {
-    transition-duration: 1s;
-  }
-}
-::selection {
-  background-color: rgba(49, 200, 255, 0.4);
-}
