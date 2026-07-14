@@ -1,3 +1,11 @@
 @use "./section1";
 @use "./section2";
 @use "./section3";
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: min(200px, 10vw);
+  align-items: center;
+  justify-content: center;
+}

@@ -3440,4 +3440,42 @@ aside.show .sidebar-close-btn {
   .pcer-hero-section .media .section-background {
     aspect-ratio: 1;
   }
+}
+.page-content-section .section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(80px, 7vw);
+}
+.page-content-section .section-headings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  width: clamp(300px, 80%, 900px);
+}
+.page-content-section .section-headings-wrapper .section-heading {
+  font-size: calc(clamp(1.7rem, 5vw + 0.3rem, 3.9rem) - 1vw);
+  font-weight: 900;
+}
+.page-content-section .section-headings-wrapper .section-subheading {
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+  line-height: 24px;
+}
+.page-content-section .section-paragraph {
+  font-size: 1rem;
+  width: clamp(276px, 45%, 800px);
+  line-height: 24px;
+  text-wrap: balance;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: min(200px, 10vw);
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=main.css.map */
