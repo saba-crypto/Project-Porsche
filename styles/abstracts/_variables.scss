@@ -15,7 +15,10 @@ $hover-background-clr: rgba(100, 100, 100, 0.8);
 
 $primary-line-height: 24px;
 
+//it would be better if I called those variables like:
+//$border-radiusL, XL, 2XL...
 $primary-border-radius: 32px;
+$secondary-border-radius: 12px;
 
 $font-clr-dark: #000000;
 $font-clr-light: #ffffff;

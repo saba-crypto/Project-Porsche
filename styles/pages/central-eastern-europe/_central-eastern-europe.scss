@@ -5,7 +5,8 @@
 main {
   display: flex;
   flex-direction: column;
-  gap: min(200px, 10vw);
+  gap: min(200px, 20vw);
   align-items: center;
   justify-content: center;
+  margin-bottom: 70px;
 }

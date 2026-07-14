@@ -3455,7 +3455,7 @@ aside.show .sidebar-close-btn {
   align-items: center;
   gap: 20px;
   text-align: center;
-  width: clamp(300px, 80%, 900px);
+  width: clamp(276px, 80%, 900px);
 }
 .page-content-section .section-headings-wrapper .section-heading {
   font-size: calc(clamp(1.7rem, 5vw + 0.3rem, 3.9rem) - 1vw);
@@ -3472,10 +3472,47 @@ aside.show .sidebar-close-btn {
   text-wrap: balance;
 }
 
+@media (max-width: 1000px) {
+  .page-content-section .section-paragraph {
+    width: clamp(276px, 70%, 800px);
+  }
+}
+.porsche-ceo-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+.porsche-ceo-section .section-container {
+  display: grid;
+  gap: min(70px, 8vw);
+  grid-template-columns: repeat(2, 1fr);
+  width: clamp(267px, 70%, 100%);
+  align-items: center;
+}
+.porsche-ceo-section .section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.porsche-ceo-section .section-paragraph {
+  font-size: 1rem;
+  line-height: 24px;
+  text-wrap: balance;
+}
+
+@media (max-width: 1000px) {
+  .porsche-ceo-section .section-container {
+    grid-template-columns: 1fr;
+  }
+}
 main {
   display: flex;
   flex-direction: column;
-  gap: min(200px, 10vw);
+  gap: min(200px, 20vw);
   align-items: center;
   justify-content: center;
+  margin-bottom: 70px;
 }/*# sourceMappingURL=main.css.map */
