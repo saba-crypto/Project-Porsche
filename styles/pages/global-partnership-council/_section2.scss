@@ -1,0 +1,35 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/variables" as *;
+
+.page-description-section {
+  @include mixins.flexbox(row, center, center);
+  .section-container {
+    @include mixins.flexbox(column, center, flex-start, 20px);
+    width: 45%;
+    padding: $paddingXS-x;
+  }
+  .section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .section-description {
+    font-size: 1rem;
+    line-height: $primary-line-height;
+    text-wrap: balance;
+  }
+}
+@media (max-width: $breakpointXL) {
+  .page-description-section {
+    .section-container {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .page-description-section {
+    .section-container {
+      width: 85%;
+    }
+  }
+}

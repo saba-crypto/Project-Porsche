@@ -4,11 +4,17 @@
 @use "./section3";
 @use "./section4";
 
-.page-content {
-  position: relative;
-  width: 100%;
-  //temp
-  height: 500px;
-  z-index: 199;
-  background-color: $background-clr-light;
+.gpc-page {
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: min(100px, 13vw);
+    position: relative;
+    width: 100%;
+
+    z-index: 199;
+    background-color: $background-clr-light;
+  }
 }
