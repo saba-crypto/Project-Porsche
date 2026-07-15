@@ -1,0 +1,121 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/variables" as *;
+
+.partners-sliders-section {
+  .section-introduction-container {
+    @include mixins.flexbox(column, center, center, min(40px, 5vw));
+    width: 70%;
+    .section-heading {
+      font-size: $font-sizeXL;
+      font-weight: 700;
+    }
+    .arrow-btns {
+      align-self: flex-end;
+      .arrow-btn {
+        background-color: none;
+        box-shadow: none;
+      }
+      .arrow-icon {
+        filter: invert(100);
+      }
+    }
+  }
+
+  .section-container {
+    @include mixins.flexbox(column, center, center, min(50px, 5vw));
+  }
+  .slider-wrapper {
+    width: 100%;
+  }
+  .slider {
+    padding: 0 16vw;
+    padding-right: calc(16vw + 50px);
+    gap: min(35px, 8vw);
+  }
+
+  .slide {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: min(30px, 5vw);
+    width: clamp(160px, 20vw, 250px);
+    scroll-snap-align: center;
+  }
+  .slider-card {
+    @include mixins.flexbox(column, center, center);
+    border-radius: $secondary-border-radius;
+    overflow: hidden;
+    width: 100%;
+    transition-duration: 0.2s;
+    .media {
+      width: 100%;
+
+      .partner-image {
+        width: 100%;
+
+        object-fit: cover;
+      }
+    }
+    .body {
+      @include mixins.flexbox(column, center, flex-start, min(10px, 4vw));
+      width: 100%;
+      padding: $paddingM $paddingXS;
+      box-sizing: border-box;
+      .card-name {
+        font-weight: 700;
+        font-size: $font-sizeM;
+      }
+      .card-btn {
+        @include mixins.flexbox(row, flex-start, center, 5px);
+        background-color: transparent;
+        border: none;
+        font-size: $font-sizeS;
+        transition-duration: 0.15s;
+        border-radius: 4px;
+        .arrow-icon {
+          width: 20px;
+        }
+        &:hover {
+          background-color: $light-dark-clr;
+          cursor: pointer;
+        }
+      }
+    }
+    &:hover {
+      background-color: #ececec;
+      cursor: pointer;
+    }
+  }
+  .slider-card-bottom {
+    margin-left: 25%;
+  }
+  .slider-navigation {
+    margin-top: min(40px, 6vw);
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .partners-sliders-section {
+    .section-introduction-container {
+      .arrow-btns {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointM) {
+  .partners-sliders-section {
+    .slider {
+      padding: 0 5vw;
+      padding-right: calc(5vw + 30px);
+    }
+    .slide {
+      width: 70vw;
+    }
+    .slider-card-bottom {
+      margin: 0;
+    }
+  }
+}
