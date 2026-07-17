@@ -3728,6 +3728,173 @@ aside.show .sidebar-close-btn {
     margin: 0;
   }
 }
+.opportunities-grid-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  margin-bottom: min(100px, 13vw);
+}
+.opportunities-grid-section .section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: min(100px, 10vw);
+  width: 70%;
+}
+.opportunities-grid-section .section-heading {
+  font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
+  font-weight: 700;
+  text-align: center;
+}
+.opportunities-grid-section .articles-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: min(30px, 3vw);
+}
+.opportunities-grid-section .articles-grid .section-article {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 12/9;
+  box-sizing: border-box;
+  transition-duration: 0.2s;
+}
+.opportunities-grid-section .articles-grid .section-article .media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease;
+}
+.opportunities-grid-section .articles-grid .section-article .media::before {
+  background: linear-gradient(to top, rgb(0, 0, 0) 20%, transparent 100%);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+}
+.opportunities-grid-section .articles-grid .section-article .article-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition-duration: 0.4s;
+}
+.opportunities-grid-section .articles-grid .section-article .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  position: absolute;
+  bottom: 0;
+  padding: min(20px, 3vw);
+}
+.opportunities-grid-section .articles-grid .section-article .article-name {
+  font-size: 1rem;
+  color: #ffffff;
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+}
+.opportunities-grid-section .articles-grid .section-article .article-btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid white;
+  padding: min(15px, 2.5vw) min(20px, 3vw);
+  border-radius: calc(min(20px, 3vw) - 12px);
+  transition-duration: 0.15s;
+}
+.opportunities-grid-section .articles-grid .section-article .article-btn .plus-icon {
+  width: 25px;
+  display: none;
+}
+.opportunities-grid-section .articles-grid .section-article .article-btn:hover {
+  cursor: pointer;
+  background-color: rgba(148, 149, 152, 0.18);
+  border-color: rgb(136, 137, 140);
+  backdrop-filter: blur(32px);
+}
+.opportunities-grid-section .articles-grid .section-article:hover .media {
+  transform: scale(1.07);
+  cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+  .opportunities-grid-section .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .opportunities-grid-section .section-container {
+    width: 80%;
+  }
+  .opportunities-grid-section .articles-grid {
+    grid-template-columns: 1fr;
+  }
+  .opportunities-grid-section .articles-grid .section-article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    aspect-ratio: initial;
+    height: 8vh;
+    background-color: #dbdbde;
+    padding: min(5px, 1vw);
+  }
+  .opportunities-grid-section .articles-grid .section-article .media {
+    box-sizing: border-box;
+    flex: 0 0 90px;
+    overflow: hidden;
+    border-radius: calc(12px - min(5px, 1vw));
+  }
+  .opportunities-grid-section .articles-grid .section-article .media .article-image {
+    box-sizing: border-box;
+  }
+  .opportunities-grid-section .articles-grid .section-article .media::before {
+    display: none;
+  }
+  .opportunities-grid-section .articles-grid .section-article .body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+    position: static;
+    box-sizing: border-box;
+    padding: 0;
+  }
+  .opportunities-grid-section .articles-grid .section-article .body .article-name {
+    color: #000000;
+    font-weight: 700;
+  }
+  .opportunities-grid-section .articles-grid .section-article .body .article-btn {
+    border: none;
+    padding: min(10px, 2vw);
+  }
+  .opportunities-grid-section .articles-grid .section-article .body .article-btn .plus-icon {
+    display: block;
+  }
+  .opportunities-grid-section .articles-grid .section-article .body .article-btn .btn-text {
+    display: none;
+  }
+  .opportunities-grid-section .articles-grid .section-article:hover {
+    cursor: pointer;
+    background-color: #cacaca;
+  }
+  .opportunities-grid-section .articles-grid .section-article:hover .media {
+    transform: scale(1);
+  }
+  .opportunities-grid-section .articles-grid .section-article:hover .media .article-image {
+    transform: scale(1.1);
+  }
+}
 .gpc-page .page-content {
   display: flex;
   flex-direction: column;

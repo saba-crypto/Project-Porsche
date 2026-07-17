@@ -1,0 +1,155 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/variables" as *;
+
+.opportunities-grid-section {
+  @include mixins.flexbox(row, center, center);
+  margin-bottom: min(100px, 13vw);
+  .section-container {
+    @include mixins.flexbox(column, center, center, min(100px, 10vw));
+    width: 70%;
+  }
+  .section-heading {
+    font-size: $font-sizeXL;
+    font-weight: 700;
+    text-align: center;
+  }
+  .articles-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: min(30px, 3vw);
+    .section-article {
+      position: relative;
+      width: 100%;
+      border-radius: $secondary-border-radius;
+      overflow: hidden;
+      aspect-ratio: 12/9;
+      box-sizing: border-box;
+      transition-duration: 0.2s;
+      .media {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s ease;
+        &::before {
+          @include mixins.fade-to(top);
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 70%;
+        }
+      }
+      .article-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition-duration: 0.4s;
+      }
+      .body {
+        @include mixins.flexbox(column, center, flex-start, 20px);
+        position: absolute;
+        bottom: 0;
+        padding: $paddingL;
+      }
+      .article-name {
+        font-size: 1rem;
+        color: $font-clr-light;
+        font-size: $font-sizeL;
+      }
+      .article-btn {
+        background-color: transparent;
+        color: $font-clr-light;
+        border: 2px solid #ffff;
+        padding: $paddingM $paddingL;
+        border-radius: calc($paddingL - $secondary-border-radius);
+        transition-duration: 0.15s;
+        .plus-icon {
+          width: 25px;
+          display: none;
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(148, 149, 152, 0.18);
+          border-color: rgb(136, 137, 140);
+          backdrop-filter: blur(32px);
+        }
+      }
+      &:hover .media {
+        transform: scale(1.07);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint2XL) {
+  .opportunities-grid-section {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .opportunities-grid-section {
+    .section-container {
+      width: 80%;
+    }
+    .articles-grid {
+      grid-template-columns: 1fr;
+      .section-article {
+        @include mixins.flexbox(row, space-between, center, 20px);
+        aspect-ratio: initial;
+        height: 8vh;
+        background-color: $light-dark-clr;
+        padding: $paddingXS;
+        .media {
+          box-sizing: border-box;
+          flex: 0 0 90px;
+          overflow: hidden;
+          border-radius: calc($secondary-border-radius - $paddingXS);
+          .article-image {
+            box-sizing: border-box;
+          }
+          &::before {
+            display: none;
+          }
+        }
+        .body {
+          @include mixins.flexbox(row, space-between, center, 10px);
+          flex: 1 1 auto;
+          position: static;
+          box-sizing: border-box;
+          padding: 0;
+          .article-name {
+            color: $font-clr-dark;
+            font-weight: 700;
+          }
+          .article-btn {
+            border: none;
+            padding: $paddingS;
+            .plus-icon {
+              display: block;
+            }
+            .btn-text {
+              display: none;
+            }
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: #cacaca;
+        }
+        &:hover .media {
+          transform: scale(1);
+        }
+        &:hover .media .article-image {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
