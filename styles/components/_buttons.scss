@@ -16,7 +16,7 @@
   }
 }
 
-.gray-button {
+._GrayButton {
   @extend %default-button;
   background-color: #dbdbde;
   color: $font-clr-dark;
@@ -28,7 +28,7 @@
   }
 }
 
-.black-button {
+._BlackButton {
   @extend %default-button;
   background-color: $background-clr-dark;
   color: $font-clr-light;
@@ -39,7 +39,7 @@
 }
 
 //single arrow button component
-.arrow-btn {
+._ArrowButton {
   @include mixins.flexbox(row, center, center);
   @include mixins.glassmorphism();
   border: none;
@@ -64,16 +64,18 @@
 }
 
 //twin arrow buttons component(usually used for sliders)
-.navigation-arrow-buttons {
+._NavigationArrowButtons {
   @include mixins.flexbox(row, center, center, 5px);
-  .arrow-btn {
+  ._ArrowButton {
     background-color: transparent;
+    box-shadow: none;
     padding: 9px;
     transition-duration: 0.15s;
 
     .arrow-icon {
       width: 22px;
       pointer-events: none;
+      filter: invert(100);
     }
 
     &.disabled {
@@ -92,7 +94,7 @@
 
 //used for pausing or playing the video
 //add .video-paused to apply styles for pause state or the opposite
-.video-playback-button {
+._VideoPlaybackButton {
   @include mixins.flexbox(row, center, center);
   @include mixins.glassmorphism(10px);
   padding: $paddingM;
@@ -129,7 +131,7 @@
   }
 }
 
-.gray-transparent-button {
+._GrayTransparentButton {
   @extend %default-button;
   background-color: rgba(156, 156, 159, 0.3);
   color: $font-clr-light;
@@ -139,7 +141,7 @@
   }
 }
 
-.glass-button {
+._GlassButton {
   @extend %default-button;
   @include mixins.glassmorphism();
 

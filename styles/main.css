@@ -1059,7 +1059,7 @@ aside.show .sidebar-close-btn {
     transform: rotate(360deg);
   }
 }
-.glass-button, .gray-transparent-button, .black-button, .gray-button {
+._GlassButton, ._GrayTransparentButton, ._BlackButton, ._GrayButton {
   padding: min(12px, 4vw) min(24px, 4vw);
   border: none;
   border-radius: 10px;
@@ -1069,31 +1069,31 @@ aside.show .sidebar-close-btn {
   box-sizing: border-box;
   transition: background 0.2s;
 }
-.glass-button:active, .gray-transparent-button:active, .black-button:active, .gray-button:active {
+._GlassButton:active, ._GrayTransparentButton:active, ._BlackButton:active, ._GrayButton:active {
   transform: scale(0.99);
   transition-duration: 0s;
 }
 
-.gray-button {
+._GrayButton {
   background-color: #dbdbde;
   color: #000000;
   padding: min(12px, 4vw) min(24px, 4vw);
 }
-.gray-button:hover {
+._GrayButton:hover {
   background-color: #efefef;
   cursor: pointer;
 }
 
-.black-button {
+._BlackButton {
   background-color: #000000;
   color: #ffffff;
 }
-.black-button:hover {
+._BlackButton:hover {
   background-color: rgba(0, 0, 0, 0.7333333333);
   cursor: pointer;
 }
 
-.arrow-btn {
+._ArrowButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1108,46 +1108,48 @@ aside.show .sidebar-close-btn {
   transition-duration: 0.15s;
   box-sizing: border-box;
 }
-.arrow-btn:not(.disabled):hover {
+._ArrowButton:not(.disabled):hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.arrow-btn:not(.disabled):active {
+._ArrowButton:not(.disabled):active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
-.arrow-btn img {
+._ArrowButton img {
   width: clamp(20px, 2.5vw, 30px);
 }
 
-.navigation-arrow-buttons {
+._NavigationArrowButtons {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-.navigation-arrow-buttons .arrow-btn {
+._NavigationArrowButtons ._ArrowButton {
   background-color: transparent;
+  box-shadow: none;
   padding: 9px;
   transition-duration: 0.15s;
 }
-.navigation-arrow-buttons .arrow-btn .arrow-icon {
+._NavigationArrowButtons ._ArrowButton .arrow-icon {
   width: 22px;
   pointer-events: none;
+  filter: invert(100);
 }
-.navigation-arrow-buttons .arrow-btn.disabled {
+._NavigationArrowButtons ._ArrowButton.disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.navigation-arrow-buttons .arrow-btn:not(.disabled):hover {
+._NavigationArrowButtons ._ArrowButton:not(.disabled):hover {
   background-color: #dbdbde;
 }
-.navigation-arrow-buttons .arrow-btn-left {
+._NavigationArrowButtons .arrow-btn-left {
   transform: rotate(180deg);
 }
 
-.video-playback-button {
+._VideoPlaybackButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1161,46 +1163,46 @@ aside.show .sidebar-close-btn {
   border: none;
   transition-duration: 0.15s;
 }
-.video-playback-button:hover {
+._VideoPlaybackButton:hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.video-playback-button:active {
+._VideoPlaybackButton:active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
-.video-playback-button img {
+._VideoPlaybackButton img {
   width: clamp(15px, 5vw, 27px);
 }
-.video-playback-button .play-icon {
+._VideoPlaybackButton .play-icon {
   display: none;
 }
-.video-playback-button.video-paused .play-icon {
+._VideoPlaybackButton.video-paused .play-icon {
   display: block;
 }
-.video-playback-button.video-paused .pause-icon {
+._VideoPlaybackButton.video-paused .pause-icon {
   display: none;
 }
 
-.gray-transparent-button {
+._GrayTransparentButton {
   background-color: rgba(156, 156, 159, 0.3);
   color: #ffffff;
 }
-.gray-transparent-button:hover {
+._GrayTransparentButton:hover {
   background-color: hsla(240, 2%, 43%, 0.228);
   cursor: pointer;
 }
 
-.glass-button {
+._GlassButton {
   background-color: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
 }
-.glass-button:hover {
+._GlassButton:hover {
   background-color: rgba(0, 0, 0, 0.0892);
   cursor: pointer;
 }
-.glass-button:active {
+._GlassButton:active {
   transition-duration: 0s;
   background-color: rgba(0, 0, 0, 0.15);
 }
@@ -1396,7 +1398,7 @@ aside.show .sidebar-close-btn {
   font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
   color: #ffffff;
 }
-.small-article .arrow-btn {
+.small-article ._ArrowButton {
   padding: 7px;
 }
 
@@ -1614,9 +1616,6 @@ aside.show .sidebar-close-btn {
   transition-duration: 0.8s;
   transition-delay: 0s;
 }
-.section3-container .articles-container article .media img:hover .car-video {
-  display: b;
-}
 .section3-container .articles-container article .media video {
   display: none;
   opacity: 0;
@@ -1638,7 +1637,7 @@ aside.show .sidebar-close-btn {
   padding: min(30px, 9vw);
   box-sizing: border-box;
 }
-.section3-container .articles-container article .footer .arrow-btn {
+.section3-container .articles-container article .footer .article-arrow-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1670,11 +1669,11 @@ aside.show .sidebar-close-btn {
   border-radius: 50px;
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
 }
-.section3-container .articles-container article:hover .arrow-btn {
+.section3-container .articles-container article:hover .article-arrow-btn {
   border-radius: 10px;
   padding: 5px 10px;
 }
-.section3-container .articles-container article:hover .arrow-btn .explore-title {
+.section3-container .articles-container article:hover .article-arrow-btn .explore-title {
   display: block;
 }
 .section3-container .articles-container article:hover .car-video {
@@ -2371,24 +2370,11 @@ aside.show .sidebar-close-btn {
   align-items: center;
   gap: 5px;
 }
-.model-details-section .section-down .arrow-btns .arrow-btn {
-  background-color: transparent;
-  padding: 9px;
-  transition-duration: 0.15s;
+.model-details-section .section-down .arrow-btns ._ArrowButton .arrow-icon {
+  filter: invert(0);
 }
-.model-details-section .section-down .arrow-btns .arrow-btn .arrow-icon {
-  width: 22px;
-  pointer-events: none;
-}
-.model-details-section .section-down .arrow-btns .arrow-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.model-details-section .section-down .arrow-btns .arrow-btn:not(.disabled):hover {
+.model-details-section .section-down .arrow-btns ._ArrowButton:not(.disabled):hover {
   background-color: #414143;
-}
-.model-details-section .section-down .arrow-btns .arrow-btn-left {
-  transform: rotate(180deg);
 }
 .model-details-section .section-down .slider-wrapper {
   width: 100%;
@@ -2492,37 +2478,8 @@ aside.show .sidebar-close-btn {
   font-size: clamp(1.7rem, 5vw + 0.3rem, 3.9rem);
 }
 .highlights-section .arrow-btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
   align-self: flex-end;
   padding: 0 min(110px, 6vw);
-}
-.highlights-section .arrow-btns .arrow-btn {
-  background-color: transparent;
-  padding: 9px;
-  transition-duration: 0.15s;
-  box-shadow: none;
-}
-.highlights-section .arrow-btns .arrow-btn .arrow-icon {
-  width: 22px;
-  pointer-events: none;
-  filter: invert(100);
-}
-.highlights-section .arrow-btns .arrow-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.highlights-section .arrow-btns .arrow-btn.disabled:hover {
-  background-color: unset;
-}
-.highlights-section .arrow-btns .arrow-btn:not(.disabled):hover {
-  background-color: #dbdbde;
-}
-.highlights-section .arrow-btns .arrow-btn-left {
-  transform: rotate(180deg);
 }
 .highlights-section .slider-wrapper {
   width: 100%;
@@ -2533,16 +2490,7 @@ aside.show .sidebar-close-btn {
   justify-content: flex-start;
   align-items: center;
   gap: min(20px, 2.5vw);
-  padding: 0 10vw;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  box-sizing: border-box;
   height: 85vh;
-  scrollbar-width: none;
-}
-.highlights-section .slider-wrapper .slider ::-webkit-scrollbar {
-  display: none;
 }
 .highlights-section .slider-wrapper .slider .slider-card {
   position: relative;
@@ -3094,23 +3042,6 @@ aside.show .sidebar-close-btn {
   padding: 0 10vw;
   box-sizing: border-box;
 }
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn {
-  background-color: transparent;
-  box-shadow: none;
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn .arrow-icon {
-  filter: invert(100);
-}
-.porsche-models-section .section-navigation .model-navigation-wrapper .arrow-btns .arrow-btn:not(.disabled):hover {
-  background-color: #dbdbde;
-}
 .porsche-models-section img {
   width: 25px;
 }
@@ -3617,13 +3548,6 @@ aside.show .sidebar-close-btn {
 }
 .partners-sliders-section .section-introduction-container .arrow-btns {
   align-self: flex-end;
-}
-.partners-sliders-section .section-introduction-container .arrow-btns .arrow-btn {
-  background-color: none;
-  box-shadow: none;
-}
-.partners-sliders-section .section-introduction-container .arrow-btns .arrow-icon {
-  filter: invert(100);
 }
 .partners-sliders-section .section-container {
   display: flex;
