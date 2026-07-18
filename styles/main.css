@@ -1069,8 +1069,8 @@ aside.show .sidebar-close-btn {
   box-sizing: border-box;
   transition: background 0.2s;
 }
-._GlassButton:active, ._GrayTransparentButton:active, ._BlackButton:active, ._GrayButton:active {
-  transform: scale(0.99);
+._GlassButton:not(.selected):active, ._GrayTransparentButton:not(.selected):active, ._BlackButton:not(.selected):active, ._GrayButton:not(.selected):active {
+  opacity: 0.7;
   transition-duration: 0s;
 }
 
@@ -1308,6 +1308,7 @@ aside.show .sidebar-close-btn {
   justify-content: flex-start;
   align-items: center;
   gap: 4px;
+  position: relative;
   background-color: #f1f1f4;
   padding: 3px;
   border-radius: 5px;
@@ -1960,37 +1961,6 @@ aside.show .sidebar-close-btn {
   gap: min(30px, 5vw);
   width: 65%;
 }
-.model-hero-section .section-down .model-type-slider {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 4px;
-  background-color: #f1f1f4;
-  padding: 3px;
-  border-radius: 5px;
-  overflow-x: auto;
-  width: 100%;
-  max-width: min-content;
-  box-sizing: border-box;
-  scrollbar-width: none;
-}
-.model-hero-section .section-down .model-type-slider ::-webkit-scrollbar {
-  display: none;
-}
-.model-hero-section .section-down .model-type-slider .model-type-link {
-  font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
-  padding: 5px 12px;
-  border-radius: 6px;
-  transition-duration: 0.15s;
-  white-space: nowrap;
-}
-.model-hero-section .section-down .model-type-slider .model-type-link.selected {
-  background-color: #d0d0d5;
-}
-.model-hero-section .section-down .model-type-slider .model-type-link:hover:not(.selected) {
-  background-color: #e7e7ea;
-}
 .model-hero-section .section-down .model-details {
   display: flex;
   flex-direction: column;
@@ -2029,7 +1999,68 @@ aside.show .sidebar-close-btn {
   width: 100%;
 }
 .model-hero-section .section-down .model-btns .model-btn {
+  position: relative;
   padding: min(20px, 5vw) min(32px, 3vw);
+  overflow: hidden;
+}
+.model-hero-section .section-down .model-btns .change-model-btn::before {
+  content: "";
+  position: absolute;
+  transform: translateX(-150%) scaleX(-1);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../assets/icons/porsche-icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  transition-duration: 0.2s;
+}
+.model-hero-section .section-down .model-btns .change-model-btn p {
+  position: relative;
+  transition-duration: 0.2s;
+}
+.model-hero-section .section-down .model-btns .change-model-btn:hover {
+  background-color: black;
+}
+.model-hero-section .section-down .model-btns .change-model-btn:hover p {
+  color: rgba(255, 255, 255, 0);
+}
+.model-hero-section .section-down .model-btns .change-model-btn:hover::before {
+  transform: translateX(-50%) scaleX(-1);
+}
+.model-hero-section .section-down .model-btns .change-model-btn:active {
+  opacity: 1;
+}
+.model-hero-section .section-down .model-btns .change-model-btn:active::before {
+  background-image: url(../../../assets/icons/porsche-icon-transparent.png);
+}
+.model-hero-section .section-down .model-btns .configure-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+.model-hero-section .section-down .model-btns .configure-btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  background-image: url(../../../assets/icons/tools-icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 80%;
+  transition-duration: 0.2s;
+  z-index: 2;
+}
+.model-hero-section .section-down .model-btns .configure-btn:hover::after {
+  transform: scale(1) rotate(360deg);
+  backdrop-filter: blur(3px);
 }
 .model-hero-section .section-down .additional-details {
   display: flex;
@@ -2381,20 +2412,10 @@ aside.show .sidebar-close-btn {
 }
 .model-details-section .section-down .slider {
   display: grid;
-  scroll-behavior: smooth;
-  overflow-x: auto;
   grid-auto-flow: column;
   grid-auto-columns: 90%;
   gap: min(30px, 3vw);
   padding: 0 20vw;
-  box-sizing: border-box;
-  scrollbar-width: none;
-}
-.model-details-section .section-down .slider ::-webkit-scrollbar {
-  display: none;
-}
-.model-details-section .section-down .slider {
-  scroll-snap-type: x mandatory;
 }
 .model-details-section .section-down .slider .slider-card {
   display: flex;
@@ -2410,6 +2431,7 @@ aside.show .sidebar-close-btn {
   border-radius: 32px;
   scroll-snap-align: center;
   box-sizing: border-box;
+  transition-duration: 0.15s;
 }
 .model-details-section .section-down .slider .slider-card .model-part-text {
   display: flex;
@@ -2417,6 +2439,7 @@ aside.show .sidebar-close-btn {
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  transition-duration: 0.15s;
 }
 .model-details-section .section-down .slider .slider-card .model-part-text .model-part-title {
   font-size: clamp(1.4rem, 3vw + 0.3rem, 2.3rem);
@@ -2429,6 +2452,9 @@ aside.show .sidebar-close-btn {
   width: 100%;
   object-fit: cover;
   flex-grow: 1;
+}
+.model-details-section .section-down .slider .slider-card:hover .model-part-text {
+  transform: scale(1.03);
 }
 .model-details-section .section-down .fuel-consumption-text {
   color: #8b8b8b;
@@ -3624,6 +3650,13 @@ aside.show .sidebar-close-btn {
   background-color: #dbdbde;
   cursor: pointer;
 }
+.partners-sliders-section .slider-card .body .card-btn:hover .arrow-icon {
+  animation: bounce-right 0.5s ease;
+}
+.partners-sliders-section .slider-card .body .card-btn:active {
+  transition-duration: 0s;
+  background-color: rgba(100, 100, 100, 0.8);
+}
 .partners-sliders-section .slider-card:hover {
   background-color: #ececec;
   cursor: pointer;
@@ -3652,6 +3685,23 @@ aside.show .sidebar-close-btn {
     margin: 0;
   }
 }
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2.5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
 .opportunities-grid-section {
   display: flex;
   flex-direction: row;
@@ -3659,6 +3709,7 @@ aside.show .sidebar-close-btn {
   align-items: center;
   gap: 0px;
   margin-bottom: min(100px, 13vw);
+  overflow: hidden;
 }
 .opportunities-grid-section .section-container {
   display: flex;
@@ -3688,6 +3739,9 @@ aside.show .sidebar-close-btn {
   aspect-ratio: 12/9;
   box-sizing: border-box;
   transition-duration: 0.2s;
+  filter: blur(20px);
+  opacity: 0;
+  transform: translateY(40%);
 }
 .opportunities-grid-section .articles-grid .section-article .media {
   position: relative;
@@ -3732,10 +3786,12 @@ aside.show .sidebar-close-btn {
   padding: min(15px, 2.5vw) min(20px, 3vw);
   border-radius: calc(min(20px, 3vw) - 12px);
   transition-duration: 0.15s;
+  transition: transform scale 0s;
 }
 .opportunities-grid-section .articles-grid .section-article .article-btn .plus-icon {
   width: 25px;
   display: none;
+  transition-duration: 0.3s;
 }
 .opportunities-grid-section .articles-grid .section-article .article-btn:hover {
   cursor: pointer;
@@ -3743,9 +3799,21 @@ aside.show .sidebar-close-btn {
   border-color: rgb(136, 137, 140);
   backdrop-filter: blur(32px);
 }
+.opportunities-grid-section .articles-grid .section-article .article-btn:hover .plus-icon {
+  rotate: 180deg;
+}
+.opportunities-grid-section .articles-grid .section-article .article-btn:active .plus-icon {
+  transition-duration: 0s;
+  transform: scale(0.6);
+}
 .opportunities-grid-section .articles-grid .section-article:hover .media {
   transform: scale(1.07);
   cursor: pointer;
+}
+.opportunities-grid-section .articles-grid .section-article.show {
+  filter: blur(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 1300px) {
@@ -3770,6 +3838,7 @@ aside.show .sidebar-close-btn {
     height: 8vh;
     background-color: #dbdbde;
     padding: min(5px, 1vw);
+    transform: translateX(50%);
   }
   .opportunities-grid-section .articles-grid .section-article .media {
     box-sizing: border-box;
@@ -3817,6 +3886,11 @@ aside.show .sidebar-close-btn {
   }
   .opportunities-grid-section .articles-grid .section-article:hover .media .article-image {
     transform: scale(1.1);
+  }
+  .opportunities-grid-section .articles-grid .section-article.show {
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
   }
 }
 .gpc-page .page-content {

@@ -4,6 +4,7 @@
 .opportunities-grid-section {
   @include mixins.flexbox(row, center, center);
   margin-bottom: min(100px, 13vw);
+  overflow: hidden;
   .section-container {
     @include mixins.flexbox(column, center, center, min(100px, 10vw));
     width: 70%;
@@ -27,6 +28,9 @@
       aspect-ratio: 12/9;
       box-sizing: border-box;
       transition-duration: 0.2s;
+      filter: blur(20px);
+      opacity: 0;
+      transform: translateY(40%);
       .media {
         position: relative;
         width: 100%;
@@ -66,9 +70,11 @@
         padding: $paddingM $paddingL;
         border-radius: calc($paddingL - $secondary-border-radius);
         transition-duration: 0.15s;
+        transition: transform scale 0s;
         .plus-icon {
           width: 25px;
           display: none;
+          transition-duration: 0.3s;
         }
         &:hover {
           cursor: pointer;
@@ -76,11 +82,23 @@
           border-color: rgb(136, 137, 140);
           backdrop-filter: blur(32px);
         }
+        &:hover .plus-icon {
+          rotate: 180deg;
+        }
+        &:active .plus-icon {
+          transition-duration: 0s;
+          transform: scale(0.6);
+        }
       }
       &:hover .media {
         transform: scale(1.07);
         cursor: pointer;
       }
+    }
+    .section-article.show {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
@@ -106,6 +124,8 @@
         height: 8vh;
         background-color: $light-dark-clr;
         padding: $paddingXS;
+        transform: translateX(50%);
+
         .media {
           box-sizing: border-box;
           flex: 0 0 90px;
@@ -149,6 +169,11 @@
         &:hover .media .article-image {
           transform: scale(1.1);
         }
+      }
+      .section-article.show {
+        transform: translateX(0);
+        filter: blur(0);
+        opacity: 1;
       }
     }
   }

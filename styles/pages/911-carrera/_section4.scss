@@ -106,19 +106,12 @@
     }
     .slider {
       display: grid;
-      scroll-behavior: smooth;
-      overflow-x: auto;
 
       grid-auto-flow: column;
       grid-auto-columns: 90%;
       gap: min(30px, 3vw);
       padding: 0 20vw;
-      box-sizing: border-box;
-      scrollbar-width: none;
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      scroll-snap-type: x mandatory;
+
       .slider-card {
         @include mixins.flexbox(column, center, center, 20px);
         width: 100%;
@@ -129,8 +122,10 @@
         border-radius: $primary-border-radius;
         scroll-snap-align: center;
         box-sizing: border-box;
+        transition-duration: 0.15s;
         .model-part-text {
           @include mixins.flexbox(column, center, flex-start, 20px);
+          transition-duration: 0.15s;
           .model-part-title {
             font-size: $font-sizeX;
           }
@@ -144,10 +139,14 @@
           object-fit: cover;
           flex-grow: 1;
         }
+        &:hover {
+          .model-part-text {
+            transform: scale(1.03);
+          }
+        }
       }
     }
-    .slider-navigation {
-    }
+
     .fuel-consumption-text {
       color: $font-clr-darkened;
       font-size: $font-sizeS;

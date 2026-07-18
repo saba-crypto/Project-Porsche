@@ -10,8 +10,8 @@
   white-space: nowrap;
   box-sizing: border-box;
   transition: background 0.2s;
-  &:active {
-    transform: scale(0.99);
+  &:not(.selected):active {
+    opacity: 0.7;
     transition-duration: 0s;
   }
 }
@@ -71,7 +71,6 @@
     box-shadow: none;
     padding: 9px;
     transition-duration: 0.15s;
-
     .arrow-icon {
       width: 22px;
       pointer-events: none;

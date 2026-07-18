@@ -29,33 +29,7 @@
   .section-down {
     @include mixins.flexbox(column, center, center, min(30px, 5vw));
     width: 65%;
-    .model-type-slider {
-      @include mixins.flexbox(row, flex-start, center, 4px);
-      background-color: #f1f1f4;
-      padding: 3px;
-      border-radius: 5px;
-      overflow-x: auto;
-      width: 100%;
-      max-width: min-content;
-      box-sizing: border-box;
-      scrollbar-width: none;
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      .model-type-link {
-        font-size: $font-sizeM;
-        padding: 5px 12px;
-        border-radius: 6px;
-        transition-duration: 0.15s;
-        white-space: nowrap;
-        &.selected {
-          background-color: #d0d0d5;
-        }
-        &:hover:not(.selected) {
-          background-color: #e7e7ea;
-        }
-      }
-    }
+
     .model-details {
       @include mixins.flexbox(column, center, center, 20px);
       .model-name {
@@ -81,7 +55,69 @@
       flex-wrap: wrap;
       width: 100%;
       .model-btn {
+        position: relative;
         padding: min(20px, 5vw) min(32px, 3vw);
+        overflow: hidden;
+      }
+      .change-model-btn {
+        &::before {
+          content: "";
+
+          position: absolute;
+          transform: translateX(-150%) scaleX(-1);
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url(../../../assets/icons/porsche-icon.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 60%;
+          transition-duration: 0.2s;
+        }
+        p {
+          position: relative;
+          transition-duration: 0.2s;
+        }
+        &:hover {
+          background-color: black;
+          p {
+            color: #ffffff00;
+          }
+          &::before {
+            transform: translateX(-50%) scaleX(-1);
+          }
+        }
+        &:active {
+          opacity: 1;
+          &::before {
+            background-image: url(../../../assets/icons/porsche-icon-transparent.png);
+          }
+        }
+      }
+      .configure-btn {
+        @include mixins.flexbox(row, center, center, 5px);
+        position: relative;
+        z-index: 1;
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform: scale(0);
+          background-image: url(../../../assets/icons/tools-icon.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: auto 80%;
+          transition-duration: 0.2s;
+          z-index: 2;
+        }
+        &:hover {
+          &::after {
+            transform: scale(1) rotate(360deg);
+            backdrop-filter: blur(3px);
+          }
+        }
       }
     }
     .additional-details {

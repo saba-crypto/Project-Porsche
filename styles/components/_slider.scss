@@ -17,6 +17,7 @@
 
 .model-type-slider {
   @include mixins.flexbox(row, flex-start, center, 4px);
+  position: relative;
   background-color: #f1f1f4;
   padding: 3px;
   border-radius: 5px;

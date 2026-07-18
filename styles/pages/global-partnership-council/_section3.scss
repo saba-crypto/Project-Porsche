@@ -72,6 +72,13 @@
         &:hover {
           background-color: $light-dark-clr;
           cursor: pointer;
+          .arrow-icon {
+            animation: bounce-right 0.5s ease;
+          }
+        }
+        &:active {
+          transition-duration: 0s;
+          background-color: $hover-background-clr;
         }
       }
     }
@@ -110,5 +117,23 @@
     .slider-card-bottom {
       margin: 0;
     }
+  }
+}
+
+@keyframes bounce-right {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2.5px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
