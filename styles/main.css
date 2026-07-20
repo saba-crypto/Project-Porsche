@@ -886,6 +886,7 @@ aside.show .sidebar-close-btn {
 .dealers-tab {
   display: none;
   box-sizing: border-box;
+  width: 100%;
 }
 .dealers-tab .find-dealer-btn {
   display: flex;
@@ -901,6 +902,7 @@ aside.show .sidebar-close-btn {
   font-size: clamp(0.8rem, 1.3vw + 0.2rem, 1.1rem);
   font-family: Porsche Next, Arial;
   transition-duration: 0.2s;
+  box-sizing: border-box;
 }
 .dealers-tab .find-dealer-btn .arrow-right-icon {
   width: 25px;
@@ -1000,7 +1002,7 @@ aside.show .sidebar-close-btn {
 }
 @media (max-width: 760px) {
   aside {
-    width: 100vw;
+    width: 100%;
   }
   aside nav .sidebar-close-btn {
     right: 20px;
@@ -1012,6 +1014,7 @@ aside.show .sidebar-close-btn {
   }
   aside nav .navigation-container {
     grid-template-columns: 1fr;
+    width: 100%;
   }
   aside nav .navigation-container .navigation-tabs {
     box-sizing: border-box;
@@ -1745,24 +1748,20 @@ aside.show .sidebar-close-btn {
     align-items: flex-end;
   }
   .section3-container .articles-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap;
-    scroll-behavior: smooth;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 90%;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     overflow-x: auto;
+    justify-content: flex-start;
     scrollbar-width: none;
-    box-sizing: border-box;
-    padding: 0 10vw;
   }
   .section3-container .articles-container::-webkit-scrollbar {
     display: none;
   }
   .section3-container .articles-container article {
-    flex: 0 0 80vw;
+    width: 100%;
     height: clamp(400px, 80vw, 1000px);
     scroll-snap-align: center;
   }
@@ -1782,7 +1781,7 @@ aside.show .sidebar-close-btn {
   .section3-container .articles-container article .footer .footer-right {
     width: 100%;
   }
-  .section3-container .articles-container article .footer .arrow-btn {
+  .section3-container .articles-container article .footer ._ArrowButton {
     width: 100%;
     border-radius: 10px;
     background-color: white;
@@ -1790,16 +1789,16 @@ aside.show .sidebar-close-btn {
     padding: min(20px, 3vw) 0;
     font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
   }
-  .section3-container .articles-container article .footer .arrow-btn:hover {
+  .section3-container .articles-container article .footer ._ArrowButton:hover {
     background-color: rgb(220, 220, 220);
   }
-  .section3-container .articles-container article .footer .arrow-btn:active {
+  .section3-container .articles-container article .footer ._ArrowButton:active {
     opacity: 0.9;
   }
-  .section3-container .articles-container article .footer .arrow-btn img {
+  .section3-container .articles-container article .footer ._ArrowButton img {
     display: none;
   }
-  .section3-container .articles-container article .footer .arrow-btn .explore-title {
+  .section3-container .articles-container article .footer ._ArrowButton .explore-title {
     display: block;
   }
   .section3-container .articles-container article.is-viewed .car-image {

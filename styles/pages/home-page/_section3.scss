@@ -177,20 +177,21 @@
     align-items: flex-end;
 
     .articles-container {
-      @include mixins.flexbox(row, flex-start, center, 20px);
-      flex-wrap: nowrap;
-      scroll-behavior: smooth;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 90%;
       scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
       overflow-x: auto;
+      justify-content: flex-start;
       scrollbar-width: none;
-      box-sizing: border-box;
-      padding: 0 10vw;
+
       &::-webkit-scrollbar {
         display: none;
       }
       article {
-        flex: 0 0 80vw;
-
+        //flex: 0 0 80vw;
+        width: 100%;
         height: clamp(400px, 80vw, 1000px);
         scroll-snap-align: center;
         &:hover {
@@ -208,7 +209,7 @@
           .footer-right {
             width: 100%;
           }
-          .arrow-btn {
+          ._ArrowButton {
             width: 100%;
             border-radius: 10px;
             background-color: white;

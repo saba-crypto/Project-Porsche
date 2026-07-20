@@ -184,6 +184,7 @@ aside.show {
   display: none;
   box-sizing: border-box;
 
+  width: 100%;
   .find-dealer-btn {
     @include flexbox(row, space-between, center);
     border: none;
@@ -194,7 +195,7 @@ aside.show {
     font-size: $font-sizeM;
     font-family: $primary-font;
     transition-duration: 0.2s;
-
+    box-sizing: border-box;
     .arrow-right-icon {
       width: 25px;
     }
@@ -280,7 +281,7 @@ aside.show {
 }
 @media (max-width: $breakpointL) {
   aside {
-    width: 100vw;
+    width: 100%;
     nav {
       .sidebar-close-btn {
         right: 20px;
@@ -292,6 +293,7 @@ aside.show {
       }
       .navigation-container {
         grid-template-columns: 1fr;
+        width: 100%;
         .navigation-tabs {
           box-sizing: border-box;
           .navigation-btn {
