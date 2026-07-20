@@ -1,0 +1,189 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/variables" as *;
+
+.login-form-section {
+  .section-container {
+    position: relative;
+  }
+  .media {
+    width: 100%;
+    height: 100dvh;
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .login-form {
+    @include mixins.flexbox(column, space-between, center, 10px);
+    color: $font-clr-light;
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(265px, 40%, 800px);
+    height: 75%;
+    background-color: rgba(255, 255, 255, 0.209);
+    backdrop-filter: blur(6px);
+    border-radius: $primary-border-radius;
+    padding: $padding2XL;
+    box-sizing: border-box;
+    border-top: 1px solid #ffffff40;
+    border-left: 1px solid #ffffff40;
+    box-shadow: 3px 3px 3px #ffffff09;
+
+    .form-heading {
+      font-size: $font-sizeX;
+      text-align: center;
+      text-wrap: balance;
+      font-weight: 700;
+    }
+    .input-items-wrapper {
+      @include mixins.flexbox(column, center, center, min(30px, 6vw));
+      width: 100%;
+    }
+    .input-container {
+      @include mixins.flexbox(column, center, flex-start, 10px);
+      width: 100%;
+      .form-input {
+        width: 100%;
+        border-radius: 100px;
+        border: none;
+        height: 7vh;
+        background-color: rgba(255, 255, 255, 0.3);
+        font-size: $font-sizeM;
+        color: $font-clr-light;
+        box-sizing: border-box;
+        padding-left: min(20px, 6vw);
+        border-top: 1px solid #ffffff40;
+        border-left: 1px solid #ffffff40;
+        box-shadow: 3px 3px 3px #ffffff09;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $font-clr-light;
+          text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    .buttons-and-links-wrapper {
+      @include mixins.flexbox(column, center, center, min(25px, 4vw));
+      width: 100%;
+      .remember-me-wrapper {
+        @include mixins.flexbox(row, center, center, 10px);
+        align-self: flex-start;
+        font-size: $font-sizeM;
+
+        .remember-input {
+          position: relative;
+          appearance: none;
+          outline: 1px solid rgb(147, 147, 147);
+          width: 18px;
+          height: 18px;
+          background-color: $light-dark-clr;
+          box-sizing: border-box;
+          border-radius: 2px;
+          cursor: pointer;
+          &::before {
+            content: "";
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+          }
+          &:checked {
+            &::before {
+              display: block;
+            }
+          }
+        }
+      }
+      .login-btn {
+        position: relative;
+        width: 100%;
+        border-radius: 30px;
+        height: 8vh;
+        border: none;
+        font-size: $font-sizeL;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: $font-clr-light;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid #ffffff40;
+        border-left: 1px solid #ffffff40;
+        overflow: hidden;
+        box-sizing: border-box;
+        .btn-text {
+          position: relative;
+          z-index: 2;
+          transition-duration: 0.15s;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 49%;
+          height: 200%;
+          width: 60%;
+          top: -50%;
+          background-color: #000000bb;
+          transform: rotate(-7deg) translateX(100%);
+          z-index: 1;
+          transition-duration: 0.15s;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          right: 49%;
+          height: 200%;
+          width: 60%;
+          top: -20%;
+          background-color: #ba0000;
+          transform: rotate(-7deg);
+          z-index: 1;
+          transform: rotate(-7deg) translateX(-100%);
+          transition-duration: 0.15s;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+        &:hover::before {
+          transform: translateX(0) rotate(-7deg);
+        }
+        &:hover::after {
+          transform: translateX(0) rotate(-7deg);
+        }
+        &:active {
+          opacity: 0.7;
+        }
+      }
+
+      .signup-link {
+        color: #ffffff90;
+        font-size: $font-sizeM;
+        a {
+          font-weight: 700;
+          color: #ffffffcc;
+          &:hover {
+            text-decoration: underline;
+            color: $font-clr-light;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .login-form-section {
+    .login-form {
+      padding: $paddingXL;
+      height: 60vh;
+    }
+  }
+}
