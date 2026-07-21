@@ -1,0 +1,98 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/variables" as *;
+
+.signup-form-section {
+  .media {
+    width: 100%;
+    height: 100dvh;
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      background-color: rgba(0, 0, 0, 0.216);
+    }
+  }
+  .signup-form {
+    gap: min(30px, 4vw);
+  }
+  .form-heading {
+    font-size: $font-sizeX;
+    text-align: center;
+    text-wrap: balance;
+    font-weight: 700;
+  }
+  .input-items-wrapper {
+    @include mixins.flexbox(column, center, center, min(20px, 5vw));
+    width: 100%;
+    .input-container {
+      @include mixins.flexbox(column, center, flex-start, 10px);
+      width: 100%;
+      .form-input {
+        height: 6vh;
+        &::placeholder {
+          font-size: $font-sizeS;
+        }
+      }
+    }
+  }
+
+  .name-wrapper {
+    @include mixins.flexbox(row, space-between, center, min(10px, 4vw));
+    width: 100%;
+  }
+  .buttons-and-links-wrapper {
+    @include mixins.flexbox(column, center, center, min(25px, 4vw));
+    width: 100%;
+    .remember-me-wrapper {
+      @include mixins.flexbox(row, center, center, 10px);
+      align-self: flex-start;
+      font-size: $font-sizeM;
+    }
+    .signup-btn {
+      height: 7vh;
+      text-shadow: none;
+    }
+
+    .login-link {
+      color: #ffffff90;
+      font-size: $font-sizeM;
+      a {
+        font-weight: 700;
+        color: #ffffffcc;
+        &:hover {
+          text-decoration: underline;
+          color: $font-clr-light;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint2XL) {
+  .signup-form-section {
+    .signup-form {
+      padding: $paddingL;
+    }
+  }
+}
+
+@media (max-width: $breakpointXL) {
+  .signup-form-section {
+    .input-items-wrapper {
+      gap: 10px;
+    }
+    .name-wrapper {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}

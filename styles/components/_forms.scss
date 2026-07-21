@@ -1,0 +1,21 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as *;
+
+._GlassFormBackground {
+  @include mixins.flexbox(column, space-between, center, min(40px, 7vw));
+  color: $font-clr-light;
+  position: absolute;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(265px, 40%, 800px);
+  background-color: rgba(255, 255, 255, 0.209);
+  backdrop-filter: blur(6px);
+  border-radius: $primary-border-radius;
+  padding: $padding2XL;
+  box-sizing: border-box;
+  border-top: 1px solid #ffffff40;
+  border-left: 1px solid #ffffff40;
+  box-shadow: 3px 3px 3px #ffffff09;
+}

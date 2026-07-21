@@ -154,3 +154,63 @@
     background-color: rgba(0, 0, 0, 0.15);
   }
 }
+
+._GlassButton2 {
+  @extend %default-button;
+
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  height: 8vh;
+  padding: 0;
+  font-size: $font-sizeL;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: $font-clr-light;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #ffffff40;
+  border-left: 1px solid #ffffff40;
+  overflow: hidden;
+
+  .btn-text {
+    position: relative;
+    z-index: 2;
+    transition-duration: 0.15s;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 49%;
+    height: 200%;
+    width: 60%;
+    top: -50%;
+    background-color: #121212;
+    transform: rotate(-7deg) translateX(100%);
+    z-index: 1;
+    transition-duration: 0.15s;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 49%;
+    height: 200%;
+    width: 60%;
+    top: -20%;
+    background-color: #d4af37;
+    transform: rotate(-7deg);
+    z-index: 1;
+    transform: rotate(-7deg) translateX(-100%);
+    transition-duration: 0.15s;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover::before {
+    transform: translateX(0) rotate(-7deg);
+  }
+  &:hover::after {
+    transform: translateX(0) rotate(-7deg);
+  }
+  &:active {
+    opacity: 0.7;
+  }
+}

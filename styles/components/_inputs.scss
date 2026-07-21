@@ -1,0 +1,51 @@
+@use "../abstracts/variables" as *;
+._GlassInput {
+  width: 100%;
+  border-radius: 100px;
+  border: none;
+  height: 7vh;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: $font-sizeM;
+  color: $font-clr-light;
+  box-sizing: border-box;
+  padding-left: min(20px, 6vw);
+  border-top: 1px solid #ffffff40;
+  border-left: 1px solid #ffffff40;
+  box-shadow: 3px 3px 3px #ffffff09;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: $font-clr-light;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+._BlackRadioInput {
+  position: relative;
+  appearance: none;
+  outline: 1px solid rgb(147, 147, 147);
+  width: 18px;
+  height: 18px;
+  background-color: $light-dark-clr;
+  box-sizing: border-box;
+  border-radius: 2px;
+  cursor: pointer;
+  &::before {
+    content: "";
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+  &:checked {
+    &::before {
+      display: block;
+    }
+  }
+}

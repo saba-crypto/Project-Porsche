@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="../styles/main.css" />
   </head>
-  <body class="login-page">
+  <body class="signup-page">
     <header class="faded-header">
       <div class="header-container">
         <div id="sidebar-toggle" class="header-left">
@@ -23,7 +23,7 @@
           <p class="menu">Menu</p>
         </div>
         <div class="header-middle">
-          <a href="#">
+          <a href="../index.html">
             <img
               class="porsche-logo"
               src="../assets/icons/porsche-logo.png"
@@ -228,8 +228,75 @@
       </nav>
     </aside>
     <main>
-      <section id="section1" class="log-in-form-section">
-        <div class="section-container"></div>
+      <section id="section1" class="signup-form-section">
+        <div class="section-container">
+          <div class="media">
+            <img
+              class="background-image"
+              src="../assets/images/photos/imgi_236_black-sports-car-with-word-car-back_1309778-31441_upscayl_5x_upscayl-standard-4x.png"
+              alt="Black and Red Porsche 911 GTS Driving in Forest on a Clean Road"
+            />
+          </div>
+          <form class="signup-form _GlassFormBackground">
+            <h2 class="form-heading">Create Your Porsche Account</h2>
+            <div class="input-items-wrapper">
+              <div class="name-wrapper">
+                <div class="username-container input-container">
+                  <label for="first-name-input">First Name</label>
+                  <input
+                    placeholder="Enter Your First Name"
+                    class="form-input _GlassInput _GlassInput"
+                    type="text"
+                    id="first-name-input"
+                    required
+                  />
+                </div>
+                <div class="username-container input-container">
+                  <label for="last-name-input">Last Name</label>
+                  <input
+                    placeholder="Enter Your Last Name"
+                    class="form-input _GlassInput _GlassInput"
+                    type="text"
+                    id="last-name-input"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="username-container input-container">
+                <label for="email-input">Email</label>
+                <input
+                  placeholder="Enter Your Email"
+                  class="form-input _GlassInput"
+                  type="email"
+                  id="email-input"
+                  required
+                />
+              </div>
+              <div class="password-container input-container">
+                <label for="password-input">Password</label>
+                <input
+                  placeholder="Create Password"
+                  class="form-input _GlassInput"
+                  type="password"
+                  id="password-input"
+                  required
+                />
+              </div>
+            </div>
+            <div class="buttons-and-links-wrapper">
+              <div class="remember-me-wrapper">
+                <input class="remember-input _BlackRadioInput" type="radio" />
+                <p>Remember me</p>
+              </div>
+              <button class="signup-btn _GlassButton2" type="submit">
+                <span class="btn-text">Register</span>
+              </button>
+              <p class="login-link">
+                Already have an Account? <a href="./login.html">Login</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
     <footer>

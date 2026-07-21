@@ -149,31 +149,9 @@
           }
           .compare-input {
             position: relative;
-            appearance: none;
-            outline: 1px solid rgb(147, 147, 147);
             width: 18px;
             height: 18px;
             border-radius: 5px;
-            background-color: $light-dark-clr;
-            box-sizing: border-box;
-
-            &::before {
-              content: "";
-              display: none;
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              background-color: black;
-              border-radius: 5px;
-              width: 75%;
-              height: 75%;
-            }
-            &:checked {
-              &::before {
-                display: block;
-              }
-            }
           }
           .compare-text {
             font-size: $font-sizeL;
@@ -205,8 +183,7 @@
       }
     }
   }
-  .slider-navigation {
-  }
+
   .additional-details-wrapper {
     @include mixins.flexbox(column, center, center, min(15px, 3.5vw));
     .comparison-text {
