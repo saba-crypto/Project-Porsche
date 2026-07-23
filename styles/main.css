@@ -702,6 +702,9 @@ aside nav .sidebar-close-btn {
   justify-content: center;
   align-items: center;
   gap: 0px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.089);
   display: none;
   position: absolute;
   right: -90px;
@@ -737,7 +740,7 @@ aside.show .background-element {
   display: block;
 }
 aside.show .sidebar-close-btn {
-  display: block;
+  display: flex;
 }
 
 .navigation-container {
@@ -1005,6 +1008,11 @@ aside.show .sidebar-close-btn {
     width: 100%;
   }
   aside nav .sidebar-close-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
     right: 20px;
     top: 20px;
     padding: 5px;
@@ -1610,6 +1618,7 @@ aside.show .sidebar-close-btn {
   font-family: Porsche Next, Arial;
   color: #ffffff;
   max-width: 650px;
+  text-wrap: balance;
 }
 .section1-container .page-content .read-btn {
   background-color: rgba(255, 255, 255, 0.05);
@@ -2073,13 +2082,25 @@ aside.show .sidebar-close-btn {
 .model-hero-section .section-up .model-signature-image {
   width: clamp(135px, 35%, 10000px);
   filter: invert(87%);
+  opacity: 0;
+  transition-duration: 1s;
+  transition-delay: 0.7s;
+}
+.model-hero-section .section-up .model-signature-image.show {
+  opacity: 1;
 }
 .model-hero-section .section-up .model-side-profile-image {
   width: clamp(250px, 65%, 1000px);
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(0.85);
   bottom: -25%;
+  opacity: 0;
+  transition: all 0.7s ease;
+}
+.model-hero-section .section-up .model-side-profile-image.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
 }
 .model-hero-section .section-down {
   display: flex;
@@ -2141,7 +2162,7 @@ aside.show .sidebar-close-btn {
   background-image: url(../../../assets/icons/porsche-icon.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 60%;
+  background-size: auto 100%;
   transition-duration: 0.2s;
 }
 .model-hero-section .section-down .model-btns .change-model-btn p {
@@ -2162,6 +2183,10 @@ aside.show .sidebar-close-btn {
 }
 .model-hero-section .section-down .model-btns .change-model-btn:active::before {
   background-image: url(../../../assets/icons/porsche-icon-transparent.png);
+  transition: none;
+}
+.model-hero-section .section-down .model-btns .change-model-btn:active {
+  transition: none;
 }
 .model-hero-section .section-down .model-btns .configure-btn {
   display: flex;
@@ -2321,7 +2346,7 @@ aside.show .sidebar-close-btn {
 }
 .model-testimonial-section .testimonial-image.image1 {
   width: 100%;
-  animation: shrink;
+  animation: shrink both;
   animation-timeline: view();
   animation-range: entry 50% cover 60%;
   animation-fill-mode: forwards;
@@ -2697,6 +2722,7 @@ aside.show .sidebar-close-btn {
   font-size: clamp(0.7rem, 1.2vw + 0.2rem, 1rem);
   line-height: 130%;
 }
+
 @media (max-width: 760px) {
   .highlights-section .arrow-btns {
     display: none;

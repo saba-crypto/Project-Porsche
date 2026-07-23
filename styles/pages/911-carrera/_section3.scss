@@ -17,7 +17,7 @@
   }
   .testimonial-image.image1 {
     width: 100%;
-    animation: shrink;
+    animation: shrink both;
     animation-timeline: view();
     animation-range: entry 50% cover 60%;
     animation-fill-mode: forwards;

@@ -25,6 +25,7 @@
       font-family: $primary-font;
       color: $font-clr-light;
       max-width: 650px;
+      text-wrap: balance;
     }
     .read-btn {
       @include mixins.glassmorphism();

@@ -16,14 +16,26 @@
     .model-signature-image {
       width: clamp(135px, 35%, 10000px);
       filter: invert(87%);
+      opacity: 0;
+      transition-duration: 1s;
+      transition-delay: 0.7s;
+    }
+    .model-signature-image.show {
+      opacity: 1;
     }
 
     .model-side-profile-image {
       width: clamp(250px, 65%, 1000px);
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) scale(0.85);
       bottom: -25%;
+      opacity: 0;
+      transition: all 0.7s ease;
+    }
+    .model-side-profile-image.show {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
     }
   }
   .section-down {
@@ -62,7 +74,6 @@
       .change-model-btn {
         &::before {
           content: "";
-
           position: absolute;
           transform: translateX(-150%) scaleX(-1);
           top: 0;
@@ -71,7 +82,7 @@
           background-image: url(../../../assets/icons/porsche-icon.png);
           background-repeat: no-repeat;
           background-position: center;
-          background-size: 60%;
+          background-size: auto 100%;
           transition-duration: 0.2s;
         }
         p {
@@ -91,7 +102,9 @@
           opacity: 1;
           &::before {
             background-image: url(../../../assets/icons/porsche-icon-transparent.png);
+            transition: none;
           }
+          transition: none;
         }
       }
       .configure-btn {

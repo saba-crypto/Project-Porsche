@@ -1,5 +1,20 @@
 import "../shared/sidebar.js";
 
+//section1
+const carreraImage = document.querySelector(".model-side-profile-image");
+const carreraSignatureImage = document.querySelector(".model-signature-image");
+const carreraImageObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      carreraImageObserver.unobserve(carreraImage);
+    }
+  });
+}, {});
+carreraImageObserver.observe(carreraImage);
+carreraImageObserver.observe(carreraSignatureImage);
+
 //car parts slider
 const carPartSliderNavigationButtons =
   document.querySelectorAll(".model-part-link");
