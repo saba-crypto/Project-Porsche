@@ -1,0 +1,17 @@
+@use "../../abstracts/mixins" as mixins;
+
+@use "./section1";
+@use "./section2";
+@use "./section4";
+@use "./section6";
+
+.page-panamera {
+  width: 100%;
+
+  main {
+    @include mixins.flexbox(column, center, center);
+    gap: clamp(100px, 15vw, 180px);
+    margin-bottom: 120px;
+    width: 100%;
+  }
+}

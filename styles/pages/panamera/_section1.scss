@@ -1,0 +1,32 @@
+@use "../../abstracts/variables" as *;
+
+.page-panamera {
+  .panamera-hero-section {
+    .section-up {
+      height: clamp(210px, 25vw, 430px);
+
+      .model-signature-image {
+        width: clamp(180px, 34vw, 520px);
+      }
+
+      .model-side-profile-image {
+        bottom: -18%;
+        width: clamp(320px, 70vw, 1180px);
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .page-panamera {
+    .panamera-hero-section {
+      .section-up {
+        height: clamp(200px, 42vw, 360px);
+
+        .model-side-profile-image {
+          width: clamp(340px, 96vw, 760px);
+        }
+      }
+    }
+  }
+}

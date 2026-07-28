@@ -1,0 +1,83 @@
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/variables" as *;
+
+.page-panamera {
+  .panamera-configuration-section {
+    .main-window {
+      aspect-ratio: 16 / 9;
+
+      .background-media,
+      .background-image {
+        height: 100%;
+      }
+
+      .background-image {
+        object-position: center;
+      }
+    }
+
+    .hotspot {
+      @include mixins.flexbox(row, center, center);
+      position: absolute;
+      z-index: 3;
+      width: clamp(28px, 3vw, 36px);
+      aspect-ratio: 1 / 1;
+      border: 0;
+      border-radius: 50%;
+      background-color: $background-clr-light;
+      color: $font-clr-dark;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      line-height: 1;
+      transition-duration: 0.15s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+      }
+    }
+
+    .hotspot-front {
+      left: 27%;
+      top: 56%;
+    }
+
+    .hotspot-light {
+      left: 52%;
+      top: 48%;
+    }
+
+    .hotspot-wheel {
+      left: 42%;
+      top: 72%;
+    }
+
+    .hotspot-door {
+      left: 70%;
+      top: 52%;
+    }
+
+    .selected-config-item {
+      border: 2px solid $font-clr-dark;
+    }
+
+    .thumbnail-image,
+    .config-interaction {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: $breakpointXL) {
+  .page-panamera {
+    .panamera-configuration-section {
+      .main-window {
+        aspect-ratio: 4 / 3;
+      }
+
+      .hotspot {
+        display: none;
+      }
+    }
+  }
+}

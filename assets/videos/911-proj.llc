@@ -1,0 +1,23 @@
+{
+  version: 2,
+  mediaFileName: '911.mp4',
+  cutSegments: [
+    {
+      start: 19.87268880208333,
+      end: 20,
+      name: '',
+      selected: true,
+    },
+    {
+      start: 18.940859375000002,
+      name: '',
+      selected: true,
+    },
+    {
+      start: 14.43384765625,
+      end: 20,
+      name: '',
+      selected: true,
+    },
+  ],
+}

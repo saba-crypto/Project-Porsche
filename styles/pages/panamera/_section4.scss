@@ -1,0 +1,47 @@
+@use "../../abstracts/variables" as *;
+
+.page-panamera {
+  .panamera-story-section {
+    .testimonial-image.image1 {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .testimonial-image.image2 {
+      width: clamp(180px, 28vw, 430px);
+      max-height: 520px;
+      object-fit: cover;
+    }
+
+    .testimonial-image.image3 {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+  }
+
+  .panamera-highlights-section {
+    .slider-card {
+      .slider-media {
+        width: min(72vw, 900px);
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .page-panamera {
+    .panamera-story-section {
+      .testimonial-image.image2 {
+        display: none;
+      }
+    }
+
+    .panamera-highlights-section {
+      .slider-card {
+        .slider-media {
+          width: 84vw;
+        }
+      }
+    }
+  }
+}

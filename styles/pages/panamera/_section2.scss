@@ -1,0 +1,29 @@
+@use "../../abstracts/variables" as *;
+
+.page-panamera {
+  .panamera-models-section {
+    width: 100%;
+
+    .section-container {
+      width: 100%;
+    }
+
+    .slider {
+      padding-top: clamp(85px, 9vw, 130px);
+
+      .slide {
+        flex-basis: clamp(310px, 27vw, 430px);
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpointL) {
+  .page-panamera {
+    .panamera-models-section {
+      .slider {
+        padding-top: 110px;
+      }
+    }
+  }
+}

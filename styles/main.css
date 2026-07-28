@@ -3583,6 +3583,147 @@ aside.show .sidebar-close-btn {
   width: 100%;
 }
 
+.page-panamera .panamera-hero-section .section-up {
+  height: clamp(210px, 25vw, 430px);
+}
+.page-panamera .panamera-hero-section .section-up .model-signature-image {
+  width: clamp(180px, 34vw, 520px);
+}
+.page-panamera .panamera-hero-section .section-up .model-side-profile-image {
+  bottom: -18%;
+  width: clamp(320px, 70vw, 1180px);
+}
+
+@media (max-width: 760px) {
+  .page-panamera .panamera-hero-section .section-up {
+    height: clamp(200px, 42vw, 360px);
+  }
+  .page-panamera .panamera-hero-section .section-up .model-side-profile-image {
+    width: clamp(340px, 96vw, 760px);
+  }
+}
+.page-panamera .panamera-models-section {
+  width: 100%;
+}
+.page-panamera .panamera-models-section .section-container {
+  width: 100%;
+}
+.page-panamera .panamera-models-section .slider {
+  padding-top: clamp(85px, 9vw, 130px);
+}
+.page-panamera .panamera-models-section .slider .slide {
+  flex-basis: clamp(310px, 27vw, 430px);
+}
+
+@media (max-width: 760px) {
+  .page-panamera .panamera-models-section .slider {
+    padding-top: 110px;
+  }
+}
+.page-panamera .panamera-story-section .testimonial-image.image1 {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.page-panamera .panamera-story-section .testimonial-image.image2 {
+  width: clamp(180px, 28vw, 430px);
+  max-height: 520px;
+  object-fit: cover;
+}
+.page-panamera .panamera-story-section .testimonial-image.image3 {
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+.page-panamera .panamera-highlights-section .slider-card .slider-media {
+  width: min(72vw, 900px);
+}
+
+@media (max-width: 760px) {
+  .page-panamera .panamera-story-section .testimonial-image.image2 {
+    display: none;
+  }
+  .page-panamera .panamera-highlights-section .slider-card .slider-media {
+    width: 84vw;
+  }
+}
+.page-panamera .panamera-configuration-section .main-window {
+  aspect-ratio: 16/9;
+}
+.page-panamera .panamera-configuration-section .main-window .background-media,
+.page-panamera .panamera-configuration-section .main-window .background-image {
+  height: 100%;
+}
+.page-panamera .panamera-configuration-section .main-window .background-image {
+  object-position: center;
+}
+.page-panamera .panamera-configuration-section .hotspot {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  position: absolute;
+  z-index: 3;
+  width: clamp(28px, 3vw, 36px);
+  aspect-ratio: 1/1;
+  border: 0;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1;
+  transition-duration: 0.15s;
+}
+.page-panamera .panamera-configuration-section .hotspot:hover {
+  cursor: pointer;
+  transform: scale(1.08);
+}
+.page-panamera .panamera-configuration-section .hotspot-front {
+  left: 27%;
+  top: 56%;
+}
+.page-panamera .panamera-configuration-section .hotspot-light {
+  left: 52%;
+  top: 48%;
+}
+.page-panamera .panamera-configuration-section .hotspot-wheel {
+  left: 42%;
+  top: 72%;
+}
+.page-panamera .panamera-configuration-section .hotspot-door {
+  left: 70%;
+  top: 52%;
+}
+.page-panamera .panamera-configuration-section .selected-config-item {
+  border: 2px solid #000000;
+}
+.page-panamera .panamera-configuration-section .thumbnail-image,
+.page-panamera .panamera-configuration-section .config-interaction {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+@media (max-width: 1000px) {
+  .page-panamera .panamera-configuration-section .main-window {
+    aspect-ratio: 4/3;
+  }
+  .page-panamera .panamera-configuration-section .hotspot {
+    display: none;
+  }
+}
+.page-panamera {
+  width: 100%;
+}
+.page-panamera main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  gap: clamp(100px, 15vw, 180px);
+  margin-bottom: 120px;
+  width: 100%;
+}
+
 .page-content-section .section-container {
   display: flex;
   flex-direction: column;
@@ -4220,4 +4361,6 @@ aside.show .sidebar-close-btn {
     flex-direction: column;
     gap: 10px;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
